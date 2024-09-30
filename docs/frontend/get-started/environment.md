@@ -24,7 +24,7 @@ npm install -g lcap
 lcap config set platform *
 ```
 
-[![](/images/lcap-platform.png)](/images/lcap-platform.png){:target="_blank"}
+![](/images/lcap-platform.png){data-zoomable}
 
 ## 设置身份验证信息
 
@@ -52,7 +52,7 @@ lcap config set authorization *
 
 token值来源：打开浏览器的控制台-应用程序（Application），找到Cookies中当前页面部分，复制出 `authorization` 的 Cookies Value 值，可参考下图：
 
-![](/images/cookie.png)
+![](/images/cookie.png){data-zoomable}
 
 注意事项：
 

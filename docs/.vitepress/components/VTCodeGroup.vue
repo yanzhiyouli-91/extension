@@ -50,7 +50,7 @@ const tabs = children?.filter(({ type }) => type === VTCodeGroupTab)
   justify-content: center;
   align-items: center;
   color: var(--vp-c-text-1);
-  background: #292d3ef0;
+  background: #fff;
   border-bottom-color: rgba(255,255,255,0.3);
   padding: 6px 24px;
   border-width: 2px;
@@ -67,7 +67,6 @@ const tabs = children?.filter(({ type }) => type === VTCodeGroupTab)
 }
 
 .vt-code-group-tab.vt-code-group-tab-active {
-  background: #292d3e;
   border-bottom: 2px solid var(--vp-c-brand-1);
 }
 

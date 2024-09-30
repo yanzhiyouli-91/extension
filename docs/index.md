@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /fe-extension/get-started.md
+      link: /frontend/get-started/environment.md
     - theme: alt
       text: 访问官网
       link: https://codewave.163.com

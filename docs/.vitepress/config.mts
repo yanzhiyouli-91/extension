@@ -7,7 +7,6 @@ export default defineConfig({
   base: '/extension/',
   description: "Codewave extension develop platform",
   themeConfig: {
-    lang: 'zh-CN',
     search: {
       provider: 'local',
       options: {
