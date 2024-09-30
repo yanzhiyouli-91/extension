@@ -1,0 +1,31 @@
+*.log*
+.cache
+.DS_Store
+.idea
+.vscode
+.eslintcache
+
+# npm
+node_modules
+package-lock.json
+yarn-lock.json
+
+# test
+**/test/coverage
+
+# dist file
+es
+lib
+dist
+dist-theme
+assets-package
+/site
+changelog.generated.md
+vetur
+manifest.json
+*.tgz
+.lcaprc
+
+# other library
+
+docs/.vitepress/cache
