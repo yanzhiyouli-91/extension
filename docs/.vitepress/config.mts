@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Codewave 扩展开发",
+  base: '/extension/',
   description: "Codewave extension develop platform",
   themeConfig: {
     search: {
