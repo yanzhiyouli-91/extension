@@ -7,7 +7,7 @@ export default defineConfig({
   base: '/extension/',
   description: "Codewave extension develop platform",
   head: [
-    ['link', { ref: 'shortcut icon', href: '//lcap-static-saas.nos-eastchina1.126.net/user/netease12/1714098055060_LOGO.png' }],
+    ['link', { ref: 'icon', href: '/extension/images/logo.png' }],
   ],
   themeConfig: {
     search: {
@@ -53,17 +53,31 @@ export default defineConfig({
       }, {
         text: '组件接入',
         items: [
-          { text: '接入指南', link: '/frontend/component/index.md' },
+          { text: '概述', link: '/frontend/component/index.md' },
+          { text: '组件配置（api.ts）描述编写', link: '/frontend/component/api.md' },
+          { text: '页面编辑适配说明', link: '/frontend/component/ide.md' },
+          { text: '区块示例', link: '/frontend/component/block.md' },
+          { text: '平台能力适配', link: '/frontend/component/platform.md' },
+          {
+            text: 'IDE 能力适配',
+            items: [
+              { text: '主题编辑', link: '/frontend/component/theme.md' },
+              { text: '国际化', link: '/frontend/component/i18n.md' },
+              { text: '实体自动化行为', link: '/frontend/component/nasl-generate.md' },
+            ],
+          },
+          { text: 'View Component API 书写指南和规范', link: '/frontend/component/nasl-view-component.md' },
         ],
       }, {
         text: '基础组件二次开发',
         items: [
-          { text: '接入指南', link: '/frontend/component/index.md' },
+          { text: '开发指南', link: '/frontend/extend/index.md' },
+          { text: 'FAQ', link: '/frontend/extend/faq.md' },
         ]
       }, {
         text: '前端逻辑扩展',
         items: [
-          { text: '接入指南', link: '/frontend/logic/index.md' }
+          { text: '开发指南', link: '/frontend/logic/index.md' }
         ],
       }],
       '/backend/': [{
