@@ -15,11 +15,11 @@ hero:
       link: https://codewave.163.com
 
 features:
-  - title: 前端依赖库开发
+  - title: 依赖库开发
     details: Codewave 前端场景中扩展组件、扩展逻辑等能力的开发
-  - title: 后端依赖库开发
-    details: Codewave 扩展后端能力开发
-  - title: IDE 插件化开发
-    details: Codewave IDE 插件开发
+  - title: 组件接入实战
+    details: ElementUI/Ant design 接入示例demo，文档
+  - title: 基于基础组件二次开发
+    details: 基础组件能力扩展、替换
 ---
 

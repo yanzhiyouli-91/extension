@@ -21,7 +21,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '前端扩展开发', link: '/frontend/introduction.md' },
-      { text: '服务端端扩展开发', link: '/backend/introduction.md' }
+      // { text: '服务端端扩展开发', link: '/backend/introduction.md' }
     ],
 
     sidebar: {
