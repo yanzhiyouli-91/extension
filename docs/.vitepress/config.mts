@@ -6,6 +6,9 @@ export default defineConfig({
   title: "Codewave 扩展开发",
   base: '/extension/',
   description: "Codewave extension develop platform",
+  head: [
+    ['link', { ref: 'shortcut icon', href: '//lcap-static-saas.nos-eastchina1.126.net/user/netease12/1714098055060_LOGO.png' }],
+  ],
   themeConfig: {
     search: {
       provider: 'local',
