@@ -64,7 +64,7 @@ outline: deep
 参考配置书写：
 
 ```typescript
-@IDEExtraInfo({
+@ExtensionComponent({
     "ideusage": {
         "idetype": "element",
         "editable": "text",
@@ -109,7 +109,7 @@ outline: deep
 以 CloudUI 的 u-select 组件组件为例：
 
 ```typescript
-@IDEExtraInfo({
+@ExtensionComponent({
     ideusage: {
             "idetype": "container",
             "structured": true,
@@ -181,7 +181,7 @@ outline: deep
 由于 `disableSlotAutoFill` 配置了不自动插入槽位的插槽名，所以设计器只会自动在 `default` 和 `title` 插槽下插入可置入组件的槽位。
 
 ```typescript
-@IDEExtraInfo({
+@ExtensionComponent({
     ideusage: {
         idetype: "container",
         "disableSlotAutoFill": ["cover"]
@@ -243,7 +243,7 @@ export class UCardOptions extends ViewComponentOptions {
 ![](/images/ide-table-column2.png)
  
 ```typescript
-@IDEExtraInfo({
+@ExtensionComponent({
     "ideusage": {
         "idetype": "container",
          "selector": [
@@ -316,7 +316,7 @@ export class UCardOptions extends ViewComponentOptions {
 通过配置 `structured` 属性，配合 `slot` 配置中的 `snippets` 来配置子组件添加模板。
 
 ```typescript
-@IDEExtraInfo({
+@ExtensionComponent({
     "ideusage": {
          "idetype": "container",
          "structured": true
@@ -364,7 +364,7 @@ export class UFormGroupOptions  extends ViewComponentOptions {
 参考配置书写：
 
 ```typescript
-@IDEExtraInfo({
+@ExtensionComponent({
     "ideusage": {
         "idetype": "container",
         "structured": true,
@@ -542,7 +542,7 @@ export class UFormGroupOptions  extends ViewComponentOptions {
 以 CloudUI 的弹窗为例：
 
 ```typescript
- @IDEExtraInfo({
+ @ExtensionComponent({
      "ideusage": {
             "idetype": "modal",
             "selector": {
@@ -613,7 +613,7 @@ export class UFormGroupOptions  extends ViewComponentOptions {
 ![](/images/ide-dropdown.png)
 
 ```typescript
-@IDEExtraInfo({
+@ExtensionComponent({
      "ideusage": {
           "idetype": "popover",   
           "structured": true,
