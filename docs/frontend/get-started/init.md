@@ -121,3 +121,7 @@ $ npm run dev
 ```
 ![](/images/dev.png)
 ![](/images/dev1.png)
+
+## 如何编写 story 调式demo
+
+[How to write stories](https://storybook.js.org/docs/writing-stories)
