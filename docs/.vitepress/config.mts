@@ -63,6 +63,7 @@ export default defineConfig({
             items: [
               { text: '主题编辑', link: '/frontend/component/theme.md' },
               { text: '国际化', link: '/frontend/component/i18n.md' },
+              { text: '图标库扩展', link: '/frontend/component/icon.md' },
               { text: '实体自动化行为', link: '/frontend/component/nasl-generate.md' },
             ],
           },

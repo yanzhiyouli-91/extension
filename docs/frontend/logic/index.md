@@ -39,15 +39,15 @@ export async function asyncExecuteTask(count: nasl.core.Integer, ...taskList: na
   let waitExecuteTasks = [...taskList];
   const results: nasl.collection.List<nasl.core.Any> = [];
   while (waitExecuteTasks.length > 0) {
-  let executeTasks;
-  if (taskList.length > asyncTaskCount) {
-  executeTasks = waitExecuteTasks.slice(0, asyncTaskCount);
-  } else {
-  executeTasks = waitExecuteTasks;
-  }
+    let executeTasks;
+    if (taskList.length > asyncTaskCount) {
+      executeTasks = waitExecuteTasks.slice(0, asyncTaskCount);
+    } else {
+      executeTasks = waitExecuteTasks;
+    }
 
-  results.push(...(await Promise.all(executeTasks.map((fn) => Promise.resolve(fn())))));
-  waitExecuteTasks = waitExecuteTasks.slice(executeTasks.length);
+    results.push(...(await Promise.all(executeTasks.map((fn) => Promise.resolve(fn())))));
+    waitExecuteTasks = waitExecuteTasks.slice(executeTasks.length);
   }
 
   return results;
@@ -57,13 +57,13 @@ export async function asyncExecuteTask(count: nasl.core.Integer, ...taskList: na
 ## 逻辑编写规范
 需要使用 nasl 提供的类型来进行定义
 
-* 使用 JSDoc @NaslLogic 注释来标识是需要接入平台的函数，其他注解来描述该逻辑
-  * @type 绑定端 pch5both
-  * @title 逻辑标题
-  * @description 逻辑描述
-  * @typeParam 类型描述
-  * @param 参数描述，（设置了参数名称会根据名称匹配，默认根据参数index 匹配）
-  * @returns 返回值描述
+* 使用 `JSDoc` `@NaslLogic` 注释来标识是需要接入平台的函数，其他注解来描述该逻辑
+  * `@type` 绑定端 `pc` `h5` `both`
+  * `@title` 逻辑标题
+  * `@description` 逻辑描述
+  * `@typeParam` 类型描述
+  * `@param` 参数描述，（设置了参数名称会根据名称匹配，默认根据参数index 匹配）
+  * `@returns` 返回值描述
 
 ## 支持可变参数
 开发依赖库逻辑支持使用可变参数，调用逻辑时可灵活添加入参。环境要求：IDE版本为3.8及以上版本，node >= 18，lcap 版本 > 0.4.x。
@@ -141,15 +141,15 @@ export async function asyncExecuteTask<T(count: nasl.core.Integer, ...taskList: 
   let waitExecuteTasks = [...taskList];
   const results: nasl.collection.List<T>= [];
   while (waitExecuteTasks.length > 0) {
-  let executeTasks;
-  if (taskList.length > asyncTaskCount) {
-  executeTasks = waitExecuteTasks.slice(0, asyncTaskCount);
-  } else {
-  executeTasks = waitExecuteTasks;
-  }
+    let executeTasks;
+    if (taskList.length > asyncTaskCount) {
+      executeTasks = waitExecuteTasks.slice(0, asyncTaskCount);
+    } else {
+      executeTasks = waitExecuteTasks;
+    }
 
-  results.push(...(await Promise.all(executeTasks.map((fn) => Promise.resolve(fn())))));
-  waitExecuteTasks = waitExecuteTasks.slice(executeTasks.length);
+    results.push(...(await Promise.all(executeTasks.map((fn) => Promise.resolve(fn())))));
+    waitExecuteTasks = waitExecuteTasks.slice(executeTasks.length);
   }
 
   return results;

@@ -122,6 +122,9 @@ $ npm run dev
 ![](/images/dev.png)
 ![](/images/dev1.png)
 
-## 如何编写 story 调式demo
+### 本地开发模式
 
-[How to write stories](https://storybook.js.org/docs/writing-stories)
+执行 `npm run dev`  开启本地组件开发调试，此项目使用 `storybook` + `vite` 作为基础工程模式
+
+- 如何写组件调试 demo, 请查看文档 [How to write stories • Storybook docs](https://storybook.js.org/docs/writing-stories)
+- 关于如何修改工程构建配置，请查看文档 [vite 官网](https://vitejs.dev/)
