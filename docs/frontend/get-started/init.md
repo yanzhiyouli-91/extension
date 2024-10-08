@@ -122,7 +122,7 @@ $ npm run dev
 ![](/images/dev.png)
 ![](/images/dev1.png)
 
-### 本地开发模式
+## 本地开发调试
 
 执行 `npm run dev`  开启本地组件开发调试，此项目使用 `storybook` + `vite` 作为基础工程模式
 
