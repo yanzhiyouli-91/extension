@@ -1,0 +1,34 @@
+/**
+ * @component cwd-capsule
+ */
+.cwd-capsule {
+  /**
+   * @desc 背景颜色
+   * @type color
+   */
+  --cwd-capsule-background-color: rgb(236, 236, 236);
+
+  /**
+   * @desc 背景颜色(选中态)
+   * @type color
+   */
+  --cwd-capsule-background-color-active: #fff;
+
+  /**
+   * @desc 字体颜色
+   * @type color
+   */
+  --cwd-capsule-color: #666;
+
+  /**
+   * @desc 字体颜色(选中态)
+   * @type color
+   */
+  --cwd-capsule-color-active: #333;
+
+  /**
+   * @desc 字体大小
+   * @type input
+   */
+  --cwd-capsule-font-size: 14px;
+}

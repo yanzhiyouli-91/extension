@@ -60,6 +60,7 @@ export default defineConfig({
           { text: '平台能力适配', link: '/frontend/component/platform.md' },
           {
             text: 'IDE 能力适配',
+            collapsed: false,
             items: [
               { text: '主题编辑', link: '/frontend/component/theme.md' },
               { text: '国际化', link: '/frontend/component/i18n.md' },
