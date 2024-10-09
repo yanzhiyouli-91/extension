@@ -23,7 +23,7 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: '前端扩展开发', link: '/frontend/introduction.md' },
+      { text: '开发指南', link: '/frontend/introduction.md' },
       // { text: '服务端端扩展开发', link: '/backend/introduction.md' }
     ],
 
@@ -57,7 +57,21 @@ export default defineConfig({
           { text: '组件配置（api.ts）描述编写', link: '/frontend/component/api.md' },
           { text: '页面编辑适配说明', link: '/frontend/component/ide.md' },
           { text: '区块示例', link: '/frontend/component/block.md' },
-          { text: '平台能力适配', link: '/frontend/component/platform.md' },
+          {
+            text: '平台能力适配',
+            collapsed: false,
+            items: [
+              { text: '图标设置', link: '/frontend/component/platform/icon-setter.md' },
+              { text: '链接跳转', link: '/frontend/component/platform/link.md' },
+              { text: '函数属性', link: '/frontend/component/platform/function.md' },
+              { text: '事件转换', link: '/frontend/component/platform/event.md' },
+              { text: '数据源', link: '/frontend/component/platform/data-source.md' },
+              { text: '可访问性', link: '/frontend/component/platform/accessibility.md' },
+              { text: '子组件', link: '/frontend/component/platform/child.md' },
+              { text: '插槽', link: '/frontend/component/platform/slot.md' },
+              { text: '表单', link: '/frontend/component/platform/form.md' },
+            ]
+          },
           {
             text: 'IDE 能力适配',
             collapsed: false,
