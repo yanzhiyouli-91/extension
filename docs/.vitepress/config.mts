@@ -66,10 +66,10 @@ export default defineConfig({
               { text: '函数属性', link: '/frontend/component/platform/function.md' },
               { text: '事件转换', link: '/frontend/component/platform/event.md' },
               { text: '数据源', link: '/frontend/component/platform/data-source.md' },
-              { text: '可访问性', link: '/frontend/component/platform/accessibility.md' },
               { text: '子组件', link: '/frontend/component/platform/child.md' },
               { text: '插槽', link: '/frontend/component/platform/slot.md' },
               { text: '表单', link: '/frontend/component/platform/form.md' },
+              { text: '可访问性', link: '/frontend/component/platform/accessibility.md' },
             ]
           },
           {
