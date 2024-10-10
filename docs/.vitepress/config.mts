@@ -69,7 +69,7 @@ export default defineConfig({
               { text: '插槽', link: '/frontend/component/platform/slot.md' },
               { text: '子组件', link: '/frontend/component/platform/child.md' },
               { text: '表单', link: '/frontend/component/platform/form.md' },
-              // { text: '可访问性', link: '/frontend/component/platform/accessibility.md' },
+              { text: '可访问性', link: '/frontend/component/platform/accessibility.md' },
             ]
           },
           {
