@@ -7,9 +7,10 @@ export default defineConfig({
   base: '/extension/',
   description: "Codewave extension develop platform",
   head: [
-    ['link', { ref: 'icon', href: '/extension/images/logo.png' }],
+    ['link', { ref: 'icon', type: 'image/png', href: '/extension/logo.png' }],
   ],
   themeConfig: {
+    logo: '/images/logo.png',
     search: {
       provider: 'local',
       options: {
