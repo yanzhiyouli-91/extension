@@ -10,7 +10,7 @@ export default defineConfig({
     ['link', { ref: 'icon', type: 'image/png', href: '/extension/logo.png' }],
   ],
   themeConfig: {
-    logo: '/images/logo.png',
+    logo: '/logo.png',
     search: {
       provider: 'local',
       options: {
