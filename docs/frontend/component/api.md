@@ -276,7 +276,7 @@ cropperPreviewShape: 'rect' | 'square' | 'circle' = 'circle';
 使用 `@Event` 来标注支持的事件，需要注意以下几点：
 
 1. 事件名需要以 `on` 开头的小驼峰，例如 `click` 需要写为 `onClick`， `row-click` 写为 `onRowClick`;
-2. 事件参数仅允许有一个参数 `event`, 多个参数的情况需要转为一个匿名结构对象, 例如 `onSelect(value, item)` 需要转换为 `onSelect({ value, item })`,
+2. 事件参数仅允许有一个参数 `event`, 多个参数的情况需要转为一个匿名结构对象, 例如 `onSelect(value, item)` 需要转换为 `onSelect({ value, item })`， [事件转换](./platform/event.md),
 3. 返回参数统一为 `void`, 匿名数据结构属性也必须使用 `nasl 支持的类型`;
 
 ```tsx
