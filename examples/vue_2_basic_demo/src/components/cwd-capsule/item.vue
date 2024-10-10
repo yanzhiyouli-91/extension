@@ -1,5 +1,5 @@
 <template>
-  <span :class="$style.root">{{ text }}</span>
+  <span :class="[$style.root, 'cwd-capsule']">{{ text }}</span>
 </template>
 <script>
 export default {

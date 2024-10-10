@@ -4,6 +4,26 @@ namespace extensions.vue_library_demo.viewComponents {
 
   @ExtensionComponent({
     type: 'pc',
+    ideusage: {
+      idetype: 'container',
+      structured: true,
+      dataSource: {
+        dismiss:
+          "!this.getAttribute('dataSource') && this.getDefaultElements().length > 0",
+        display: 3,
+        loopRule: 'nth-child(n+2)',
+        loopElem: " > .cwd-capsule:not([data-nodepath])",
+        emptySlot: {
+          display: 'inline',
+          condition: "!this.getAttribute('dataSource')",
+          accept: false,
+          content: '请绑定数据源或插入子节点'
+        },
+        slotWrapperInlineStyle: {
+          default: 'display: inline-block;',
+        }
+      },
+    }
   })
   @Component({
     title: '胶囊选择器',
@@ -127,6 +147,12 @@ namespace extensions.vue_library_demo.viewComponents {
     }) => void;
   }
 
+  @ExtensionComponent({
+    type: 'pc',
+    ideusage: {
+      idetype: 'element',
+    }
+  })
   @Component({
     title: '胶囊子组件',
     description: '胶囊子组件',
