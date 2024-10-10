@@ -13,14 +13,6 @@ export default defineConfig({
     logo: '/logo.png',
     search: {
       provider: 'local',
-      options: {
-        _render(src, env, md) {
-          const html = md.render(src, env)
-          if (env.frontmatter?.title)
-            return md.render(`# ${env.frontmatter.title}`) + html
-          return html
-        }
-      },
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
