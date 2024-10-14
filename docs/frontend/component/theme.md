@@ -46,9 +46,9 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
   </VTCodeGroupTab>
 </VTCodeGroup>
 
-### 配置文件 预览文件 和 `var.css`
+### 配置文件 预览文件 和 `vars.css`
 
-* 预览文件 (`index.vue` | `index.jsx`) 用户
+* 预览文件 (`index.vue` | `index.jsx`) 
 
 <VTCodeGroup>
   <VTCodeGroupTab label="Vue2">
@@ -88,6 +88,8 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
 
   </VTCodeGroupTab>
 </VTCodeGroup>
+
+`vars.css`
 
 ```css
 /**
