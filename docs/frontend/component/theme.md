@@ -93,7 +93,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
 
 ```css
 /**
- * @component cwd-capluse
+ * @component CwdCapluse
  */
 :root {
  /**
@@ -119,7 +119,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
 `vars.css` 文件配置规范：
 
 * 组件主题注释
-  * `@component` 必需，注释支持自定义主题样式的组件的组件名称，组件名称与组件标签名一致`(vue2: cwd-capluse,  React: CwdCapluse)`。
+  * `@component` 必需，注释支持自定义主题样式的组件的组件名称，组件名称与组件名一致。
   * `@hidden` 非必需，表示隐藏该组件主题配置功能
 
 * 变量注释
