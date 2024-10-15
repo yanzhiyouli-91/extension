@@ -4,7 +4,7 @@ outline: deep
 
 # 表格
 
-Element UI Table 组件无法支持虚拟滚动、懒加载等高阶能力，基础组件库表格未使用 element ui 的表格组件, Fork [TDesign](https://github.com/Tencent/tdesign-vue) 的组件代码
+> Element UI Table 组件无法支持虚拟滚动、懒加载等高阶能力，基础组件库表格未使用 element ui 的表格组件
 
 * Table 组件源码地址如下：[源码仓库地址](https://github.com/netease-lcap/ui-libraries/tree/develop/libraries/element-pro/design/table)
 * 接入组件源码地址如下：[源码仓库地址](https://github.com/netease-lcap/ui-libraries/blob/develop/libraries/element-pro/src/components/el-table-pro)
@@ -167,6 +167,8 @@ export const useTable = {
 参考文档：[IDE页面设计器适配说明](../../frontend/component/ide.md)
 
 ## api.ts 组件描述
+
+参考文档：[组件配置描述编写](../../frontend/component/api.md)
 
 ```ts
 /// <reference types="@nasl/types" />
