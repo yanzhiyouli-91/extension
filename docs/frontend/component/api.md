@@ -353,10 +353,22 @@ declare namespace nasl.ui {
 
 ```tsx
 @Method({
-  title: '打开加载中',
-  description: '打开加载中',
+    title: '导出',
+    description: '导出 excel 文件',
 })
-startLoading(): void {} 
+exportExcel(
+    @Param({
+        title: '当前页码',
+        description: '当前页码',
+    })
+    page: nasl.core.Integer = 1,
+    @Param({
+        title: '每页条数',
+        description: '每页条数',
+    })
+    size: nasl.core.Integer = 2000,
+    // ... 
+): void {}
 ```
 
 ![method.png](/images/method.png)
