@@ -17,7 +17,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '开发指南', link: '/frontend/introduction.md' },
-      // { text: '服务端端扩展开发', link: '/backend/introduction.md' }
+      // { text: '示例', link: '/examples/element-ui/index.md' }
     ],
 
     sidebar: {
@@ -96,6 +96,18 @@ export default defineConfig({
           { text: '快速开始', link: '/backend/get-started.md' },
         ],
       }],
+      '/examples/': [{
+        text: 'Element UI 接入示例',
+        items: [
+          { text: '概述', link: '/examples/element-ui/index.md' },
+          { text: 'Table 表格', link: '/examples/element-ui/table.md' },
+          { text: 'DatePicker 日期选择器', link: '/examples/element-ui/date-picker.md' },
+          { text: 'Select 选择器', link: '/examples/element-ui/select.md' },
+          { text: 'Cascder 级联选择器', link: '/examples/element-ui/cascader.md' },
+          { text: 'Dialog 对话框', link: '/examples/element-ui/dialog.md' },
+          { text: 'Tabs 选项卡', link: '/examples/element-ui/tabs.md' },
+        ],
+      }]
     },
 
     socialLinks: [
