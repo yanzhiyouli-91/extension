@@ -13,7 +13,7 @@ outline: deep
 
 ### 事件转换
 
-将多个参数的事件合并为一个 `Event` 对象
+将多个参数的事件合并为一个 `Event` 对象, 参考文档：[事件转换](../../frontend/component/platform/event.md)
 
 ```ts
 // ...
@@ -28,8 +28,6 @@ onSelectChange: (selectedRowKeys: Array<string | number>, context: SelectOptions
   }
 },
 ```
-
-参考文档：[事件转换](../../frontend/component/platform/event.md)
 
 ### 数据源功能
 
