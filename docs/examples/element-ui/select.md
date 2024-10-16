@@ -11,7 +11,90 @@ outline: deep
 
 ## 平台能力适配
 
+### 事件转换
+
+参考文档：[事件转换](../../frontend/component/platform/event.md)
+
+```ts
+export const useSelect = {
+  //...
+  setup: (props) => {
+    return {
+      // 事件参数合并为一个 event 对象
+      onChange: (value: SelectValue, context: { option?: any; selectedOptions: any[]; trigger: SelectValueChangeTrigger; }) => {
+        const onChange = props.get('onChange');
+
+        if (_.isFunction(onChange)) {
+          onChange({
+            value,
+            option: context.option,
+            selectedOptions: context.selectedOptions,
+            trigger: context.trigger,
+          });
+        }
+      },
+    }
+  }
+}
+```
+
+### 数据源
+
+参考文档：[数据源](../../frontend/component/platform/data-source.md)
+
+```ts
+// 公共数据源功能 https://github.com/netease-lcap/ui-libraries/blob/develop/packages/vue2-utils/src/plugins/common/data-source.ts
+export { useDataSource, useInitialLoaded } from '@lcap/vue2-utils/plugins';
+
+export const useSelect = {
+  props: ['valueField', 'labelField', 'data'],
+  setup(props, ctx) {
+    const valueField = props.useComputed('valueField', (v) => v || 'value');
+    const textField = props.useComputed('textField', (v) => v || 'text');
+
+    const options = props.useComputed('data', (v) => (_.isEmpty(v) ? undefined : v));
+
+    return {
+      options,
+      keys: {
+        value: valueField.value,
+        label: textField.value,
+        ...keys.value,
+      },
+    };
+  },
+};
+```
+
+### 值属性支持 `.sync`
+
+Vue2框架， 平台通过 `v-bind.sync` 来同步绑定变量值
+
+```ts
+// https://github.com/netease-lcap/ui-libraries/blob/develop/packages/vue2-utils/src/plugins/common/form.ts
+import { createUseUpdateSync } from '@lcap/vue2-util/plugins';
+
+// 默认根据 change 事件同步 value 
+export const useUpdateSync = createUseUpdateSync();
+```
+
 ## 页面编辑器适配
+
+参考文档：[IDE页面设计器适配说明 container-配置](../../frontend/component/ide.md#container-配置)
+
+```ts
+@IDEExtraInfo({
+  ideusage: {
+    idetype: 'container', // container 代表支持插槽
+    structured: true, // 允许通过 '+' 按钮添加子组件
+    forceUpdateWhenAttributeChange: true, // 属性改变后强制刷新组件（防止组件更新不及时）
+    childAccept: "target.tag === 'el-option-pro'", // 限制默认插槽内仅有 el-option-pro 组件
+    events: {
+      click: true,  // 支持点击事件
+    },
+  },
+})
+```
 
 ## `api.ts` 组件描述
 

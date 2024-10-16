@@ -13,13 +13,160 @@ outline: deep
 
 ### 事件转换
 
+多个选择事件参数由 `(value, position)` 格式合并为一个 `event` 对象, 参考文档：[事件转换](../../frontend/component/platform/event.md)
+
+```ts
+export function useContextEvents(props: MapGet, format: ComputedRef<string> | Ref<string>) {
+  const events: Record<string, any> = {};
+
+  ['onFocus', 'onBlur', 'onInput'].forEach((eventName) => {
+    events[eventName] = (context) => {
+      const handler = props.get(eventName);
+      if (isFunction(handler)) {
+        const changeEvent = getChangeEventByValue(context.value, props.get<boolean>('range'), format);
+        handler({
+          ...changeEvent,
+          position: context && context.partial,
+        });
+      }
+    };
+  });
+
+  events.onPick = (value: DateValue, context: PickContext) => {
+    const handler = props.get('onPick');
+    if (isFunction(handler)) {
+      const changeEvent = getChangeEventByValue(value, false, format);
+      handler({
+        ...changeEvent,
+        position: context && context.partial,
+      });
+    }
+  };
+
+  return events;
+}
+```
+
 ### 前缀 & 后缀图标
+
+图标适配， 默认使用基础图标渲染, 参考文档： [图标设置](../../frontend/component/platform/icon-setter.md)
+
+```ts
+export function useIcons(props: MapGet) {
+  const prefixIcon = props.useComputed('prefixIcon', (icon: string) => {
+    if (!icon) {
+      return undefined;
+    }
+
+    return (h: CreateElement) => {
+      return h('el-icon', { attrs: { name: icon } });
+    };
+  });
+  const suffixIcon = props.useComputed('suffixIcon', (icon: string) => {
+    if (!icon) {
+      return undefined;
+    }
+
+    return (h: CreateElement) => {
+      return h('el-icon', { attrs: { name: icon } });
+    };
+  });
+
+  return {
+    prefixIcon,
+    suffixIcon,
+  };
+}
+```
+
 
 ### Nasl 日期值处理
 
-### 区间选择
+参数 `value` 需要统一转为 `Date` 数据类型，同步至组件外是则需要格式化为 Nasl 日期类型
+
+```ts
+// Nasl Date 数据转 Date
+function transformDate(date) {
+  if (!date) {
+    return undefined;
+  }
+  if (typeof date === 'string') {
+    /**
+     * 因为如果时间格式是 json 的字符串 "2021-06-18T07:55:26.914Z"
+     * 不能做 - 的替换，会导致转化失效
+     */
+    if (date.includes('Q')) {
+      return new Date(
+        date
+          .replace(/Q1/, '1')
+          .replace(/Q2/, '4')
+          .replace(/Q3/, '7')
+          .replace(/Q4/, '10'),
+      );
+    }
+    if (date.includes('W')) {
+      return dayjs(date, [
+        'YYYY-WWWW',
+        'YYYY-WWWW H:mm:ss',
+        'YYYY-WWWW HH:mm:ss',
+      ]).toDate();
+    }
+    if (!date.includes('T')) {
+      date = date.replace(/-/g, '/');
+    }
+    return new Date(date);
+  }
+
+  if (typeof date === 'number') {
+    return new Date(date);
+  }
+
+  if (typeof date === 'object') {
+    return date;
+  }
+
+  return undefined;
+}
+
+
+// 根据 format 转换为平台 日期类型
+function getNaslDateValue(d: DateValue | null, format: any) {
+  if (!d) {
+    return null;
+  }
+
+  const date = dayjs(d);
+  if (!date.isValid()) {
+    return null;
+  }
+
+  const valueFormat = unref(format) || 'json';
+
+  switch (valueFormat) {
+    case 'json':
+      return date.toDate().toJSON();
+    case 'timestamp':
+      return date.toDate().getTime();
+    case 'date':
+      return date.toDate();
+    default:
+      return date.format(valueFormat);
+  }
+}
+
+```
 
 ## 页面编辑器适配
+
+不需要特殊配置，设置 `idetype` 为 `element` 即可， 参考文档：[IDE页面设计器适配说明 element-配置](../../frontend/component/ide.md#element-配置)
+
+```ts
+@IDEExtraInfo({
+  ideusage: {
+    idetype: 'element',
+  },
+})
+```
 
 ## `api.ts` 组件描述
 

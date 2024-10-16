@@ -164,7 +164,7 @@ export const useTable = {
 })
 ```
 
-参考文档：[IDE页面设计器适配说明](../../frontend/component/ide.md)
+参考文档：[IDE页面设计器适配说明 container-配置](../../frontend/component/ide.md#container-配置)
 
 ## api.ts 组件描述
 
