@@ -22,7 +22,6 @@ namespace nasl.ui {  // 命名空间，基础组件库 nasl.ui, 依赖库 extens
     title: '按钮',
     icon: 'button',
     description: '常用的操作按钮。',
-    group: 'Display',
   })
   export class ElButton extends ViewComponent {         // 组件名称为 tag 的大驼峰，例如 el-button => ElButton
     constructor(options?: Partial<ElButtonOptions>) {
@@ -104,7 +103,7 @@ api.ts 需要提供 `组件描述` `属性描述` `事件描述` `插槽描述` 
    * Display 展示 Form 表单 Selector 选择器 Layout 布局
    * Container 容器 Navigation 导航 Table 表格
    */
-  group: 'Display',                     
+  group: 'Display',          // 依赖库使用 依赖库名称作为分组名称           
 })
 ```
 
