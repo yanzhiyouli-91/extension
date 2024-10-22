@@ -596,6 +596,8 @@ export class UFormGroupOptions  extends ViewComponentOptions {
 * （选配）`modalSutando`：设计器中的占位组件
 * `additionalAttribute`：设计器内组件展示时额外传入的属性， 为 { key: value } 形式。
 * `cacheOpenKey`： 控制弹窗显隐的字段
+* `useFeedbackWrapper`：渲染时，使用额外的div包裹组件
+* `feedbackAliaName`：出现在反馈框内的名称
 
 > 可以在设计器内，通过双击打开组件弹窗，通过关闭按钮关闭当前弹窗。
 > 
