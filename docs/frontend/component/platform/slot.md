@@ -75,13 +75,10 @@ slotItem: (current: {
   // ...
   ideusage: {
     idetype: 'container',
-    structured: true,
   }
 })
 ```
 
 * `idetype` 为 `container` 的组件可以插入子节点
-* `structured`, 类型 `true / false | { slot: string, empty?: boolean }` 设置为 true 才会出现 ”+“ 按钮， 默认添加在 `default` 插槽，也可以通过 `{slot: ''}` 指定添加插槽名称
-* `childAccept`, 表达式或者对象形式， 限制可拖入的子组件, 例如 `childAccept: "target.tag === 'u-tab'"`
 
 其他配置项可查看文档 [页面编辑器适配说明](../ide.md#container-配置)
