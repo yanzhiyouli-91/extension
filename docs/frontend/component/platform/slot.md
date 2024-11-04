@@ -9,19 +9,22 @@ outline: deep
 ## 默认插槽配置
 
 ```tsx
-// 以Menu 为例
-@Slot({
-  title: 'Default',  // 名称
-  description: '内容', // 描述
-  snippets: [ // ide 编辑 “+” 点击后的提示，  title提示描述， code 点击后默认添加代码
-   {
-      title: '添加下拉菜单分组',
-      code: '<el-menu-item-group></el-menu-item-group>',
-    },
-    { title: '菜单项', code: '<el-menu-item></el-menu-item>' },
-  ],
-})
-slotDefault: () => Array<ViewComponent>;
+export class ElMenuOptions extends ViewComponentOptions {
+  // 以Menu 为例
+  // ...
+  @Slot({
+    title: 'Default',  // 名称
+    description: '内容', // 描述
+    snippets: [ // ide 编辑 “+” 点击后的提示，  title提示描述， code 点击后默认添加代码
+    {
+        title: '添加下拉菜单分组',
+        code: '<el-menu-item-group></el-menu-item-group>',
+      },
+      { title: '菜单项', code: '<el-menu-item></el-menu-item>' },
+    ],
+  })
+  slotDefault: () => Array<ViewComponent>;
+}
 ```
 
 ![slot-snippet.png](/images/slot-snippet.png)
@@ -29,21 +32,27 @@ slotDefault: () => Array<ViewComponent>;
 ## 具名插槽配置
 
 ```tsx
-@Slot({
-    title: '头部内容',
-    description: '头部内容',
-})
-slotHeader: () => Array<ViewComponent>;
+export class XxxOptions extends ViewComponentOptions {
+  // ...
+  @Slot({
+      title: '头部内容',
+      description: '头部内容',
+  })
+  slotHeader: () => Array<ViewComponent>;
+}
 ```
 
 ## 作用域插槽
 
 ```tsx
-@Slot({
-    title: '循环项的插槽',
-    description: '自定义选项的结构和样式',
-})
-slotItem: (current: Current<T>) => Array<ViewComponent>;
+export class XxxOptions extends ViewComponentOptions {
+  // ...
+  @Slot({
+      title: '循环项的插槽',
+      description: '自定义选项的结构和样式',
+  })
+  slotItem: (current: Current<T>) => Array<ViewComponent>;
+}
 
 // current 参数类型
 declare namespace nasl.ui {
