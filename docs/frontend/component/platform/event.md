@@ -8,6 +8,13 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../../.vitepress/components'
 
 # 事件转换
 
+> 使用 `@Event` 来标注支持的事件，需要注意以下几点：
+> 
+> 1. 事件名需要以 `on` 开头的小驼峰，例如 `click` 需要写为 `onClick`， `row-click` 写为 `onRowClick`;
+> 2. 事件参数仅允许有一个参数 `event`, 多个参数的情况需要转为一个匿名结构对象, 例如 `onSelect(value, item)` 需要转换为 `onSelect({ value, item })`;
+> 3. 返回参数统一为 `void`, 匿名数据结构属性也必须使用 `nasl 支持的类型`;
+
+
 平台事件触发仅支持一个 event 对象，需要将事件的参数合并
 
 
@@ -51,32 +58,37 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../../.vitepress/components'
 
   ```ts
   // api.ts
-  @Event({
-    title: '菜单激活时',
-    description: '菜单激活回调',
-  })
-  onSelect: (event: {
-    index: nasl.core.String;
-    indexPath: nasl.core.String;
-  }) => void;
 
-  @Event({
-    title: '子菜单展开时',
-    description: '子菜单展开的回调',
-  })
-  onOpen: (event: {
-    index: nasl.core.String;
-    indexPath: nasl.core.String;
-  }) => void;
+  //...
+  export class ElMenuOptions extends ViewComponentOptions {
+    //...
+    @Event({
+      title: '菜单激活时',
+      description: '菜单激活回调',
+    })
+    onSelect: (event: {
+      index: nasl.core.String;
+      indexPath: nasl.core.String;
+    }) => void;
 
-  @Event({
-    title: '子菜单收起时',
-    description: '子菜单收起的回调',
-  })
-  onClose: (event: {
-    index: nasl.core.String;
-    indexPath: nasl.core.String;
-  }) => void;
+    @Event({
+      title: '子菜单展开时',
+      description: '子菜单展开的回调',
+    })
+    onOpen: (event: {
+      index: nasl.core.String;
+      indexPath: nasl.core.String;
+    }) => void;
+
+    @Event({
+      title: '子菜单收起时',
+      description: '子菜单收起的回调',
+    })
+    onClose: (event: {
+      index: nasl.core.String;
+      indexPath: nasl.core.String;
+    }) => void;
+  }
   ```
 
   </VTCodeGroupTab>
@@ -115,23 +127,27 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../../.vitepress/components'
 
   ```ts
   // api.ts
-  @Event({
-    title: '切换分页后',
-    description: '切换分页后',
-  })
-  onChange: (event: {
-    page: nasl.core.Integer;
-    pageSize: nasl.core.Integer;
-  }) => void;
+  //...
+  export class CwPaginationOptions extends ViewComponentOptions {
+    //...
+    @Event({
+      title: '切换分页后',
+      description: '切换分页后',
+    })
+    onChange: (event: {
+      page: nasl.core.Integer;
+      pageSize: nasl.core.Integer;
+    }) => void;
 
-  @Event({
-    title: '分页大小改变时',
-    description: 'pageSize变化的回调',
-  })
-  onShowSizeChange: (event: {
-    current: nasl.core.Integer;
-    size: nasl.core.Integer;
-  }) => void;
+    @Event({
+      title: '分页大小改变时',
+      description: 'pageSize变化的回调',
+    })
+    onShowSizeChange: (event: {
+      current: nasl.core.Integer;
+      size: nasl.core.Integer;
+    }) => void;
+  }
   ```
 
   </VTCodeGroupTab>
