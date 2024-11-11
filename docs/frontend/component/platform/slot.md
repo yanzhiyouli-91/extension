@@ -9,6 +9,14 @@ outline: deep
 ## 默认插槽配置
 
 ```tsx
+// 在 @Component 上增加ide 配置
+@ExtensionComponent({
+  // ...
+  ideusage: {
+    idetype: 'container',
+    structured: true,           // 设置为 true 才会出现 ”+“ 按钮
+  }
+})
 export class ElMenuOptions extends ViewComponentOptions {
   // 以Menu 为例
   // ...
