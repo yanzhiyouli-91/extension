@@ -9,3 +9,7 @@ export const install: Plugin = (app, options) => {
     app.component(name, Components[name]);
   });
 };
+
+export default {
+  install,
+} as Plugin;

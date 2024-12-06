@@ -34,7 +34,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "ide/**/*.ts",
-    "src/**/*.vue",
+    "src/**/*.vue"
   ],
   "references": [
   ]
