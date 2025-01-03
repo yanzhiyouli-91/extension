@@ -36,31 +36,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
 
 > 测试时，项目中的 `@lcap/builder` 安装 `beta` 版本
 
-<VTCodeGroup>
-  <VTCodeGroupTab label="npm">
-
-  ```sh
-  $ npm install @lcap/builder@beta --save-dev
-  ```
-
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="pnpm">
-
-  ```sh
-  $ pnpm add @lcap/builder@beta -D
-  ```
-
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="yarn">
-
-  ```sh
-  $ yarn add @lcap/builder@beta -D
-  ```
-
-  </VTCodeGroupTab>
-</VTCodeGroup>
-
-`package.json` 中手动添加 `watch` 命令
+`package.json` 中手动添加 `watch` 命令，
 
 ```json
 {
@@ -70,6 +46,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
 }
 ```
 
+> 需要支持 https 时修改watch 命令 `lcap-scripts watch --https`
 
 ## 获取需要调试的依赖库的名称与版本号
 
