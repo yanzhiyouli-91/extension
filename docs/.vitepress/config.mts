@@ -40,6 +40,10 @@ export default defineConfig({
             {
               text: '发布与使用',
               link: '/frontend/get-started/usage.md'
+            },
+            {
+              text: 'IDE 内调试依赖库',
+              link: '/frontend/get-started/debug.md'
             }],
           },
         ],
