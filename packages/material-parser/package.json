@@ -1,0 +1,52 @@
+{
+  "name": "@lcap/material-parser",
+  "version": "1.0.0-alpha.1",
+  "description": "Lcap material parser",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "copyfiles -u 1 \"src/**/*.json\" lib/",
+    "watch": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netease-lcap/extension.git"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.12",
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^22.10.5",
+    "copyfiles": "^2.4.1",
+    "typescript": "^5.7.3",
+    "unbuild": "^3.2.0"
+  },
+  "dependencies": {
+    "@types/semver": "^7.5.8",
+    "ast-types": "^0.14.2",
+    "cross-spawn-promise": "^0.10.2",
+    "debug": "^4.4.0",
+    "find-config": "^1.0.0",
+    "fs-extra": "^8.1.0",
+    "lodash": "^4.17.15",
+    "parse-prop-types": "^0.3.0",
+    "react-docgen": "^5.4.0",
+    "react-docgen-typescript": "^2.2.2",
+    "safe-eval": "^0.4.1",
+    "semver": "^7.6.3",
+    "uid": "^2.0.2",
+    "vm2": "3.9.19"
+  },
+  "keywords": [
+    "CodeWave",
+    "Vue",
+    "React"
+  ],
+  "author": "NetEase CodeWave FE Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/netease-lcap/extension/issues"
+  },
+  "homepage": "https://github.com/netease-lcap/extension#readme"
+}
