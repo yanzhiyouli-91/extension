@@ -59,7 +59,7 @@ export async function createFakePackage(params: {
  */
 export async function createWorkDir(tempDir?: string): Promise<string> {
   const workDirName = uid(8);
-  const workDir = resolve(tempDir || '../../node_modules/.temp/', workDirName);
+  const workDir = resolve(tempDir || resolve(process.cwd(), 'node_modules/.temp/'), workDirName);
   await ensureDir(workDir);
   log('create temp dir successfully', workDir);
   return workDir;

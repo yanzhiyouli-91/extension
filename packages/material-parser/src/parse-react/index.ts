@@ -19,11 +19,6 @@ export default async (args: MaterialScanMeta) => {
   } = args;
 
   const entryPath = typingsFileAbsolutePath || mainFileAbsolutePath;
-
-  if (moduleFileAbsolutePath) {
-    return parseJS(moduleFileAbsolutePath);
-  }
-
   // ts
   if (entryPath && isTSLike(entryPath)) {
     await syncTypeModules(args);
@@ -45,6 +40,6 @@ export default async (args: MaterialScanMeta) => {
     console.log(e);
     log(e);
     // if error, use static js parsing instead
-    return parseJS(mainFileAbsolutePath);
+    return parseJS(moduleFileAbsolutePath || mainFileAbsolutePath);
   }
 };
