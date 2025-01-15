@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { Parser, ComponentDoc } from 'react-docgen-typescript';
+import { Parser } from 'react-docgen-typescript';
 import ts, { SymbolFlags, TypeFlags, SyntaxKind } from 'typescript';
 import { isEmpty, isEqual } from 'lodash';
 import { existsSync, readFileSync } from 'fs-extra';
@@ -9,6 +9,7 @@ import { Json } from '../../types/basic';
 import { transformItem } from '../transform';
 import generateDTS from './generateDTS';
 import { MaterialScanMeta } from '../../types/parse';
+import { IMaterialParsedModel } from '../types';
 
 const log = debug.extend('parse:ts');
 
@@ -48,18 +49,18 @@ function getFunctionParams(parameters: any[] = [], checker, parentIds, type) {
   });
 }
 
-function getFunctionReturns(node: any, checker, parentIds, type) {
-  if (!node) return {};
-  const propType = getDocgenTypeHelper(
-    checker,
-    node.type || node,
-    false,
-    getNextParentIds(parentIds, type),
-  );
-  return {
-    propType,
-  };
-}
+// function getFunctionReturns(node: any, checker, parentIds, type) {
+//   if (!node) return {};
+//   const propType = getDocgenTypeHelper(
+//     checker,
+//     node.type || node,
+//     false,
+//     getNextParentIds(parentIds, type),
+//   );
+//   return {
+//     propType,
+//   };
+// }
 
 const blacklistNames = [
   'prototype',
@@ -104,7 +105,6 @@ function isComplexType(type) {
   }
   return false;
 }
-
 function getDocgenTypeHelper(
   checker: ts.TypeChecker,
   type: ts.Type,
@@ -218,12 +218,13 @@ function getDocgenTypeHelper(
       //   throw new Error('too many props');
       // }
       return getShapeFromArray(
-        props.filter((prop) => prop.getName() !== '__index'),
+        props.filter((prop) => (prop.getName() !== '__index' && prop.flags !== SymbolFlags.TypeParameter)),
         _type,
       );
     } else {
       // @ts-ignore
       const args = _type.resolvedTypeArguments || [];
+      // console.log(checker.typeToString(_type), args)
       const props = checker.getPropertiesOfType(_type);
       // if (props.length >= 20) {
       //   throw new Error('too many props');
@@ -335,6 +336,7 @@ function getDocgenTypeHelper(
       });
       // @ts-ignore
     } else if (type?.symbol?.valueDeclaration?.parameters?.length) {
+      const returnType = type.getCallSignatures()[0].getReturnType();
       return makeResult({
         name: 'func',
         params: getFunctionParams(
@@ -344,17 +346,15 @@ function getDocgenTypeHelper(
           parentIds,
           type,
         ),
-        returns: getFunctionReturns(
-          checker.typeToTypeNode(type, type?.symbol?.valueDeclaration, undefined),
-          checker,
-          parentIds,
-          type,
-        ) as any,
+        returns: {
+          propType: getDocgenTypeHelper(checker, returnType, false, getNextParentIds(parentIds, type), false),
+        },
       });
     } else if (
       // @ts-ignore
       type?.members?.get('__call')?.declarations[0]?.symbol?.declarations[0]?.parameters?.length
     ) {
+      const returnType = type.getCallSignatures()[0].getReturnType();
       return makeResult({
         name: 'func',
         params: getFunctionParams(
@@ -364,6 +364,9 @@ function getDocgenTypeHelper(
           parentIds,
           type,
         ),
+        returns: {
+          propType: getDocgenTypeHelper(checker, returnType, false, getNextParentIds(parentIds, type), false),
+        }
       });
     } else {
       try {
@@ -424,8 +427,7 @@ class MyParser extends Parser {
         const typeString = this.checker.symbolToString(symbol);
         if (
           typeString.startsWith('ReactElement') ||
-          typeString.startsWith('Element') ||
-          typeString.startsWith('RaxElement')
+          typeString.startsWith('Element')
         ) {
           const propsParam = params[0];
           if (propsParam) {
@@ -458,7 +460,7 @@ function getComponentName(exportName, displayName) {
 
 const defaultTsConfigPath = path.resolve(__dirname, './tsconfig.json');
 
-export default function parseTS(filePath: string, args: MaterialScanMeta): ComponentDoc[] {
+export default function parseTS(filePath: string, args: MaterialScanMeta): IMaterialParsedModel[] {
   if (!filePath) return [];
 
   let basePath = args.moduleDir || args.workDir || path.dirname(filePath);

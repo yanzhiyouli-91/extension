@@ -1,4 +1,4 @@
-import fs from 'fs-extra';
+import * as fs from 'fs-extra';
 import path from 'path';
 import { MaterialScanMeta } from "./types/parse";
 import { resolveFramework, resolvePkgJSON } from "./utils/meta";

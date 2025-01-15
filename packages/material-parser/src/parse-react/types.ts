@@ -13,6 +13,7 @@ export type IPropTypes = IPropType[];
 
 export interface IMaterialParsedModel {
   // filePath: string;
+  description?: string;
   componentName: string;
   props?: PropsSection['props'];
   meta?: {

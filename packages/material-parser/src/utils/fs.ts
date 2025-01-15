@@ -1,4 +1,4 @@
-import fs from 'fs-extra';
+import * as fs from 'fs-extra';
 
 export function readJSONSync(filePath: string) {
   const content = fs.readFileSync(filePath).toString();

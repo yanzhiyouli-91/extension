@@ -37,7 +37,6 @@ export default async (args: MaterialScanMeta) => {
     }
     return info;
   } catch (e) {
-    console.log(e);
     log(e);
     // if error, use static js parsing instead
     return parseJS(moduleFileAbsolutePath || mainFileAbsolutePath);

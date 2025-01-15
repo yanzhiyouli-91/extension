@@ -39,6 +39,11 @@ export function transformType(itemType: any) {
     case 'node':
     case 'void':
       break;
+    case 'Element':
+    case 'ReactElement':
+    case 'React.ReactElement':
+      result.type = 'element';
+      break;
     case 'func':
       if (params) {
         result.params = params.map((x) => {
@@ -52,7 +57,7 @@ export function transformType(itemType: any) {
           return res;
         });
       }
-      if (returns) {
+      if (returns && (returns.type || returns.propType)) {
         result.returns = {
           propType: transformType(returns.type || returns.propType),
         };
@@ -94,7 +99,7 @@ export function transformType(itemType: any) {
     // eslint-disable-next-line no-fallthrough
     case 'oneOfType':
       result.type = 'oneOfType';
-      result.value = value.map(transformType);
+      result.value = value.filter(({ name }) => name !== 'undefined').map(transformType);
       break;
     case 'boolean':
       result.type = 'bool';
@@ -189,12 +194,15 @@ export function transformType(itemType: any) {
       result.type = 'object';
       break;
   }
+
   if (Object.keys(result).length === 1) {
     return result.type;
   }
+
   if (result?.type === 'oneOfType') {
     return combineOneOfValues(result);
   }
+
   return result;
 }
 
@@ -247,6 +255,11 @@ function combineOneOfValues(propType) {
     };
   }
   result.value = uniq(result.value);
+
+  if (result.value.length === 1) {
+    return result.value[0];
+  }
+
   return result;
 }
 

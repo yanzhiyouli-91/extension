@@ -67,14 +67,14 @@ export interface MaterialComponentMethod {
 }
 
 export interface MaterialComponent {
-  importPath: string;
+  importPath?: string;
   name: string;
+  exportName?: string;
   subName?: string;
-  tag: string;
   description: string;
   attrs: MaterialComponentAttr[];
   events: MaterialComponentEvent[];
-  slot: MaterialComponentSlot[];
+  slots: MaterialComponentSlot[];
   methods: MaterialComponentMethod[];
 }
 
