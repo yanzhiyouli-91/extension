@@ -3,6 +3,7 @@
   "version": "1.0.0-alpha.1",
   "description": "Lcap material parser",
   "main": "lib/index.js",
+  "typings": "./lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "postbuild": "copyfiles -u 1 \"src/**/*.json\" lib/",
@@ -12,6 +13,14 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/netease-lcap/extension.git"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "node": "./lib/index.js",
+      "require": "./lib/index.js",
+      "import": "./lib/index.js"
+    }
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
