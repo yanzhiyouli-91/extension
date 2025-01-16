@@ -17,7 +17,14 @@ export async function parseMeta(root: string): Promise<MaterialScanMeta> {
 
   scanMeta.pkgName = pkgJson.name;
   scanMeta.pkgVersion = pkgJson.version;
-  scanMeta.framework = resolveFramework(pkgJson);
+  const framework = resolveFramework(pkgJson);
+  scanMeta.framework = framework.name;
+  scanMeta.frameworkVersion = framework.version;
+
+  if (pkgJson.description) {
+    scanMeta.description = pkgJson.description;
+  }
+
   if (pkgJson.module) {
     const moduleFileAbsolutePath = path.join(root, pkgJson.module);
     if (fs.existsSync(moduleFileAbsolutePath)) {

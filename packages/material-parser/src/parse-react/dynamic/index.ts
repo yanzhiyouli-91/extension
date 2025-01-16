@@ -42,6 +42,23 @@ function isComponent(obj: any) {
   );
 }
 
+function getTypeFromValue(value: any) {
+  const t = typeof value;
+  switch (t) {
+    case 'bigint':
+    case 'number':
+      return 'number';
+    case 'function':
+      return 'func';
+    case 'boolean':
+      return 'bool';
+    case 'string':
+      return 'string';
+    default:
+      return 'any';
+  }
+}
+
 export default function (filePath: string) {
   if (!filePath) return [];
   const Com = requireInSandbox(filePath);
@@ -111,7 +128,19 @@ export default function (filePath: string) {
         },
       ];
     }
-    return acc;
+
+    return [
+      ...acc,
+      {
+        meta,
+        props: Object.keys(component.defaultProps).map((name) => ({
+          name,
+          propType: getTypeFromValue(component.defaultProps[name]),
+          defaultValue: component.defaultProps[name],
+        })),
+        componentName: meta.subName || meta.exportName || component.displayName,
+      },
+    ];
   }, []);
 
   return result;

@@ -8,7 +8,7 @@
  * json schema for low code component protocol
  */
 export type ComponentMeta = BasicSection & PropsSection & ConfigureSection;
-export type PropType = BasicType | RequiredType | ComplexType;
+export type PropType = BasicType | RequiredType | ComplexType | FunctionType;
 export type BasicType = 'array' | 'bool' | 'func' | 'number' | 'object' | 'string' | 'node' | 'element' | 'any';
 export type ComplexType = OneOf | OneOfType | ArrayOf | ObjectOf | Shape | Exact;
 export type ConfigureProp = {
@@ -51,9 +51,25 @@ export interface PropsSection {
   [k: string]: any;
 }
 export interface RequiredType {
-  type: BasicType;
+  type: Exclude<BasicType, 'func'>;
   isRequired?: boolean;
 }
+
+export interface FunctionParam {
+  name: string;
+  description?: string;
+  propType: PropType;
+}
+
+export interface FunctionType {
+  type: 'func',
+  returns?: {
+    propType: PropType;
+  };
+  params: FunctionParam[];
+  isRequired?: boolean;
+}
+
 export interface OneOf {
   type: 'oneOf';
   value: Array<string | number | boolean>;

@@ -5,6 +5,8 @@ import { debug } from '../utils/debug';
 import { MaterialScanMeta } from '../types/parse';
 import { syncTypeModules, installPeerAndDeps } from '../utils/install';
 
+export { resolveReactSchema } from './adaptor';
+
 const log = debug.extend('parse');
 
 export function isTSLike(str: string) {

@@ -113,7 +113,7 @@ export function transformType(itemType: any) {
     case 'Array':
     case 'arrayOf': {
       result.type = 'arrayOf';
-      let _itemType = transformType(value[0]);
+      let _itemType = transformType(Array.isArray(value) ? value[0] : value);
       if (typeof _itemType === 'object') {
         _itemType = omit(_itemType, ['isRequired']);
       }

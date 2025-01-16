@@ -58,6 +58,7 @@ function getFrameworkDependencies(framework: string, pkg: Record<string, any>) {
         '@types/react': 'latest',
         '@types/react-dom': 'latest',
         'prop-types': 'latest',
+        'parse-prop-types': 'latest',
       };
       break;
     case 'vue2':
