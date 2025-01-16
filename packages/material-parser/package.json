@@ -28,7 +28,6 @@
     "@types/lodash": "^4.14.202",
     "@types/node": "^22.10.5",
     "copyfiles": "^2.4.1",
-    "typescript": "^5.7.3",
     "unbuild": "^3.2.0"
   },
   "dependencies": {
@@ -44,6 +43,7 @@
     "react-docgen-typescript": "^2.2.2",
     "safe-eval": "^0.4.1",
     "semver": "^7.6.3",
+    "typescript": "^5.7.3",
     "uid": "^2.0.2",
     "vm2": "3.9.19"
   },

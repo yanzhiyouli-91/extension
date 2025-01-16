@@ -32,6 +32,7 @@ export async function parse(options: MaterialParseOptions): Promise<MaterialSche
 
     scanMeta.workDir = workDir;
     scanMeta.moduleDir = moduleDir;
+    scanMeta.npmClient = options.npmClient;
 
     let parseResult;
     if (scanMeta.framework === 'react') {

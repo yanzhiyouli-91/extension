@@ -39,6 +39,8 @@ export interface MaterialScanMeta {
   moduleFileAbsolutePath?: string;
   /** typings文件绝对路径 */
   typingsFileAbsolutePath?: string;
+  /** npm 客户端 */
+  npmClient?: string;
 }
 
 export type McType = McBasicType | McArrayType | McStructType | McMapType | McUnionType | McFunctionType;
