@@ -7,7 +7,7 @@ const path = require('path');
     name: 'antd',
   });
 
-  fs.writeFileSync('test-and.json', JSON.stringify(result, null, '  '));
+  fs.writeFileSync('test.json', JSON.stringify(result, null, '  '));
 })();
 
 // (async function parse(params) {

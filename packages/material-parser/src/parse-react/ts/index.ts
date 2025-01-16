@@ -10,6 +10,7 @@ import { transformItem } from '../transform';
 import generateDTS from './generateDTS';
 import { MaterialScanMeta } from '../../types/parse';
 import { IMaterialParsedModel } from '../types';
+import { GlobalTypes } from './global';
 
 const log = debug.extend('parse:ts');
 
@@ -105,6 +106,7 @@ function isComplexType(type) {
   }
   return false;
 }
+
 function getDocgenTypeHelper(
   checker: ts.TypeChecker,
   type: ts.Type,
@@ -112,6 +114,8 @@ function getDocgenTypeHelper(
   parentIds: number[] = [],
   isRequired = false,
 ): any {
+  const typeString = checker.typeToString(type);
+
   function isTuple(_type: ts.Type) {
     // @ts-ignore use internal methods
     return checker.isArrayLikeType(_type) && !checker.isArrayType(_type);
@@ -261,6 +265,24 @@ function getDocgenTypeHelper(
     }
   }
 
+  if (typeString === 'ReactNode') {
+    return makeResult({
+      name: 'node',
+    });
+  }
+
+  if (typeString === 'ReactElement' || typeString === 'React.JSX.Element') {
+    return makeResult({
+      name: 'element',
+    });
+  }
+
+  if (GlobalTypes.includes(checker.typeToString(type))) {
+    return makeResult({
+      name: 'object',
+    });
+  }
+
   if (type.flags & TypeFlags.Number) {
     return makeResult({
       name: 'number',
@@ -399,6 +421,7 @@ class MyParser extends Parser {
     if (parentId) {
       parentIds.push(parentId);
     }
+
     // @ts-ignore
     const result = getDocgenTypeHelper(this.checker, propType, true, parentIds);
     return result;
@@ -418,16 +441,17 @@ class MyParser extends Parser {
           continue;
         }
 
+        const returnType = sig.getReturnType();
+        if (!returnType) {
+          continue;
+        }
         // @ts-ignore
-        const returnSymbol = this.checker.getReturnTypeOfSignature(sig);
-        if (!returnSymbol) continue;
-        const symbol = returnSymbol?.symbol;
-        if (!symbol) continue;
-        // @ts-ignore
-        const typeString = this.checker.symbolToString(symbol);
+        const typeString = this.checker.typeToString(returnType);
+
         if (
-          typeString.startsWith('ReactElement') ||
-          typeString.startsWith('Element')
+          typeString.includes('ReactElement')
+          || typeString.includes('ReactNode')
+          || typeString.includes('React.JSX.Element')
         ) {
           const propsParam = params[0];
           if (propsParam) {
