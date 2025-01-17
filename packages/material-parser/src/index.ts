@@ -2,6 +2,7 @@ import consola from 'consola';
 import * as fs from 'fs-extra';
 import { MaterialParseOptions, MaterialScanMeta, MaterialSchema } from './types/parse';
 import parseReact, { resolveReactSchema } from './parse-react';
+import parseVue from './parse-vue';
 import { parseMeta } from './scan';
 import localize from './localize';
 
@@ -49,12 +50,26 @@ export async function parse(options: MaterialParseOptions): Promise<MaterialSche
     scanMeta.moduleDir = moduleDir;
     scanMeta.npmClient = options.npmClient;
 
-    let parseResult;
-    if (scanMeta.framework === 'react') {
-      parseResult = await parseReact(scanMeta);
+    let parseResult: any[] = [];
+    switch(scanMeta.framework) {
+      case 'react':
+        parseResult = await parseReact(scanMeta);
+        break;
+      case 'vue2':
+      case 'vue3':
+        parseResult = await parseVue(scanMeta);
+        break;
+      default:
+        consola.warn(`${options.name} 未找到适配的解析器, 框架: ${scanMeta.framework}`);
+        break;
     }
 
-    consola.success('解析成功！');
+    if (parseResult.length > 0) {
+      consola.success('解析成功！');
+    } else {
+      consola.warn(`${options.name} 未识别到任何组件`);
+    }
+
     return resolveSchema(parseResult || [], scanMeta);
   } catch(e) {
     throw e;

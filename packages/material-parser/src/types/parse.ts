@@ -39,6 +39,12 @@ export interface MaterialScanMeta {
   moduleFileAbsolutePath?: string;
   /** typings文件绝对路径 */
   typingsFileAbsolutePath?: string;
+  /** web-type.json */
+  webTypeFileAbsolutePath?: string;
+  /** vetur/tag.json */
+  veturTagFileAbsolutePath?: string;
+  /** vetur/attributes.json */
+  veturAttributesFileAbsolutePath?: string;
   /** npm 客户端 */
   npmClient?: string;
 }

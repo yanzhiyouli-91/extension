@@ -21,6 +21,26 @@ export async function parseMeta(root: string): Promise<MaterialScanMeta> {
   scanMeta.framework = framework.name;
   scanMeta.frameworkVersion = framework.version;
 
+  if (pkgJson['web-types']) {
+    const webTypeFileAbsolutePath = path.join(root, pkgJson['web-types']);
+    if (fs.existsSync(webTypeFileAbsolutePath)) {
+      scanMeta.webTypeFileAbsolutePath = webTypeFileAbsolutePath;
+    }
+  }
+
+  if (pkgJson.vetur) {
+    const veturTagFileAbsolutePath = pkgJson.vetur.tag ? path.join(root, pkgJson.vetur.tag) : '';
+    const veturAttributesFileAbsolutePath = pkgJson.vetur.attributes ? path.join(root, pkgJson.vetur.attributes) : '';
+
+    if (veturTagFileAbsolutePath && fs.existsSync(veturTagFileAbsolutePath)) {
+      scanMeta.veturTagFileAbsolutePath = veturTagFileAbsolutePath;
+    }
+
+    if (veturAttributesFileAbsolutePath && fs.existsSync(veturAttributesFileAbsolutePath)) {
+      scanMeta.veturAttributesFileAbsolutePath = veturAttributesFileAbsolutePath;
+    }
+  }
+
   if (pkgJson.description) {
     scanMeta.description = pkgJson.description;
   }

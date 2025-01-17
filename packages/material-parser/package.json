@@ -23,16 +23,23 @@
     }
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-typescript": "^12.1.2",
     "@types/debug": "^4.1.12",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash": "^4.14.202",
     "@types/node": "^22.10.5",
     "copyfiles": "^2.4.1",
-    "unbuild": "^3.2.0"
+    "rollup": "^4.30.1",
+    "unbuild": "^3.2.0",
+    "vitest": "^1.1.0"
   },
   "dependencies": {
+    "@babel/parser": "^7.26.5",
+    "@babel/types": "^7.26.5",
     "@types/semver": "^7.5.8",
-    "ast-types": "^0.14.2",
+    "ast-types": "^0.16.1",
     "consola": "^3.4.0",
     "cross-spawn-promise": "^0.10.2",
     "debug": "^4.4.0",
