@@ -4,6 +4,8 @@ import ts, { SymbolFlags, TypeFlags, SyntaxKind } from 'typescript';
 import { isEmpty, isEqual } from 'lodash';
 import { existsSync, readFileSync } from 'fs-extra';
 import findConfig from 'find-config';
+import consola from 'consola';
+import ora from 'ora';
 import { debug } from '../../utils/debug';
 import { Json } from '../../types/basic';
 import { transformItem } from '../transform';
@@ -540,6 +542,8 @@ export default function parseTS(filePath: string, args: MaterialScanMeta): IMate
 
       const exportSymbols = checker.getExportsOfModule(moduleSymbol);
 
+      const spinner = ora(`TS 解析开始 ${exportSymbols.length}`).start();
+
       for (let index = 0; index < exportSymbols.length; index++) {
         const sym: SymbolWithMeta = exportSymbols[index];
         const name = sym.getName();
@@ -569,6 +573,7 @@ export default function parseTS(filePath: string, args: MaterialScanMeta): IMate
           ...info,
           meta,
         });
+
         // find sub components
         if (!!sym.declarations && sym.declarations.length === 0) {
           continue;
@@ -587,8 +592,11 @@ export default function parseTS(filePath: string, args: MaterialScanMeta): IMate
         );
       }
 
+      spinner.stop();
       return docs;
     }, []);
+
+  consola.success(`TS 解析成功, 组件 ${result.length}`);
   const coms = result.reduce((res: any[], info: any) => {
     if (!info || !info.props || isEmpty(info.props)) return res;
     const props = Object.keys(info.props).reduce((acc: any[], name) => {

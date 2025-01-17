@@ -74,6 +74,8 @@ export async function parseNPM(options) {
           name,
           version,
         });
+
+        console.log(picocolors.green(`解析包 ${pkg} 成功，生成文件 ${options.output || 'schema.json'}`));
       } catch(e) {
         console.log(picocolors.red(`解析包 ${pkg} 失败, ${e.message}`));
         console.log(e);

@@ -302,6 +302,9 @@ importers:
       ast-types:
         specifier: ^0.14.2
         version: 0.14.2
+      consola:
+        specifier: ^3.4.0
+        version: 3.4.0
       cross-spawn-promise:
         specifier: ^0.10.2
         version: 0.10.2
@@ -317,6 +320,9 @@ importers:
       lodash:
         specifier: ^4.17.15
         version: 4.17.21
+      ora:
+        specifier: ^5.4.1
+        version: 5.4.1
       parse-prop-types:
         specifier: ^0.3.0
         version: 0.3.0(prop-types@15.8.1)
@@ -4201,12 +4207,12 @@ packages:
   consola@2.15.3:
     resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
 
-  consola@3.2.3:
-    resolution: {integrity: sha512-I5qxpzLv+sJhTVEoLYNcTW+bThDCPsit0vLNKShZx6rLtpilNpmmeTPaeqJb9ZE9dV3DGaeby6Vuhrw38WjeyQ==}
-    engines: {node: ^14.18.0 || >=16.10.0}
-
   consola@3.3.3:
     resolution: {integrity: sha512-Qil5KwghMzlqd51UXM0b6fyaGHtOC22scxrwrz4A2882LyUMwQjnvaedN1HAeXzphspQ6CpHkzMAWxBTUruDLg==}
+    engines: {node: ^14.18.0 || >=16.10.0}
+
+  consola@3.4.0:
+    resolution: {integrity: sha512-EiPU8G6dQG0GFHNR8ljnZFki/8a+cQwEQ+7wpxdChl02Q8HXlwEZWD5lqAF8vC2sEC3Tehr8hy7vErz88LHyUA==}
     engines: {node: ^14.18.0 || >=16.10.0}
 
   consolidate@0.15.1:
@@ -13417,7 +13423,7 @@ snapshots:
 
   citty@0.1.6:
     dependencies:
-      consola: 3.3.3
+      consola: 3.4.0
 
   clean-stack@2.2.0: {}
 
@@ -13538,9 +13544,9 @@ snapshots:
 
   consola@2.15.3: {}
 
-  consola@3.2.3: {}
-
   consola@3.3.3: {}
+
+  consola@3.4.0: {}
 
   consolidate@0.15.1(ejs@3.1.10)(handlebars@4.7.8)(lodash@4.17.21)(pug@3.0.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
@@ -14427,7 +14433,7 @@ snapshots:
   giget@1.2.3:
     dependencies:
       citty: 0.1.6
-      consola: 3.2.3
+      consola: 3.3.3
       defu: 6.1.4
       node-fetch-native: 1.6.4
       nypm: 0.3.12
@@ -15382,7 +15388,7 @@ snapshots:
   nypm@0.3.12:
     dependencies:
       citty: 0.1.6
-      consola: 3.2.3
+      consola: 3.3.3
       execa: 8.0.1
       pathe: 1.1.2
       pkg-types: 1.2.1
@@ -16875,7 +16881,7 @@ snapshots:
       '@rollup/plugin-replace': 6.0.2(rollup@4.30.0)
       '@rollup/pluginutils': 5.1.4(rollup@4.30.0)
       citty: 0.1.6
-      consola: 3.3.3
+      consola: 3.4.0
       defu: 6.1.4
       esbuild: 0.24.2
       hookable: 5.5.3
