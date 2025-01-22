@@ -57,7 +57,7 @@ function resolveAttrs(tag: HtmlTag & HtmlVueElement): MaterialComponentAttr[] {
       sync = true;
     }
 
-    let type = transformType(attr.type || (attr.value as { type: string }).type);
+    let type = transformType(attr.type || (attr.value as { type: string })?.type);
 
     let options: MaterialComponentAttr['options'] = [];
     if (type.type === 'union' && (type as McUnionType).value.every((n) => typeof n === 'string')) {
