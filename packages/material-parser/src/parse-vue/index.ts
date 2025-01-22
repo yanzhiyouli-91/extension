@@ -3,6 +3,7 @@ import { installPeerAndDeps } from '../utils/install';
 import parseConfig from './config';
 import parseJS from './js';
 import parseDynamic from './dynamic';
+import consola from 'consola';
 
 export default async function (args: MaterialScanMeta): Promise<MaterialComponent[]> {
   const {
@@ -14,12 +15,15 @@ export default async function (args: MaterialScanMeta): Promise<MaterialComponen
   } = args;
   const hasConfig = webTypeFileAbsolutePath || (veturAttributesFileAbsolutePath && veturTagFileAbsolutePath);
 
+  consola.start('开始安装依赖包....');
+  await installPeerAndDeps(args);
+  consola.success('安装成功');
+
   if (hasConfig) {
     return parseConfig(args);
   }
 
   try {
-    await installPeerAndDeps(args);
     return parseJS(moduleFileAbsolutePath || mainFileAbsolutePath);
   } catch(e) {
     return parseDynamic(mainFileAbsolutePath);

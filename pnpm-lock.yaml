@@ -338,6 +338,9 @@ importers:
       react-docgen-typescript:
         specifier: ^2.2.2
         version: 2.2.2(typescript@5.7.3)
+      recast:
+        specifier: ^0.23.9
+        version: 0.23.9
       safe-eval:
         specifier: ^0.4.1
         version: 0.4.1

@@ -50,6 +50,7 @@
     "parse-prop-types": "^0.3.0",
     "react-docgen": "^5.4.0",
     "react-docgen-typescript": "^2.2.2",
+    "recast": "^0.23.9",
     "safe-eval": "^0.4.1",
     "semver": "^7.6.3",
     "typescript": "^5.7.3",

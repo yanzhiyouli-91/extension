@@ -29,7 +29,7 @@ export async function parseMeta(root: string): Promise<MaterialScanMeta> {
   }
 
   if (pkgJson.vetur) {
-    const veturTagFileAbsolutePath = pkgJson.vetur.tag ? path.join(root, pkgJson.vetur.tag) : '';
+    const veturTagFileAbsolutePath = pkgJson.vetur.tags ? path.join(root, pkgJson.vetur.tags) : '';
     const veturAttributesFileAbsolutePath = pkgJson.vetur.attributes ? path.join(root, pkgJson.vetur.attributes) : '';
 
     if (veturTagFileAbsolutePath && fs.existsSync(veturTagFileAbsolutePath)) {

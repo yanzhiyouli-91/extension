@@ -17,10 +17,11 @@ function resolveReact(pkg: Record<string, any>): FrameworkResult | undefined {
 function resolveVue3(pkg: Record<string, any>): FrameworkResult | undefined {
   const version = (pkg.peerDependencies && pkg.peerDependencies['vue'])
   || (pkg.devDependencies && pkg.devDependencies['vue']);
-  if (version && semver.major(version) === 3) {
+  const minVersion = version && semver.minVersion(version)?.version;
+  if (minVersion && semver.major(minVersion) === 3) {
     return {
       name: 'vue3',
-      version: semver.minVersion(version)?.version,
+      version: minVersion,
     }
   }
 }
@@ -28,10 +29,11 @@ function resolveVue3(pkg: Record<string, any>): FrameworkResult | undefined {
 function resolveVue2(pkg: Record<string, any>): FrameworkResult | undefined {
   const version = (pkg.peerDependencies && pkg.peerDependencies['vue'])
   || (pkg.devDependencies && pkg.devDependencies['vue']);
-  if (version && semver.major(version) === 2) {
+  const minVersion = version && semver.minVersion(version)?.version;
+  if (minVersion && semver.major(minVersion) === 2) {
     return {
       name: 'vue2',
-      version: semver.minVersion(version)?.version,
+      version: minVersion,
     }
   }
 }

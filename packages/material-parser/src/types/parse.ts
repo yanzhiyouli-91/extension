@@ -73,7 +73,7 @@ export interface McMapType extends McBasicType {
 
 export interface McUnionType extends McBasicType {
   type: 'union';
-  value: McType[] | string[];
+  value: (McType | string)[];
 }
 
 export interface McFunctionType extends McBasicType {
