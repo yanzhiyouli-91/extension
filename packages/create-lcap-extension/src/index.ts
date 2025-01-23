@@ -38,6 +38,16 @@ const TEMPLATES: Template[] = [
     display: 'Vue3 依赖库',
     color: green,
   },
+  {
+    name: 'vue2',
+    display: 'Vue2 依赖库',
+    color: green,
+  },
+  {
+    name: 'react',
+    display: 'React 依赖库',
+    color: green,
+  },
 ];
 
 const defaultTargetDir = 'vue_lcap_extension';
