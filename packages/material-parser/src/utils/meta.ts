@@ -2,7 +2,7 @@ import semver from 'semver';
 import { FrameworkType } from '../types/parse';
 import { loadFile } from './fs';
 
-type FrameworkResult = { name: FrameworkType | 'unknow'; version?: string; };
+type FrameworkResult = { name: FrameworkType | 'unknow'; version?: string };
 
 function findModuleVersion(pkg: Record<string, any>, name: string) {
   if (pkg.peerDependencies && pkg.peerDependencies[name]) {
@@ -22,7 +22,7 @@ function resolveReact(pkg: Record<string, any>): FrameworkResult | undefined {
     return {
       name: 'react',
       version: semver.minVersion(v)?.version,
-    }
+    };
   }
 }
 
@@ -33,7 +33,7 @@ function resolveVue3(pkg: Record<string, any>): FrameworkResult | undefined {
     return {
       name: 'vue3',
       version: minVersion,
-    }
+    };
   }
 }
 
@@ -44,25 +44,23 @@ function resolveVue2(pkg: Record<string, any>): FrameworkResult | undefined {
     return {
       name: 'vue2',
       version: minVersion,
-    }
+    };
   }
 }
 
-export async function resolvePkgJSON(pkgJsonPath: string): Promise<{ [k: string]: any }> {
+export async function resolvePkgJSON(
+  pkgJsonPath: string,
+): Promise<{ [k: string]: any }> {
   const content = await loadFile(pkgJsonPath);
   const json = JSON.parse(content);
   return json;
 }
 
 export function resolveFramework(pkg: Record<string, any>): FrameworkResult {
-  const resolves = [
-    resolveReact,
-    resolveVue2,
-    resolveVue3
-  ];
+  const resolves = [resolveReact, resolveVue2, resolveVue3];
 
   let result: FrameworkResult = {
-    name: 'unknow'
+    name: 'unknow',
   };
 
   while (resolves.length > 0) {

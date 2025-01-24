@@ -27,7 +27,7 @@ const reservedKeys = [
 ];
 
 function getKeys(com: any) {
-  const keys = Object.keys(com).filter(x => {
+  const keys = Object.keys(com).filter((x) => {
     return !reservedKeys.includes(x) && !x.startsWith('_');
   });
 
@@ -67,7 +67,7 @@ export default function (filePath: string) {
 
   if (Com.__esModule) {
     const keys = getKeys(Com);
-    keys.forEach(k => {
+    keys.forEach((k) => {
       if (isComponent(Com[k])) {
         components.push({
           component: Com[k],
@@ -92,8 +92,8 @@ export default function (filePath: string) {
 
     const keys = getKeys(item.component);
     const subs = keys
-      .filter(k => isComponent(item.component[k]))
-      .map(k => ({
+      .filter((k) => isComponent(item.component[k]))
+      .map((k) => ({
         component: item.component[k],
         meta: {
           ...item.meta,
@@ -124,7 +124,8 @@ export default function (filePath: string) {
         {
           meta,
           props,
-          componentName: meta.subName || meta.exportName || component.displayName,
+          componentName:
+            meta.subName || meta.exportName || component.displayName,
         },
       ];
     }

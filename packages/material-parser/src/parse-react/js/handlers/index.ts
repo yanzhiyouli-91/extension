@@ -1,4 +1,8 @@
-import { propTypeHandler, contextTypeHandler, childContextTypeHandler } from './propTypeHandler';
+import {
+  propTypeHandler,
+  contextTypeHandler,
+  childContextTypeHandler,
+} from './propTypeHandler';
 import defaultPropsHandler from './defaultPropsHandler';
 import preProcessHandler from './preProcessHandler';
 import propTypeJsDocHandler from './propTypeJsDocHandler';

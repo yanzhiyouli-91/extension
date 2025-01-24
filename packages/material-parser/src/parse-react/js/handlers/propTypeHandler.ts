@@ -11,18 +11,18 @@ import { namedTypes as t, visit } from 'ast-types';
 import getRoot from '../utils/getRoot';
 import getComposedPath from '../utils/getComposedPath';
 
-const {
-  resolveToValue,
-  getPropType,
-  getPropertyName,
-  getMemberValuePath,
-} = require('react-docgen').utils;
+const { resolveToValue, getPropType, getPropertyName, getMemberValuePath } =
+  require('react-docgen').utils;
 
-const isRequiredPropType = require('react-docgen/dist/utils/isRequiredPropType')
-  .default;
+const isRequiredPropType =
+  require('react-docgen/dist/utils/isRequiredPropType').default;
 
-
-function amendPropTypes(getDescriptor: any, path: any, documentation, propName: string) {
+function amendPropTypes(
+  getDescriptor: any,
+  path: any,
+  documentation,
+  propName: string,
+) {
   if (!t.ObjectExpression.check(path.node)) {
     const propTypesPath: any = getComposedPath(documentation, propName, path);
     if (!propTypesPath) {
@@ -56,7 +56,12 @@ function amendPropTypes(getDescriptor: any, path: any, documentation, propName: 
         switch (resolvedValuePath.node.type) {
           // @ts-ignore
           case t.ObjectExpression.name: // normal object literal
-            amendPropTypes(getDescriptor, resolvedValuePath, documentation, propName);
+            amendPropTypes(
+              getDescriptor,
+              resolvedValuePath,
+              documentation,
+              propName,
+            );
             break;
         }
         break;
@@ -114,7 +119,12 @@ function getPropTypeHandler(propName: string) {
       default:
         getDescriptor = documentation.getPropDescriptor;
     }
-    amendPropTypes(getDescriptor.bind(documentation), propTypesPath, documentation, propName);
+    amendPropTypes(
+      getDescriptor.bind(documentation),
+      propTypesPath,
+      documentation,
+      propName,
+    );
   };
 }
 

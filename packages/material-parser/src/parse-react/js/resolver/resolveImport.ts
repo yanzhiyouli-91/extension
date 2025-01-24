@@ -3,7 +3,8 @@ import fs from 'fs';
 import p from 'path';
 import getRoot from '../utils/getRoot';
 
-const { resolveToModule, resolveToValue, match } = require('react-docgen').utils;
+const { resolveToModule, resolveToValue, match } =
+  require('react-docgen').utils;
 
 export function isImportLike(path) {
   const { node } = path;
@@ -165,7 +166,10 @@ export default function resolveImport(path: any, callback: any) {
         path.get('properties').each((propertyPath) => {
           const keyPath = propertyPath.get('key');
           const valuePath = propertyPath.get('value');
-          if (t.Identifier.check(keyPath.node) && t.Identifier.check(valuePath.node)) {
+          if (
+            t.Identifier.check(keyPath.node) &&
+            t.Identifier.check(valuePath.node)
+          ) {
             importMeta.push({
               localName: keyPath.node.name,
               importedName: valuePath.node.name,

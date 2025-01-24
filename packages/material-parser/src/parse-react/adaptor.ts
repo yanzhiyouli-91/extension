@@ -11,7 +11,13 @@ import {
   McType,
   McUnionType,
 } from '../types/parse';
-import { BasicType, ComplexType, FunctionType, PropsSection, PropType } from './schema/types';
+import {
+  BasicType,
+  ComplexType,
+  FunctionType,
+  PropsSection,
+  PropType,
+} from './schema/types';
 import { IMaterialParsedModel } from './types';
 
 const eventRegex = /^on[A-Z].*/;
@@ -31,11 +37,19 @@ function isSlotPropType(propType: PropType) {
     return true;
   }
 
-  if (propType.type === 'func' && propType.returns && propType.returns.propType && isSlotPropType(propType.returns.propType)) {
+  if (
+    propType.type === 'func' &&
+    propType.returns &&
+    propType.returns.propType &&
+    isSlotPropType(propType.returns.propType)
+  ) {
     return true;
   }
 
-  if (propType.type === 'oneOfType' && propType.value.findIndex(isSlotPropType) !== -1) {
+  if (
+    propType.type === 'oneOfType' &&
+    propType.value.findIndex(isSlotPropType) !== -1
+  ) {
     return true;
   }
 
@@ -53,26 +67,26 @@ function isSlotProp(prop: Prop) {
 function stringify(str: any) {
   try {
     str = JSON.parse(str);
-  } catch(e) {}
+  } catch (e) {}
 
   return JSON.stringify(str);
 }
 const PropTypeDict: Record<BasicType | ComplexType['type'], McType['type']> = {
-  'array': 'array',
-  'bool': 'boolean',
-  'func': 'function',
-  'number': 'number',
-  'object': 'any',
-  'string': 'string',
-  'node': 'any',
-  'element': 'any',
-  'any': 'any',
-  'objectOf': 'map',
-  'arrayOf': 'array',
-  'oneOf': 'union',
-  'oneOfType': 'union',
-  'shape': 'struct',
-  'exact': 'struct',
+  array: 'array',
+  bool: 'boolean',
+  func: 'function',
+  number: 'number',
+  object: 'any',
+  string: 'string',
+  node: 'any',
+  element: 'any',
+  any: 'any',
+  objectOf: 'map',
+  arrayOf: 'array',
+  oneOf: 'union',
+  oneOfType: 'union',
+  shape: 'struct',
+  exact: 'struct',
 };
 
 const unionDictTypes = (types: McType[]) => {
@@ -86,7 +100,7 @@ const unionDictTypes = (types: McType[]) => {
     cache[k] = t;
     return [...acc, t];
   }, []);
-}
+};
 
 function transformType(propType: PropType | undefined | null): McType {
   if (isNil(propType)) {
@@ -102,7 +116,7 @@ function transformType(propType: PropType | undefined | null): McType {
 
   const mcType: McType = {
     type: PropTypeDict[propType.type] || 'any',
-  }
+  };
 
   if (propType.isRequired) {
     mcType.isRequired = true;
@@ -113,7 +127,9 @@ function transformType(propType: PropType | undefined | null): McType {
       (mcType as McUnionType).value = propType.value.map((s) => stringify(s));
       break;
     case 'oneOfType':
-      (mcType as McUnionType).value = unionDictTypes(propType.value.map((p) => transformType(p)));
+      (mcType as McUnionType).value = unionDictTypes(
+        propType.value.map((p) => transformType(p)),
+      );
       break;
     case 'arrayOf':
       (mcType as McArrayType).value = transformType(propType.value);
@@ -130,7 +146,8 @@ function transformType(propType: PropType | undefined | null): McType {
     case 'objectOf':
       (mcType as McMapType).value = transformType(propType.value);
       break;
-    default: break;
+    default:
+      break;
   }
 
   return mcType;
@@ -144,10 +161,12 @@ function resolveEvent(prop: Prop, component: MaterialComponent) {
   component.events.push({
     name: prop.name,
     description: prop.description || '',
-    params: [{
-      name: 'event',
-      type: transformType(prop.propType),
-    }],
+    params: [
+      {
+        name: 'event',
+        type: transformType(prop.propType),
+      },
+    ],
   });
 
   return true;
@@ -158,18 +177,24 @@ function findSlotFuncType(propType: PropType): FunctionType | undefined {
     return;
   }
 
-  if (propType.type === 'func' && propType.returns && propType.returns.propType && isSlotPropType(propType.returns.propType)) {
+  if (
+    propType.type === 'func' &&
+    propType.returns &&
+    propType.returns.propType &&
+    isSlotPropType(propType.returns.propType)
+  ) {
     return propType;
   }
 
   if (propType.type === 'oneOfType') {
-    return propType.value.find((p) => (
-      typeof p !== 'string'
-      && p.type === 'func'
-      && p.returns
-      && p.returns.propType
-      && isSlotPropType(p.returns.propType)
-    )) as FunctionType | undefined;
+    return propType.value.find(
+      (p) =>
+        typeof p !== 'string' &&
+        p.type === 'func' &&
+        p.returns &&
+        p.returns.propType &&
+        isSlotPropType(p.returns.propType),
+    ) as FunctionType | undefined;
   }
 
   return;
@@ -189,11 +214,14 @@ function resolveSlot(prop: Prop, component: MaterialComponent) {
   const funcType = findSlotFuncType(prop.propType);
 
   if (funcType && funcType.params && funcType.params.length > 0) {
-    slot.params = funcType.params.map((param) => ({
-      name: param,
-      description: param.description,
-      type: transformType(param.propType),
-    } as any))
+    slot.params = funcType.params.map(
+      (param) =>
+        ({
+          name: param,
+          description: param.description,
+          type: transformType(param.propType),
+        } as any),
+    );
   }
 
   component.slots.push(slot);
@@ -216,16 +244,28 @@ function resolveAttr(prop: Prop, component: MaterialComponent) {
     attr.sync = true;
   }
 
-  if (typeof prop.propType !== 'string' && prop.propType && prop.propType.type === 'oneOf') {
-    attr.options = prop.propType.value.map((v) => ({ value: JSON.stringify(v), label: String(v) }));
+  if (
+    typeof prop.propType !== 'string' &&
+    prop.propType &&
+    prop.propType.type === 'oneOf'
+  ) {
+    attr.options = prop.propType.value.map((v) => ({
+      value: JSON.stringify(v),
+      label: String(v),
+    }));
   }
 
   component.attrs.push(attr);
   return true;
 }
 
-export function resolveReactSchema(schema: IMaterialParsedModel): MaterialComponent {
-  const { exportName = '', subName = '' } = schema.meta as { exportName: string, subName: string };
+export function resolveReactSchema(
+  schema: IMaterialParsedModel,
+): MaterialComponent {
+  const { exportName = '', subName = '' } = schema.meta as {
+    exportName: string;
+    subName: string;
+  };
   const component: MaterialComponent = {
     name: schema.componentName,
     exportName,
@@ -238,7 +278,9 @@ export function resolveReactSchema(schema: IMaterialParsedModel): MaterialCompon
   };
 
   (schema.props || []).forEach((prop) => {
-    [resolveEvent, resolveSlot, resolveAttr].find((resolve) => resolve(prop, component));
+    [resolveEvent, resolveSlot, resolveAttr].find((resolve) =>
+      resolve(prop, component),
+    );
   });
 
   return component;

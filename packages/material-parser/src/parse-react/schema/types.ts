@@ -9,8 +9,23 @@
  */
 export type ComponentMeta = BasicSection & PropsSection & ConfigureSection;
 export type PropType = BasicType | RequiredType | ComplexType | FunctionType;
-export type BasicType = 'array' | 'bool' | 'func' | 'number' | 'object' | 'string' | 'node' | 'element' | 'any';
-export type ComplexType = OneOf | OneOfType | ArrayOf | ObjectOf | Shape | Exact;
+export type BasicType =
+  | 'array'
+  | 'bool'
+  | 'func'
+  | 'number'
+  | 'object'
+  | 'string'
+  | 'node'
+  | 'element'
+  | 'any';
+export type ComplexType =
+  | OneOf
+  | OneOfType
+  | ArrayOf
+  | ObjectOf
+  | Shape
+  | Exact;
 export type ConfigureProp = {
   title?: string;
   extraProps?: {
@@ -62,7 +77,7 @@ export interface FunctionParam {
 }
 
 export interface FunctionType {
-  type: 'func',
+  type: 'func';
   returns?: {
     propType: PropType;
   };

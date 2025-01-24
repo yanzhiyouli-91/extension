@@ -1,4 +1,3 @@
-
 export type FrameworkType = 'vue2' | 'vue3' | 'react';
 
 export interface MaterialParseOptions {
@@ -49,10 +48,25 @@ export interface MaterialScanMeta {
   npmClient?: string;
 }
 
-export type McType = McBasicType | McArrayType | McStructType | McMapType | McUnionType | McFunctionType;
+export type McType =
+  | McBasicType
+  | McArrayType
+  | McStructType
+  | McMapType
+  | McUnionType
+  | McFunctionType;
 
 export interface McBasicType {
-  type: 'string' | 'number' | 'boolean' | 'any' | 'array' | 'struct' | 'map' | 'union' | 'function';
+  type:
+    | 'string'
+    | 'number'
+    | 'boolean'
+    | 'any'
+    | 'array'
+    | 'struct'
+    | 'map'
+    | 'union'
+    | 'function';
   isRequired?: boolean;
 }
 
@@ -63,7 +77,7 @@ export interface McArrayType extends McBasicType {
 
 export interface McStructType extends McBasicType {
   type: 'struct';
-  value: Array<{ name: string; type: McType; }>;
+  value: Array<{ name: string; type: McType }>;
 }
 
 export interface McMapType extends McBasicType {
@@ -78,7 +92,7 @@ export interface McUnionType extends McBasicType {
 
 export interface McFunctionType extends McBasicType {
   type: 'function';
-  params: Array<{ name: string; description?: string; type: McType; }>;
+  params: Array<{ name: string; description?: string; type: McType }>;
   returnType: McType | 'void';
 }
 
@@ -86,7 +100,7 @@ export interface MaterialComponentAttr {
   name: string;
   description: string;
   type: McType;
-  options?: Array<{ value: string, label: string }>;
+  options?: Array<{ value: string; label: string }>;
   defaultValue?: string;
   sync?: boolean;
 }
@@ -94,19 +108,19 @@ export interface MaterialComponentAttr {
 export interface MaterialComponentEvent {
   name: string; // 事件 onClick
   description: string; //
-  params: Array<{ name: string; description?: string; type: McType; }>;
+  params: Array<{ name: string; description?: string; type: McType }>;
 }
 
 export interface MaterialComponentSlot {
   name: string; // 事件 onClick
   description: string; //
-  params: Array<{ name: string; description?: string; type: McType; }>;
+  params: Array<{ name: string; description?: string; type: McType }>;
 }
 
 export interface MaterialComponentMethod {
   name: string; // 事件 onClick
   description: string; //
-  params: Array<{ name: string; description?: string; type: McType; }>;
+  params: Array<{ name: string; description?: string; type: McType }>;
   returnType: McType;
 }
 
@@ -129,4 +143,4 @@ export interface MaterialSchema {
   framework: FrameworkType | 'unknow';
   frameworkVersion?: string;
   components: MaterialComponent[];
-};
+}

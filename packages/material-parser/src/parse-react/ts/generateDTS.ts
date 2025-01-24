@@ -36,7 +36,10 @@ export default function generateDTS({
     className?: string;
   `,
   );
-  newContent = newContent.replace(/(?<=interface IntrinsicElements {)([^}]+)/, '');
+  newContent = newContent.replace(
+    /(?<=interface IntrinsicElements {)([^}]+)/,
+    '',
+  );
   newContent = newContent.replace(/type LibraryManagedAttributes[^;]+;/, '');
   writeFileSync(newTypePath, newContent);
   log('generate dts', newTypePath);

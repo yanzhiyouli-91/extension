@@ -17,7 +17,11 @@ export default function resolveTranspiledClass(path: any) {
           builders.blockStatement([
             builders.returnStatement(
               builders.jsxElement(
-                builders.jsxOpeningElement(builders.jsxIdentifier('div'), [], true),
+                builders.jsxOpeningElement(
+                  builders.jsxIdentifier('div'),
+                  [],
+                  true,
+                ),
               ),
             ),
           ]),

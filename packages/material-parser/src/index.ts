@@ -1,12 +1,19 @@
 import consola from 'consola';
 import * as fs from 'fs-extra';
-import { MaterialParseOptions, MaterialScanMeta, MaterialSchema } from './types/parse';
+import {
+  MaterialParseOptions,
+  MaterialScanMeta,
+  MaterialSchema,
+} from './types/parse';
 import parseReact, { resolveReactSchema } from './parse-react';
 import parseVue from './parse-vue';
 import { parseMeta } from './scan';
 import localize from './localize';
 
-export function resolveSchema(components: any[], scanMeta: MaterialScanMeta): MaterialSchema {
+export function resolveSchema(
+  components: any[],
+  scanMeta: MaterialScanMeta,
+): MaterialSchema {
   const schema: MaterialSchema = {
     name: scanMeta.pkgName,
     version: scanMeta.pkgVersion,
@@ -14,7 +21,7 @@ export function resolveSchema(components: any[], scanMeta: MaterialScanMeta): Ma
     framework: scanMeta.framework,
     frameworkVersion: scanMeta.frameworkVersion,
     components: [],
-  }
+  };
 
   schema.components = components.map((c) => {
     if (scanMeta.framework === 'react') {
@@ -22,12 +29,14 @@ export function resolveSchema(components: any[], scanMeta: MaterialScanMeta): Ma
     }
 
     return c;
-  })
+  });
 
   return schema;
 }
 
-export async function parse(options: MaterialParseOptions): Promise<MaterialSchema> {
+export async function parse(
+  options: MaterialParseOptions,
+): Promise<MaterialSchema> {
   consola.start(`生成临时目录...`);
   const { workDir, moduleDir } = await localize(options);
   consola.success(`目录 ${workDir}`);
@@ -36,22 +45,28 @@ export async function parse(options: MaterialParseOptions): Promise<MaterialSche
     const scanMeta = await parseMeta(moduleDir);
 
     consola.success(`解析成功`);
-    consola.box(JSON.stringify({
-      name: scanMeta.pkgName,
-      version: scanMeta.pkgVersion,
-      framework: scanMeta.framework,
-      frameworkVersion: scanMeta.frameworkVersion,
-      mainFilePath: scanMeta.mainFilePath,
-      moduleFilePath: scanMeta.moduleFilePath,
-      typingsFilePath: scanMeta.typingsFilePath,
-    }, null, '  '));
+    consola.box(
+      JSON.stringify(
+        {
+          name: scanMeta.pkgName,
+          version: scanMeta.pkgVersion,
+          framework: scanMeta.framework,
+          frameworkVersion: scanMeta.frameworkVersion,
+          mainFilePath: scanMeta.mainFilePath,
+          moduleFilePath: scanMeta.moduleFilePath,
+          typingsFilePath: scanMeta.typingsFilePath,
+        },
+        null,
+        '  ',
+      ),
+    );
 
     scanMeta.workDir = workDir;
     scanMeta.moduleDir = moduleDir;
     scanMeta.npmClient = options.npmClient;
 
     let parseResult: any[] = [];
-    switch(scanMeta.framework) {
+    switch (scanMeta.framework) {
       case 'react':
         parseResult = await parseReact(scanMeta);
         break;
@@ -60,7 +75,9 @@ export async function parse(options: MaterialParseOptions): Promise<MaterialSche
         parseResult = await parseVue(scanMeta);
         break;
       default:
-        consola.warn(`${options.name} 未找到适配的解析器, 框架: ${scanMeta.framework}`);
+        consola.warn(
+          `${options.name} 未找到适配的解析器, 框架: ${scanMeta.framework}`,
+        );
         break;
     }
 
@@ -71,9 +88,9 @@ export async function parse(options: MaterialParseOptions): Promise<MaterialSche
     }
 
     return resolveSchema(parseResult || [], scanMeta);
-  } catch(e) {
+  } catch (e) {
     throw e;
   } finally {
     await fs.remove(workDir);
   }
-};
+}

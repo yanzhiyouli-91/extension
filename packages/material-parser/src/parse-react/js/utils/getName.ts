@@ -6,7 +6,12 @@ export default function (def: any) {
     name = def.node.name;
     // hoc
   } else if (t.CallExpression.check(def.node)) {
-    if (def.node.arguments && def.node.arguments.length && t.Identifier.check(def.get('arguments', 0).node)) name = def.get('arguments', 0).node.name;
+    if (
+      def.node.arguments &&
+      def.node.arguments.length &&
+      t.Identifier.check(def.get('arguments', 0).node)
+    )
+      name = def.get('arguments', 0).node.name;
   }
 
   return name;

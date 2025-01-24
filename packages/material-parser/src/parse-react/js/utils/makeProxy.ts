@@ -9,7 +9,9 @@ function makeProxy(target: { [name: string]: any }, meta: any = {}): any {
       if (prop === '__isProxy') return true;
       if (prop === '__getRaw') return () => target;
       if (prop === '__getMeta') return () => meta;
-      return Object.prototype.hasOwnProperty.call(meta, prop) ? meta[prop] : obj[prop];
+      return Object.prototype.hasOwnProperty.call(meta, prop)
+        ? meta[prop]
+        : obj[prop];
     },
     has: (obj, prop) => {
       return (

@@ -99,7 +99,9 @@ export function transformType(itemType: any) {
     // eslint-disable-next-line no-fallthrough
     case 'oneOfType':
       result.type = 'oneOfType';
-      result.value = value.filter(({ name }) => name !== 'undefined').map(transformType);
+      result.value = value
+        .filter(({ name }) => name !== 'undefined')
+        .map(transformType);
       break;
     case 'boolean':
       result.type = 'bool';
@@ -127,7 +129,8 @@ export function transformType(itemType: any) {
         break;
       }
       result.type = 'shape';
-      const properties = type?.signature?.properties || itemType?.signature?.properties || [];
+      const properties =
+        type?.signature?.properties || itemType?.signature?.properties || [];
       if (properties.length === 0) {
         if (raw?.includes('=>')) {
           result.type = 'func';
@@ -135,7 +138,10 @@ export function transformType(itemType: any) {
         } else {
           result.type = 'object';
         }
-      } else if (properties.length === 1 && typeof properties[0].key === 'object') {
+      } else if (
+        properties.length === 1 &&
+        typeof properties[0].key === 'object'
+      ) {
         const v = transformType(properties[0].value);
         if (v === 'any') {
           result.type = 'object';
@@ -292,7 +298,11 @@ export function transformItem(name: string, item: any) {
       result.description = description;
     }
   }
-  if (!isNil(defaultValue) && typeof defaultValue === 'object' && isEvaluable(defaultValue)) {
+  if (
+    !isNil(defaultValue) &&
+    typeof defaultValue === 'object' &&
+    isEvaluable(defaultValue)
+  ) {
     if (defaultValue === null) {
       result.defaultValue = defaultValue;
     } else if ('computed' in defaultValue) {

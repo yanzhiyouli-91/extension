@@ -15,11 +15,20 @@ export async function isNPMModuleInstalled(
   args: { workDir: string; moduleDir: string; npmClient?: string },
   name: string,
 ) {
-  const modulePkgJsonPath = path.resolve(args.workDir, 'node_modules', name, 'package.json');
+  const modulePkgJsonPath = path.resolve(
+    args.workDir,
+    'node_modules',
+    name,
+    'package.json',
+  );
   return pathExists(modulePkgJsonPath);
 }
 
-export async function install(args: { workDir: string; moduleDir: string; npmClient?: string }) {
+export async function install(args: {
+  workDir: string;
+  moduleDir: string;
+  npmClient?: string;
+}) {
   if (await isNPMInstalled(args)) return;
   const { workDir, npmClient = 'npm' } = args;
   try {
@@ -36,21 +45,28 @@ export async function installModule(
   if (await isNPMModuleInstalled(args, name)) return;
   const { workDir, npmClient = 'npm' } = args;
   try {
-    await spawn(npmClient, ['i', name], { stdio: 'inherit', cwd: workDir } as any);
+    await spawn(npmClient, ['i', name], {
+      stdio: 'inherit',
+      cwd: workDir,
+    } as any);
   } catch (e) {
     // TODO
   }
 }
 
 function getFrameworkDependencies(framework: string, pkg: Record<string, any>) {
-  const { dependencies = {}, devDependencies = {}, peerDependencies = {} } = pkg;
+  const {
+    dependencies = {},
+    devDependencies = {},
+    peerDependencies = {},
+  } = pkg;
   const map = {
     ...dependencies,
     ...devDependencies,
     ...peerDependencies,
   };
   let result = {};
-  switch(framework) {
+  switch (framework) {
     case 'react':
       result = {
         react: 'latest',
@@ -63,7 +79,7 @@ function getFrameworkDependencies(framework: string, pkg: Record<string, any>) {
       break;
     case 'vue2':
       result = {
-        'vue': '2.6.12',
+        vue: '2.6.12',
         'vue-i18n': '^8.28.2',
         'vue-router': '^3.1.2',
         '@vue/composition-api': '^1.7.2',
@@ -71,12 +87,13 @@ function getFrameworkDependencies(framework: string, pkg: Record<string, any>) {
       break;
     case 'vue3':
       result = {
-        'vue': 'latest',
+        vue: 'latest',
         'vue-router': 'latest',
         'vue-i18n': 'latest',
       };
       break;
-    default: return {};
+    default:
+      return {};
   }
 
   Object.keys(result).forEach((k) => {
@@ -127,5 +144,8 @@ export async function syncTypeModules(args: {
     return;
   }
   await installModule(args, 'typesync');
-  await spawn(npmClient.replace('m', 'x'), ['typesync'], { stdio: 'inherit', cwd: workDir } as any);
+  await spawn(npmClient.replace('m', 'x'), ['typesync'], {
+    stdio: 'inherit',
+    cwd: workDir,
+  } as any);
 }

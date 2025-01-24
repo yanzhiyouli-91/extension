@@ -7,17 +7,17 @@ import findJSFilePath from './findJSFilePath';
 const buildParser = require('react-docgen/dist/babelParser').default;
 const expressionTo = require('react-docgen/dist/utils/expressionTo');
 
-const {
-  resolveToValue,
-  isExportsOrModuleAssignment,
-} = require('react-docgen').utils;
+const { resolveToValue, isExportsOrModuleAssignment } =
+  require('react-docgen').utils;
 
 export default function getComposedPropTypesPath(documentation, propName, p) {
   const composes: string[] = Array.from(documentation._composes);
   let _path = null;
   const root = getRoot(p).node;
   for (const compose of composes) {
-    const composePath = findJSFilePath(path.resolve(path.dirname(root.__path), compose));
+    const composePath = findJSFilePath(
+      path.resolve(path.dirname(root.__path), compose),
+    );
     if (!composePath) continue;
 
     const fileContent = fs.readFileSync(composePath, 'utf8');

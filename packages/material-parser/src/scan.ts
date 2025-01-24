@@ -1,7 +1,7 @@
 import * as fs from 'fs-extra';
 import path from 'path';
-import { MaterialScanMeta } from "./types/parse";
-import { resolveFramework, resolvePkgJSON } from "./utils/meta";
+import { MaterialScanMeta } from './types/parse';
+import { resolveFramework, resolvePkgJSON } from './utils/meta';
 
 export async function parseMeta(root: string): Promise<MaterialScanMeta> {
   const scanMeta: MaterialScanMeta = {
@@ -29,15 +29,23 @@ export async function parseMeta(root: string): Promise<MaterialScanMeta> {
   }
 
   if (pkgJson.vetur) {
-    const veturTagFileAbsolutePath = pkgJson.vetur.tags ? path.join(root, pkgJson.vetur.tags) : '';
-    const veturAttributesFileAbsolutePath = pkgJson.vetur.attributes ? path.join(root, pkgJson.vetur.attributes) : '';
+    const veturTagFileAbsolutePath = pkgJson.vetur.tags
+      ? path.join(root, pkgJson.vetur.tags)
+      : '';
+    const veturAttributesFileAbsolutePath = pkgJson.vetur.attributes
+      ? path.join(root, pkgJson.vetur.attributes)
+      : '';
 
     if (veturTagFileAbsolutePath && fs.existsSync(veturTagFileAbsolutePath)) {
       scanMeta.veturTagFileAbsolutePath = veturTagFileAbsolutePath;
     }
 
-    if (veturAttributesFileAbsolutePath && fs.existsSync(veturAttributesFileAbsolutePath)) {
-      scanMeta.veturAttributesFileAbsolutePath = veturAttributesFileAbsolutePath;
+    if (
+      veturAttributesFileAbsolutePath &&
+      fs.existsSync(veturAttributesFileAbsolutePath)
+    ) {
+      scanMeta.veturAttributesFileAbsolutePath =
+        veturAttributesFileAbsolutePath;
     }
   }
 
@@ -53,7 +61,8 @@ export async function parseMeta(root: string): Promise<MaterialScanMeta> {
     }
   }
   scanMeta.mainFilePath = pkgJson.main || './index.js';
-  scanMeta.mainFileAbsolutePath = scanMeta.mainFileAbsolutePath || path.join(root, pkgJson.main);
+  scanMeta.mainFileAbsolutePath =
+    scanMeta.mainFileAbsolutePath || path.join(root, pkgJson.main);
   const typingsPathCandidates = [
     pkgJson.typings,
     pkgJson.types,

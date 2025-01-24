@@ -42,7 +42,9 @@ function getDefaultValue(path: NodePathType) {
     return {
       value: defaultValue,
       computed:
-        t.CallExpression.check(node) || t.MemberExpression.check(node) || t.Identifier.check(node),
+        t.CallExpression.check(node) ||
+        t.MemberExpression.check(node) ||
+        t.Identifier.check(node),
     };
   }
 
@@ -59,7 +61,10 @@ function getStatelessPropsPath(componentDefinition: any) {
 }
 
 function getDefaultPropsPath(componentDefinition: any) {
-  let defaultPropsPath = getMemberValuePath(componentDefinition, 'defaultProps');
+  let defaultPropsPath = getMemberValuePath(
+    componentDefinition,
+    'defaultProps',
+  );
   if (!defaultPropsPath) {
     return null;
   }
@@ -72,7 +77,8 @@ function getDefaultPropsPath(componentDefinition: any) {
   if (t.FunctionExpression.check(defaultPropsPath.node)) {
     // Find the value that is returned from the function and process it if it is
     // an object literal.
-    const returnValue = resolveFunctionDefinitionToReturnValue(defaultPropsPath);
+    const returnValue =
+      resolveFunctionDefinitionToReturnValue(defaultPropsPath);
     if (returnValue && t.ObjectExpression.check(returnValue.node)) {
       defaultPropsPath = returnValue;
     }
@@ -80,11 +86,17 @@ function getDefaultPropsPath(componentDefinition: any) {
   return defaultPropsPath;
 }
 
-function getDefaultValuesFromProps(properties: any[], documentation: any, isStateless: boolean) {
+function getDefaultValuesFromProps(
+  properties: any[],
+  documentation: any,
+  isStateless: boolean,
+) {
   properties
     // Don't evaluate property if component is functional and the node is not an AssignmentPattern
     .filter(
-      (propertyPath) => !isStateless || t.AssignmentPattern.check(propertyPath.get('value').node),
+      (propertyPath) =>
+        !isStateless ||
+        t.AssignmentPattern.check(propertyPath.get('value').node),
     )
     .forEach((propertyPath) => {
       if (t.Property.check(propertyPath.node)) {
@@ -93,7 +105,9 @@ function getDefaultValuesFromProps(properties: any[], documentation: any, isStat
 
         const propDescriptor = documentation.getPropDescriptor(propName);
         const defaultValue = getDefaultValue(
-          isStateless ? propertyPath.get('value', 'right') : propertyPath.get('value'),
+          isStateless
+            ? propertyPath.get('value', 'right')
+            : propertyPath.get('value'),
         );
         if (defaultValue) {
           propDescriptor.defaultValue = defaultValue;
@@ -111,7 +125,10 @@ function getDefaultValuesFromProps(properties: any[], documentation: any, isStat
     });
 }
 
-export default function defaultPropsHandler(documentation: any, componentDefinition: any) {
+export default function defaultPropsHandler(
+  documentation: any,
+  componentDefinition: any,
+) {
   let statelessProps: any = null;
   let defaultPropsPath = getDefaultPropsPath(componentDefinition);
   /**
@@ -123,15 +140,27 @@ export default function defaultPropsHandler(documentation: any, componentDefinit
 
   // Do both statelessProps and defaultProps if both are available so defaultProps can override
   if (statelessProps && t.ObjectPattern.check(statelessProps.node)) {
-    getDefaultValuesFromProps(statelessProps.get('properties'), documentation, true);
+    getDefaultValuesFromProps(
+      statelessProps.get('properties'),
+      documentation,
+      true,
+    );
   }
   if (defaultPropsPath && !t.ObjectExpression.check(defaultPropsPath.node)) {
-    const composedPath = getComposedPath(documentation, 'defaultProps', defaultPropsPath);
+    const composedPath = getComposedPath(
+      documentation,
+      'defaultProps',
+      defaultPropsPath,
+    );
     if (composedPath) {
       defaultPropsPath = composedPath;
     }
   }
   if (defaultPropsPath && t.ObjectExpression.check(defaultPropsPath.node)) {
-    getDefaultValuesFromProps(defaultPropsPath.get('properties'), documentation, false);
+    getDefaultValuesFromProps(
+      defaultPropsPath.get('properties'),
+      documentation,
+      false,
+    );
   }
 }

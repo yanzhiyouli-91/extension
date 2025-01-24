@@ -42,8 +42,16 @@ function getSymbolName(symbol: ts.Symbol) {
 
 function getFunctionParams(parameters: any[] = [], checker, parentIds, type) {
   return parameters.map((node) => {
-    const typeObject = checker.getTypeOfSymbolAtLocation(node.symbol, node.symbol.valueDeclaration);
-    const v = getDocgenTypeHelper(checker, typeObject, false, getNextParentIds(parentIds, type));
+    const typeObject = checker.getTypeOfSymbolAtLocation(
+      node.symbol,
+      node.symbol.valueDeclaration,
+    );
+    const v = getDocgenTypeHelper(
+      checker,
+      typeObject,
+      false,
+      getNextParentIds(parentIds, type),
+    );
     const name = node.symbol.escapedName;
     return {
       name,
@@ -156,7 +164,9 @@ function getDocgenTypeHelper(
       const propType = checker.getTypeOfSymbolAtLocation(
         prop,
         // @ts-ignore
-        prop.valueDeclaration || (prop.declarations && prop.declarations[0]) || {},
+        prop.valueDeclaration ||
+          (prop.declarations && prop.declarations[0]) ||
+          {},
       );
       return {
         key: prop.getName(),
@@ -224,7 +234,11 @@ function getDocgenTypeHelper(
       //   throw new Error('too many props');
       // }
       return getShapeFromArray(
-        props.filter((prop) => (prop.getName() !== '__index' && prop.flags !== SymbolFlags.TypeParameter)),
+        props.filter(
+          (prop) =>
+            prop.getName() !== '__index' &&
+            prop.flags !== SymbolFlags.TypeParameter,
+        ),
         _type,
       );
     } else {
@@ -324,7 +338,13 @@ function getDocgenTypeHelper(
       name: 'union',
       // @ts-ignore
       value: type.types.map((t) =>
-        getDocgenTypeHelper(checker, t, true, getNextParentIds(parentIds, type))),
+        getDocgenTypeHelper(
+          checker,
+          t,
+          true,
+          getNextParentIds(parentIds, type),
+        ),
+      ),
     });
   } else if (isComplexType(type)) {
     return makeResult({
@@ -371,26 +391,40 @@ function getDocgenTypeHelper(
           type,
         ),
         returns: {
-          propType: getDocgenTypeHelper(checker, returnType, false, getNextParentIds(parentIds, type), false),
+          propType: getDocgenTypeHelper(
+            checker,
+            returnType,
+            false,
+            getNextParentIds(parentIds, type),
+            false,
+          ),
         },
       });
     } else if (
       // @ts-ignore
-      type?.members?.get('__call')?.declarations[0]?.symbol?.declarations[0]?.parameters?.length
+      type?.members?.get('__call')?.declarations[0]?.symbol?.declarations[0]
+        ?.parameters?.length
     ) {
       const returnType = type.getCallSignatures()[0].getReturnType();
       return makeResult({
         name: 'func',
         params: getFunctionParams(
           // @ts-ignore
-          type?.members?.get('__call')?.declarations[0]?.symbol?.declarations[0]?.parameters,
+          type?.members?.get('__call')?.declarations[0]?.symbol?.declarations[0]
+            ?.parameters,
           checker,
           parentIds,
           type,
         ),
         returns: {
-          propType: getDocgenTypeHelper(checker, returnType, false, getNextParentIds(parentIds, type), false),
-        }
+          propType: getDocgenTypeHelper(
+            checker,
+            returnType,
+            false,
+            getNextParentIds(parentIds, type),
+            false,
+          ),
+        },
       });
     } else {
       try {
@@ -430,7 +464,9 @@ class MyParser extends Parser {
   }
 
   // override the builtin method, to avoid the false positive
-  public extractPropsFromTypeIfStatelessComponent(type: ts.Type): ts.Symbol | null {
+  public extractPropsFromTypeIfStatelessComponent(
+    type: ts.Type,
+  ): ts.Symbol | null {
     const callSignatures = type.getCallSignatures();
 
     if (callSignatures.length) {
@@ -451,9 +487,9 @@ class MyParser extends Parser {
         const typeString = this.checker.typeToString(returnType);
 
         if (
-          typeString.includes('ReactElement')
-          || typeString.includes('ReactNode')
-          || typeString.includes('React.JSX.Element')
+          typeString.includes('ReactElement') ||
+          typeString.includes('ReactNode') ||
+          typeString.includes('React.JSX.Element')
         ) {
           const propsParam = params[0];
           if (propsParam) {
@@ -486,7 +522,10 @@ function getComponentName(exportName, displayName) {
 
 const defaultTsConfigPath = path.resolve(__dirname, './tsconfig.json');
 
-export default function parseTS(filePath: string, args: MaterialScanMeta): IMaterialParsedModel[] {
+export default function parseTS(
+  filePath: string,
+  args: MaterialScanMeta,
+): IMaterialParsedModel[] {
   if (!filePath) return [];
 
   let basePath = args.moduleDir || args.workDir || path.dirname(filePath);
@@ -503,7 +542,8 @@ export default function parseTS(filePath: string, args: MaterialScanMeta): IMate
 
   log('ts config path is', tsConfigPath);
   const { config, error } = ts.readConfigFile(tsConfigPath, (filename) =>
-    readFileSync(filename, 'utf8'));
+    readFileSync(filename, 'utf8'),
+  );
 
   if (error !== undefined) {
     const errorText = `Cannot load custom tsconfig.json from provided path: ${tsConfigPath}, with error code: ${error.code}, message: ${error.messageText}`;
@@ -552,7 +592,9 @@ export default function parseTS(filePath: string, args: MaterialScanMeta): IMate
         }
 
         // polyfill valueDeclaration
-        sym.valueDeclaration = sym.valueDeclaration || (Array.isArray(sym.declarations) && sym.declarations[0]) as any;
+        sym.valueDeclaration =
+          sym.valueDeclaration ||
+          ((Array.isArray(sym.declarations) && sym.declarations[0]) as any);
 
         if (!sym.valueDeclaration) {
           continue;
@@ -581,7 +623,7 @@ export default function parseTS(filePath: string, args: MaterialScanMeta): IMate
 
         const type = checker.getTypeOfSymbolAtLocation(
           sym,
-          sym.valueDeclaration || sym.declarations?.[0] as any,
+          sym.valueDeclaration || (sym.declarations?.[0] as any),
         );
         Array.prototype.push.apply(
           exportSymbols,

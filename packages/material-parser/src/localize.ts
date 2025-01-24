@@ -47,7 +47,10 @@ export async function createFakePackage(params: {
 
   // 安装依赖
   const npmClient = params.npmClient || 'npm';
-  await spawn(npmClient, npmClient === 'pnpm' ? ['i', '-r'] : ['i'], { stdio: 'inherit', cwd: workDir } as any);
+  await spawn(npmClient, npmClient === 'pnpm' ? ['i', '-r'] : ['i'], {
+    stdio: 'inherit',
+    cwd: workDir,
+  } as any);
 }
 
 /**
@@ -59,7 +62,10 @@ export async function createFakePackage(params: {
  */
 export async function createWorkDir(tempDir?: string): Promise<string> {
   const workDirName = uid(8);
-  const workDir = resolve(tempDir || resolve(process.cwd(), 'node_modules/.temp/'), workDirName);
+  const workDir = resolve(
+    tempDir || resolve(process.cwd(), 'node_modules/.temp/'),
+    workDirName,
+  );
   await ensureDir(workDir);
   log('create temp dir successfully', workDir);
   return workDir;
@@ -73,7 +79,9 @@ export async function createWorkDir(tempDir?: string): Promise<string> {
  * @returns {{ [key: string]: any }}
  * @memberof OnlineAccesser
  */
-export function getPkgNameAndVersion(pkgNameWithVersion: string): { [key: string]: any } {
+export function getPkgNameAndVersion(pkgNameWithVersion: string): {
+  [key: string]: any;
+} {
   const matches = pkgNameWithVersion.match(/(@[^/]+)$/);
   if (!matches) {
     return {

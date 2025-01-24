@@ -49,7 +49,10 @@ function resolveDefinition(definition: any) {
   } else if (isReactComponentClass(definition)) {
     normalizeClassDefinition(definition);
     return definition;
-  } else if (isStatelessComponent(definition) || isReactForwardRefCall(definition)) {
+  } else if (
+    isStatelessComponent(definition) ||
+    isReactForwardRefCall(definition)
+  ) {
     return definition;
   }
   return null;
@@ -89,66 +92,78 @@ function getDefinition(definition: any, cache: ICache = {}): any {
       }
       definition.get('expressions').each((x: any) => {
         if (!x.name) return;
-        if (t.AssignmentExpression.check(x.node) && t.MemberExpression.check(x.node.left)) {
+        if (
+          t.AssignmentExpression.check(x.node) &&
+          t.MemberExpression.check(x.node.left)
+        ) {
           const objectName = x.node.left.object.name;
           if (localNames.includes(objectName)) {
             x.get('left', 'object').replace(classNameNode);
           }
         }
       });
-      definition = getDefinition(resolveToValue(definition.get('expressions').get(0)), cache);
+      definition = getDefinition(
+        resolveToValue(definition.get('expressions').get(0)),
+        cache,
+      );
     } else {
-      return resolveImport(definition, (ast: any, sourcePath: string, importMeta, mode) => {
-        let result;
-        if (has('ast-export', ast.__path)) {
-          result = get('ast-export', ast.__path);
-        } else {
-          result = findAllExportedComponentDefinition(ast);
-          set('ast-export', ast.__path, result);
-        }
+      return resolveImport(
+        definition,
+        (ast: any, sourcePath: string, importMeta, mode) => {
+          let result;
+          if (has('ast-export', ast.__path)) {
+            result = get('ast-export', ast.__path);
+          } else {
+            result = findAllExportedComponentDefinition(ast);
+            set('ast-export', ast.__path, result);
+          }
 
-        const exportList: any[] = [];
-        const importList: any[] = [];
-        result.forEach((def: any) => {
-          const { __meta: meta = {} } = def;
-          let { exportName } = meta;
-          for (const item of importMeta) {
-            if (exportName === item.importedName) {
-              exportName = item.localName;
-              break;
+          const exportList: any[] = [];
+          const importList: any[] = [];
+          result.forEach((def: any) => {
+            const { __meta: meta = {} } = def;
+            let { exportName } = meta;
+            for (const item of importMeta) {
+              if (exportName === item.importedName) {
+                exportName = item.localName;
+                break;
+              }
             }
-          }
 
-          if (exportName) {
-            importList.push(makeProxy(def, { __meta: { exportName } }));
-          }
+            if (exportName) {
+              importList.push(makeProxy(def, { __meta: { exportName } }));
+            }
 
-          const nextMeta: any = {
-            exportName,
-          };
+            const nextMeta: any = {
+              exportName,
+            };
 
-          if (exportName === exportMeta.localName) {
-            nextMeta.exportName = exportMeta.exportName;
-          } else if (mode === 'import') {
-            // } else {
-            return;
-          }
+            if (exportName === exportMeta.localName) {
+              nextMeta.exportName = exportMeta.exportName;
+            } else if (mode === 'import') {
+              // } else {
+              return;
+            }
 
-          if (exportMeta.subName) {
-            nextMeta.subName = exportMeta.subName;
-          } else if (meta.subName) {
-            nextMeta.subName = meta.subName;
-          }
-          exportList.push(makeProxy(def, { __meta: nextMeta }));
-        });
-        cache[sourcePath] = importList;
+            if (exportMeta.subName) {
+              nextMeta.subName = exportMeta.subName;
+            } else if (meta.subName) {
+              nextMeta.subName = meta.subName;
+            }
+            exportList.push(makeProxy(def, { __meta: nextMeta }));
+          });
+          cache[sourcePath] = importList;
 
-        // result = result.filter((x) => !x.__shouldDelete);
-        return exportList;
-      });
+          // result = result.filter((x) => !x.__shouldDelete);
+          return exportList;
+        },
+      );
     }
   }
-  if (definition && (!definition.__meta || Object.keys(definition.__meta).length === 0)) {
+  if (
+    definition &&
+    (!definition.__meta || Object.keys(definition.__meta).length === 0)
+  ) {
     definition.__meta = exportMeta;
   }
   return definition;
@@ -169,10 +184,16 @@ function getSubComponents(path: any, scope: any, cache: ICache) {
   let methodPaths: any[] = [];
   if (isReactComponentClass(path)) {
     methodPaths = path.get('body', 'body').filter(isStaticMethod);
-    methodPaths = [...methodPaths, ...findAssignedMethods(scope || path.scope, path.get('id'))];
+    methodPaths = [
+      ...methodPaths,
+      ...findAssignedMethods(scope || path.scope, path.get('id')),
+    ];
   } else if (t.ObjectExpression.check(path.node)) {
     methodPaths = path.get('properties').filter(isStaticMethod);
-    methodPaths = [...methodPaths, ...findAssignedMethods(scope || path.scope, path.get('id'))];
+    methodPaths = [
+      ...methodPaths,
+      ...findAssignedMethods(scope || path.scope, path.get('id')),
+    ];
     // Add the statics object properties.
     const statics = getMemberValuePath(path, 'statics');
     if (statics) {
@@ -188,17 +209,29 @@ function getSubComponents(path: any, scope: any, cache: ICache) {
     path.parent.node.init === path.node &&
     t.Identifier.check(path.parent.node.id)
   ) {
-    methodPaths = findAssignedMethods(scope || path.parent.scope, path.parent.get('id'));
+    methodPaths = findAssignedMethods(
+      scope || path.parent.scope,
+      path.parent.get('id'),
+    );
   } else if (
     t.AssignmentExpression.check(path.parent.node) &&
     path.parent.node.right === path.node &&
     t.Identifier.check(path.parent.node.left)
   ) {
-    methodPaths = findAssignedMethods(scope || path.parent.scope, path.parent.get('left'));
+    methodPaths = findAssignedMethods(
+      scope || path.parent.scope,
+      path.parent.get('left'),
+    );
   } else if (t.FunctionDeclaration.check(path.node)) {
-    methodPaths = findAssignedMethods(scope || path.parent.scope, path.get('id'));
+    methodPaths = findAssignedMethods(
+      scope || path.parent.scope,
+      path.get('id'),
+    );
   } else if (t.ArrowFunctionExpression.check(path.node)) {
-    methodPaths = findAssignedMethods(scope || path.parent.scope, path.parent.get('id'));
+    methodPaths = findAssignedMethods(
+      scope || path.parent.scope,
+      path.parent.get('id'),
+    );
   }
 
   return (
@@ -239,7 +272,9 @@ function getSubComponents(path: any, scope: any, cache: ICache) {
         return {
           subName,
           localName,
-          value: def.flatMap((x: any) => x).filter((x: any) => isComponentDefinition(x)),
+          value: def
+            .flatMap((x: any) => x)
+            .filter((x: any) => isComponentDefinition(x)),
         };
       })
       .map(({ subName, localName, value }: IMethodsPath) => {
@@ -387,7 +422,9 @@ export default function findAllExportedComponentDefinition(ast: any) {
   }, []);
 
   const res = uniqBy(result, (x: any) => {
-    return `${getRoot(x)?.node?.__path}/${x.__meta?.exportName}/${x.__meta?.subName}`;
+    return `${getRoot(x)?.node?.__path}/${x.__meta?.exportName}/${
+      x.__meta?.subName
+    }`;
   });
 
   return res;

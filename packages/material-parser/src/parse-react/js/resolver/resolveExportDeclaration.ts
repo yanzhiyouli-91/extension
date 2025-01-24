@@ -36,7 +36,9 @@ export default function resolveExportDeclaration(path: NodePath) {
     }
   } else if (path.node.specifiers) {
     path.get('specifiers').each((specifier: any) => {
-      const def = specifier.node.id ? specifier.get('id') : specifier.get('local');
+      const def = specifier.node.id
+        ? specifier.get('id')
+        : specifier.get('local');
       const exportName = specifier.get('exported').node.name;
       const localName = def.get('local').node.name;
 
