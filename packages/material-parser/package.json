@@ -39,15 +39,20 @@
   "dependencies": {
     "@babel/parser": "^7.26.5",
     "@babel/types": "^7.26.5",
+    "@vue/compiler-dom": "^3.2.0",
+    "@vue/compiler-sfc": "^3.2.0",
     "@types/semver": "^7.5.8",
     "ast-types": "^0.16.1",
+    "esm-resolve": "^1.0.8",
     "consola": "^3.4.0",
     "cross-spawn-promise": "^0.10.2",
     "debug": "^4.4.0",
     "find-config": "^1.0.0",
     "fs-extra": "^8.1.0",
     "jsdom": "^23.0.1",
+    "hash-sum": "^2.0.0",
     "lodash": "^4.17.15",
+    "lru-cache": "^8.0.3",
     "ora": "^5.4.1",
     "parse-prop-types": "^0.3.0",
     "react-docgen": "^5.4.0",
@@ -55,9 +60,11 @@
     "recast": "^0.23.9",
     "safe-eval": "^0.4.1",
     "semver": "^7.6.3",
+    "ts-map": "^1.0.3",
     "typescript": "^5.7.3",
     "uid": "^2.0.2",
-    "vm2": "3.9.19"
+    "vm2": "3.9.19",
+    "vue-inbrowser-compiler-independent-utils": "^4.69.0"
   },
   "keywords": [
     "CodeWave",

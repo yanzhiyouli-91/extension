@@ -4,7 +4,7 @@ import { parseWebTypes } from './parse-web-types';
 import { parseVetur } from './parse-vetur';
 import parseExports from './parse-exports';
 
-function removeRepeatItem(arr: Array<{ name: string, [key: string]: any }>) {
+function removeRepeatItem(arr: Array<{ name: string; [key: string]: any }>) {
   const list: any[] = [];
 
   arr.forEach((it) => {
@@ -21,17 +21,27 @@ function removeRepeatItem(arr: Array<{ name: string, [key: string]: any }>) {
  * @param args 扫描信息
  * @returns MaterialComponent[]
  */
-export default async function (args: MaterialScanMeta): Promise<MaterialComponent[]> {
+export default async function (
+  args: MaterialScanMeta,
+): Promise<MaterialComponent[]> {
   const exportNames = await parseExports(args);
   let components: MaterialComponent[] = [];
   if (args.webTypeFileAbsolutePath) {
     components = parseWebTypes(args.webTypeFileAbsolutePath);
-  } else if (args.veturTagFileAbsolutePath && args.veturAttributesFileAbsolutePath) {
-    components = parseVetur(args.veturTagFileAbsolutePath, args.veturAttributesFileAbsolutePath);
+  } else if (
+    args.veturTagFileAbsolutePath &&
+    args.veturAttributesFileAbsolutePath
+  ) {
+    components = parseVetur(
+      args.veturTagFileAbsolutePath,
+      args.veturAttributesFileAbsolutePath,
+    );
   }
   // parseConfig
   return components.map((comp) => {
-    const aliasName = upperFirst(camelCase(kebabCase(comp.name).split('-').slice(1).join('-')));
+    const aliasName = upperFirst(
+      camelCase(kebabCase(comp.name).split('-').slice(1).join('-')),
+    );
 
     if (exportNames.includes(comp.name)) {
       comp.exportName = comp.name;

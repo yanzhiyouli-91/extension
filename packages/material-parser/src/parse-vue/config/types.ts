@@ -74,7 +74,7 @@ export type Pattern =
   | string
   | {
       regex?: string;
-      "case-sensitive"?: boolean;
+      'case-sensitive'?: boolean;
       [k: string]: unknown;
     };
 
@@ -82,7 +82,7 @@ export interface JSONSchemaForWebTypes {
   /**
    * Framework, for which the components are provided by the library
    */
-  framework: "vue";
+  framework: 'vue';
   /**
    * Name of the library
    */
@@ -101,21 +101,21 @@ export interface Html {
   /**
    * Language in which types as specified.
    */
-  "types-syntax"?: "typescript";
+  'types-syntax'?: 'typescript';
   /**
    * Markup language in which descriptions are formatted
    */
-  "description-markup"?: "html" | "markdown" | "none";
+  'description-markup'?: 'html' | 'markdown' | 'none';
   tags?: HtmlTag[];
   attributes?: HtmlAttribute[];
-  "vue-filters"?: HtmlVueFilter[];
+  'vue-filters'?: HtmlVueFilter[];
 }
 
 export interface HtmlTag {
   name: Name;
   aliases?: Aliases;
   description?: Description;
-  "doc-url"?: DocUrl;
+  'doc-url'?: DocUrl;
   attributes?: HtmlTagAttribute[];
   source?: Source;
   events?: HtmlTagEvent[];
@@ -123,8 +123,8 @@ export interface HtmlTag {
   /**
    * Deprecated. Use regular 'slot' property instead and specify 'vue-properties' to provide slot scope information.
    */
-  "vue-scoped-slots"?: null;
-  "vue-model"?: HtmlTagVueModel;
+  'vue-scoped-slots'?: null;
+  'vue-model'?: HtmlTagVueModel;
 }
 
 export interface HtmlVueElement {
@@ -142,7 +142,7 @@ export interface HtmlVueElement {
 export interface HtmlTagAttribute {
   name: Name;
   description?: Description;
-  "doc-url"?: DocUrl;
+  'doc-url'?: DocUrl;
   default?: HtmlAttributeDefault;
   required?: HtmlAttributeRequired;
   value?: HtmlAttributeValue;
@@ -150,7 +150,7 @@ export interface HtmlTagAttribute {
    * Deprecated. Use 'value' property instead. Specify only if type is 'boolean' for compatibility with WebStorm 2019.2.
    */
   type?: Type;
-  values?: ({ name: string })[];
+  values?: { name: string }[];
   'attribute-value': {
     type: 'enum' | 'of-match';
   };
@@ -167,14 +167,14 @@ export interface ComplexType {
 export interface HtmlTagEvent {
   name: Name;
   description?: Description;
-  "doc-url"?: DocUrl;
+  'doc-url'?: DocUrl;
   arguments?: TypedEntity[];
 }
 
 export interface TypedEntity {
   name: Name;
   description?: Description;
-  "doc-url"?: DocUrl;
+  'doc-url'?: DocUrl;
   type?: Type;
 }
 
@@ -182,12 +182,12 @@ export interface HtmlTagSlot {
   name: Name;
   pattern?: Pattern;
   description?: Description;
-  "doc-url"?: DocUrl;
+  'doc-url'?: DocUrl;
   type?: Type;
   /**
    * Specify properties of the slot scope
    */
-  "vue-properties"?: TypedEntity[];
+  'vue-properties'?: TypedEntity[];
 }
 
 export interface HtmlTagVueModel {
@@ -199,13 +199,13 @@ export interface HtmlAttribute {
   name: Name;
   aliases?: Aliases;
   description?: Description;
-  "doc-url"?: DocUrl;
+  'doc-url'?: DocUrl;
   default?: HtmlAttributeDefault;
   required?: HtmlAttributeRequired;
   value?: HtmlAttributeValue;
   source?: Source;
-  "vue-argument"?: HtmlAttributeVueArgument;
-  "vue-modifiers"?: HtmlAttributeVueModifier[];
+  'vue-argument'?: HtmlAttributeVueArgument;
+  'vue-modifiers'?: HtmlAttributeVueModifier[];
 }
 /**
  * Provide information about directive argument
@@ -213,7 +213,7 @@ export interface HtmlAttribute {
 export interface HtmlAttributeVueArgument {
   pattern?: Pattern;
   description?: Description;
-  "doc-url"?: DocUrl;
+  'doc-url'?: DocUrl;
   /**
    * Whether directive requires an argument
    */
@@ -223,13 +223,13 @@ export interface HtmlAttributeVueModifier {
   name: Name;
   pattern?: Pattern;
   description?: Description;
-  "doc-url"?: DocUrl;
+  'doc-url'?: DocUrl;
 }
 export interface HtmlVueFilter {
   name: Name;
   aliases?: Aliases;
   description?: Description;
-  "doc-url"?: DocUrl;
+  'doc-url'?: DocUrl;
   source?: Source;
   /**
    * Type of expression on the left hand-side of the pipe of operator
@@ -248,7 +248,7 @@ export interface HtmlVueFilter {
 export interface HtmlVueFilterArgument {
   name: Name;
   description?: Description;
-  "doc-url"?: DocUrl;
+  'doc-url'?: DocUrl;
   type?: Type;
   optional?: boolean;
 }

@@ -1,11 +1,18 @@
 import { camelCase, isPlainObject } from 'lodash';
-const VUE_COMPONENTS_KEYS = ['data', 'props', 'methods', 'computed', 'emits']
+const VUE_COMPONENTS_KEYS = ['data', 'props', 'methods', 'computed', 'emits'];
 
 export function isComponent(obj: any) {
   if (typeof obj === 'object') {
-    return Object.keys(obj).findIndex((k) => VUE_COMPONENTS_KEYS.includes(k)) !== -1;
+    return (
+      Object.keys(obj).findIndex((k) => VUE_COMPONENTS_KEYS.includes(k)) !== -1
+    );
   } else if (typeof obj === 'function') {
-    return obj.options && Object.keys(obj.options).findIndex((k) => VUE_COMPONENTS_KEYS.includes(k)) !== -1;
+    return (
+      obj.options &&
+      Object.keys(obj.options).findIndex((k) =>
+        VUE_COMPONENTS_KEYS.includes(k),
+      ) !== -1
+    );
   }
 
   return false;
@@ -30,19 +37,23 @@ export function getPropDefs(component: any, props: PropDef[] = []) {
   }
 
   if (Array.isArray(component.props)) {
-    component.props.map((str) => ({ name: camelCase(str) })).forEach((op) => {
-      const i = props.findIndex((p) => p.name === op.name);
-      if (i === -1) {
-        props.push(op);
-      } else {
-        props[i] = op;
-      }
-    });
+    component.props
+      .map((str) => ({ name: camelCase(str) }))
+      .forEach((op) => {
+        const i = props.findIndex((p) => p.name === op.name);
+        if (i === -1) {
+          props.push(op);
+        } else {
+          props[i] = op;
+        }
+      });
   } else if (isPlainObject(component.props)) {
     for (const key in component.props) {
       const val = component.props[key];
       const name = camelCase(key);
-      const def = (isPlainObject(val) ? { ...val, name } : { name, type: val }) as any;
+      const def = (
+        isPlainObject(val) ? { ...val, name } : { name, type: val }
+      ) as any;
       const i = props.findIndex((p) => p.name === name);
       if (i === -1) {
         props.push(def);
@@ -75,7 +86,10 @@ export function getEmitDefs(component: any, emits: string[] = []): string[] {
   return emits;
 }
 
-export function getExposeDefs(component: any, exposes: string[] = []): string[] {
+export function getExposeDefs(
+  component: any,
+  exposes: string[] = [],
+): string[] {
   if (component.extends) {
     getExposeDefs(component.extends as any, exposes);
   }

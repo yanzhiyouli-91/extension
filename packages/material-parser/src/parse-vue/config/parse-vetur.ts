@@ -1,15 +1,26 @@
 import { readJSONSync } from 'fs-extra';
 import { VeturTag, VeturTagAttribute } from './types';
-import { MaterialComponent, MaterialComponentAttr, McUnionType } from '../../types/parse';
+import {
+  MaterialComponent,
+  MaterialComponentAttr,
+  McUnionType,
+} from '../../types/parse';
 import { normalizeName, transformType } from './utils';
 import { upperFirst } from 'lodash';
 
 const VMODEL_PREFIX = 'v-model:';
 const VMODEL_SUFFIX = '(v-model)';
 
-export function parseVetur(veturTagFileAbsolutePath: string, veturAttributesFileAbsolutePath: string): MaterialComponent[] {
-  const tagMap: Record<string, VeturTag> = readJSONSync(veturTagFileAbsolutePath);
-  const attrMap: Record<string, VeturTagAttribute> = readJSONSync(veturAttributesFileAbsolutePath);
+export function parseVetur(
+  veturTagFileAbsolutePath: string,
+  veturAttributesFileAbsolutePath: string,
+): MaterialComponent[] {
+  const tagMap: Record<string, VeturTag> = readJSONSync(
+    veturTagFileAbsolutePath,
+  );
+  const attrMap: Record<string, VeturTagAttribute> = readJSONSync(
+    veturAttributesFileAbsolutePath,
+  );
 
   return Object.keys(tagMap).map((tagName) => {
     const component: MaterialComponent = {
@@ -66,7 +77,11 @@ export function parseVetur(veturTagFileAbsolutePath: string, veturAttributesFile
       } else if (attrName.startsWith(VMODEL_PREFIX)) {
         name = attrName.substring(VMODEL_PREFIX.length);
         sync = true;
-      } else if (['value', 'model-value', 'modelValue'].includes(attrName) || (description && (description.includes('.sync') || description.includes('v-model')))) {
+      } else if (
+        ['value', 'model-value', 'modelValue'].includes(attrName) ||
+        (description &&
+          (description.includes('.sync') || description.includes('v-model')))
+      ) {
         sync = true;
       }
 

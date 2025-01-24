@@ -5,7 +5,9 @@ import parseJS from './js';
 import parseDynamic from './dynamic';
 import consola from 'consola';
 
-export default async function (args: MaterialScanMeta): Promise<MaterialComponent[]> {
+export default async function (
+  args: MaterialScanMeta,
+): Promise<MaterialComponent[]> {
   const {
     mainFileAbsolutePath,
     moduleFileAbsolutePath,
@@ -13,7 +15,9 @@ export default async function (args: MaterialScanMeta): Promise<MaterialComponen
     veturAttributesFileAbsolutePath,
     veturTagFileAbsolutePath,
   } = args;
-  const hasConfig = webTypeFileAbsolutePath || (veturAttributesFileAbsolutePath && veturTagFileAbsolutePath);
+  const hasConfig =
+    webTypeFileAbsolutePath ||
+    (veturAttributesFileAbsolutePath && veturTagFileAbsolutePath);
 
   consola.start('开始安装依赖包....');
   await installPeerAndDeps(args);
@@ -25,7 +29,7 @@ export default async function (args: MaterialScanMeta): Promise<MaterialComponen
 
   try {
     return parseJS(moduleFileAbsolutePath || mainFileAbsolutePath);
-  } catch(e) {
+  } catch (e) {
     return parseDynamic(mainFileAbsolutePath);
   }
 }

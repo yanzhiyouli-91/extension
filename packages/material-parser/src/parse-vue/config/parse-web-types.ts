@@ -6,25 +6,31 @@ import {
   MaterialComponentSlot,
   McUnionType,
 } from '../../types/parse';
-import { HtmlTag, HtmlTagAttribute, HtmlTagEvent, HtmlTagSlot, HtmlVueElement } from './types';
+import {
+  HtmlTag,
+  HtmlTagAttribute,
+  HtmlTagEvent,
+  HtmlTagSlot,
+  HtmlVueElement,
+} from './types';
 import { normalizeDefaultValue, normalizeName, transformType } from './utils';
 import { camelCase, upperFirst } from 'lodash';
 // import { camelCase, upperFirst } from 'lodash';
 
 function getTags(webTypeJSON: any): HtmlTag[] {
   if (
-    webTypeJSON.contributions
-    && webTypeJSON.contributions.html
-    && Array.isArray(webTypeJSON.contributions.html.tags)
-    && webTypeJSON.contributions.html.tags.length > 0
+    webTypeJSON.contributions &&
+    webTypeJSON.contributions.html &&
+    Array.isArray(webTypeJSON.contributions.html.tags) &&
+    webTypeJSON.contributions.html.tags.length > 0
   ) {
     return webTypeJSON.contributions.html.tags;
   }
 
   if (
-    webTypeJSON.contributions
-    && webTypeJSON.contributions.html
-    && Array.isArray(webTypeJSON.contributions.html['vue-components'])
+    webTypeJSON.contributions &&
+    webTypeJSON.contributions.html &&
+    Array.isArray(webTypeJSON.contributions.html['vue-components'])
   ) {
     return webTypeJSON.contributions.html['vue-components'];
   }
@@ -53,22 +59,42 @@ function resolveAttrs(tag: HtmlTag & HtmlVueElement): MaterialComponentAttr[] {
     } else if (attr.name.startsWith(VMODEL_PREFIX)) {
       name = attr.name.substring(VMODEL_PREFIX.length);
       sync = true;
-    } else if (['value', 'model-value', 'modelValue'].includes(attr.name) || (attr.description && (attr.description.includes('.sync') || attr.description.includes('v-model')))) {
+    } else if (
+      ['value', 'model-value', 'modelValue'].includes(attr.name) ||
+      (attr.description &&
+        (attr.description.includes('.sync') ||
+          attr.description.includes('v-model')))
+    ) {
       sync = true;
     }
 
-    let type = transformType(attr.type || (attr.value as { type: string })?.type);
+    let type = transformType(
+      attr.type || (attr.value as { type: string })?.type,
+    );
 
     let options: MaterialComponentAttr['options'] = [];
-    if (type.type === 'union' && (type as McUnionType).value.every((n) => typeof n === 'string')) {
-      options = (type as McUnionType).value.map((n: any) => ({ label: n.startsWith('"') && n.endsWith('"') ? n.substring(1, n.length - 1) : n, value: n }));
+    if (
+      type.type === 'union' &&
+      (type as McUnionType).value.every((n) => typeof n === 'string')
+    ) {
+      options = (type as McUnionType).value.map((n: any) => ({
+        label:
+          n.startsWith('"') && n.endsWith('"')
+            ? n.substring(1, n.length - 1)
+            : n,
+        value: n,
+      }));
     }
 
     if (attr.values && attr.values.length > 0) {
       options = attr.values.map(({ name }) => {
         return {
           label: name,
-          value: attr['attribute-value'] && attr['attribute-value'].type === 'of-match' ? name : JSON.stringify(name),
+          value:
+            attr['attribute-value'] &&
+            attr['attribute-value'].type === 'of-match'
+              ? name
+              : JSON.stringify(name),
         };
       });
       type = {
@@ -88,7 +114,9 @@ function resolveAttrs(tag: HtmlTag & HtmlVueElement): MaterialComponentAttr[] {
   });
 }
 
-function resolveEvents(tag: HtmlTag & HtmlVueElement): MaterialComponentEvent[] {
+function resolveEvents(
+  tag: HtmlTag & HtmlVueElement,
+): MaterialComponentEvent[] {
   let events: HtmlTagEvent[] = [];
 
   if (Array.isArray(tag.events) && tag.events.length > 0) {
@@ -127,7 +155,7 @@ function resolveSlots(tag: HtmlTag & HtmlVueElement): MaterialComponentSlot[] {
         name: p.name,
         description: p.description,
         type: transformType(p.type),
-      }))
+      })),
     } as MaterialComponentSlot;
   });
 }

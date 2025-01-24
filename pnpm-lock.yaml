@@ -305,6 +305,12 @@ importers:
       '@types/semver':
         specifier: ^7.5.8
         version: 7.5.8
+      '@vue/compiler-dom':
+        specifier: ^3.2.0
+        version: 3.5.13
+      '@vue/compiler-sfc':
+        specifier: ^3.2.0
+        version: 3.5.13
       ast-types:
         specifier: ^0.16.1
         version: 0.16.1
@@ -317,18 +323,27 @@ importers:
       debug:
         specifier: ^4.4.0
         version: 4.4.0
+      esm-resolve:
+        specifier: ^1.0.8
+        version: 1.0.11
       find-config:
         specifier: ^1.0.0
         version: 1.0.0
       fs-extra:
         specifier: ^8.1.0
         version: 8.1.0
+      hash-sum:
+        specifier: ^2.0.0
+        version: 2.0.0
       jsdom:
         specifier: ^23.0.1
         version: 23.2.0
       lodash:
         specifier: ^4.17.15
         version: 4.17.21
+      lru-cache:
+        specifier: ^8.0.3
+        version: 8.0.5
       ora:
         specifier: ^5.4.1
         version: 5.4.1
@@ -350,6 +365,9 @@ importers:
       semver:
         specifier: ^7.6.3
         version: 7.6.3
+      ts-map:
+        specifier: ^1.0.3
+        version: 1.0.3
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
@@ -359,6 +377,9 @@ importers:
       vm2:
         specifier: 3.9.19
         version: 3.9.19
+      vue-inbrowser-compiler-independent-utils:
+        specifier: ^4.69.0
+        version: 4.71.1(vue@3.5.13(typescript@5.7.3))
     devDependencies:
       '@rollup/plugin-commonjs':
         specifier: ^28.0.2
@@ -9680,7 +9701,7 @@ snapshots:
   '@babel/template@7.25.7':
     dependencies:
       '@babel/code-frame': 7.25.7
-      '@babel/parser': 7.26.3
+      '@babel/parser': 7.26.5
       '@babel/types': 7.26.3
 
   '@babel/template@7.25.9':
@@ -11680,7 +11701,7 @@ snapshots:
   '@storybook/csf-tools@7.6.17':
     dependencies:
       '@babel/generator': 7.26.3
-      '@babel/parser': 7.26.3
+      '@babel/parser': 7.26.5
       '@babel/traverse': 7.26.4
       '@babel/types': 7.26.3
       '@storybook/csf': 0.1.11
@@ -11694,7 +11715,7 @@ snapshots:
   '@storybook/csf-tools@7.6.20':
     dependencies:
       '@babel/generator': 7.26.3
-      '@babel/parser': 7.26.3
+      '@babel/parser': 7.26.5
       '@babel/traverse': 7.26.4
       '@babel/types': 7.26.3
       '@storybook/csf': 0.1.11
@@ -12081,7 +12102,7 @@ snapshots:
 
   '@types/babel__core@7.20.5':
     dependencies:
-      '@babel/parser': 7.26.3
+      '@babel/parser': 7.26.5
       '@babel/types': 7.26.3
       '@types/babel__generator': 7.6.8
       '@types/babel__template': 7.4.4
@@ -12093,7 +12114,7 @@ snapshots:
 
   '@types/babel__template@7.4.4':
     dependencies:
-      '@babel/parser': 7.26.3
+      '@babel/parser': 7.26.5
       '@babel/types': 7.26.3
 
   '@types/babel__traverse@7.20.6':
@@ -12468,8 +12489,8 @@ snapshots:
       '@babel/core': 7.26.0
       '@babel/helper-module-imports': 7.25.7
       '@babel/helper-plugin-utils': 7.25.7
-      '@babel/parser': 7.26.3
-      '@vue/compiler-sfc': 3.5.10
+      '@babel/parser': 7.26.5
+      '@vue/compiler-sfc': 3.5.13
     transitivePeerDependencies:
       - supports-color
 
@@ -12544,7 +12565,7 @@ snapshots:
 
   '@vue/compiler-core@3.5.10':
     dependencies:
-      '@babel/parser': 7.26.3
+      '@babel/parser': 7.26.5
       '@vue/shared': 3.5.10
       entities: 4.5.0
       estree-walker: 2.0.2
@@ -12552,7 +12573,7 @@ snapshots:
 
   '@vue/compiler-core@3.5.13':
     dependencies:
-      '@babel/parser': 7.26.3
+      '@babel/parser': 7.26.5
       '@vue/shared': 3.5.13
       entities: 4.5.0
       estree-walker: 2.0.2
@@ -12582,13 +12603,13 @@ snapshots:
 
   '@vue/compiler-sfc@3.5.13':
     dependencies:
-      '@babel/parser': 7.26.3
+      '@babel/parser': 7.26.5
       '@vue/compiler-core': 3.5.13
       '@vue/compiler-dom': 3.5.13
       '@vue/compiler-ssr': 3.5.13
       '@vue/shared': 3.5.13
       estree-walker: 2.0.2
-      magic-string: 0.30.11
+      magic-string: 0.30.17
       postcss: 8.4.49
       source-map-js: 1.2.1
 
@@ -12767,7 +12788,6 @@ snapshots:
       '@vue/compiler-ssr': 3.5.13
       '@vue/shared': 3.5.13
       vue: 3.5.13(typescript@5.7.3)
-    optional: true
 
   '@vue/shared@3.5.10': {}
 
@@ -13447,7 +13467,7 @@ snapshots:
 
   constantinople@4.0.1:
     dependencies:
-      '@babel/parser': 7.26.3
+      '@babel/parser': 7.26.5
       '@babel/types': 7.26.3
 
   content-disposition@0.5.4:
@@ -14699,7 +14719,7 @@ snapshots:
   istanbul-lib-instrument@5.2.1:
     dependencies:
       '@babel/core': 7.26.0
-      '@babel/parser': 7.26.3
+      '@babel/parser': 7.26.5
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.2
       semver: 6.3.1
@@ -14809,7 +14829,7 @@ snapshots:
   jscodeshift@0.15.2(@babel/preset-env@7.25.8(@babel/core@7.25.8)):
     dependencies:
       '@babel/core': 7.26.0
-      '@babel/parser': 7.26.3
+      '@babel/parser': 7.26.5
       '@babel/plugin-transform-class-properties': 7.25.7(@babel/core@7.26.0)
       '@babel/plugin-transform-modules-commonjs': 7.25.7(@babel/core@7.26.0)
       '@babel/plugin-transform-nullish-coalescing-operator': 7.25.8(@babel/core@7.26.0)
@@ -17078,7 +17098,7 @@ snapshots:
       '@babel/parser': 7.26.3
       '@babel/types': 7.26.3
       '@vue/compiler-dom': 3.5.13
-      '@vue/compiler-sfc': 3.5.10
+      '@vue/compiler-sfc': 3.5.13
       ast-types: 0.16.1
       esm-resolve: 1.0.11
       hash-sum: 2.0.0
@@ -17094,7 +17114,7 @@ snapshots:
       '@babel/parser': 7.26.3
       '@babel/types': 7.26.3
       '@vue/compiler-dom': 3.5.13
-      '@vue/compiler-sfc': 3.5.10
+      '@vue/compiler-sfc': 3.5.13
       ast-types: 0.16.1
       esm-resolve: 1.0.11
       hash-sum: 2.0.0
@@ -17116,6 +17136,10 @@ snapshots:
   vue-inbrowser-compiler-independent-utils@4.71.1(vue@3.5.13(typescript@5.6.3)):
     dependencies:
       vue: 3.5.13(typescript@5.6.3)
+
+  vue-inbrowser-compiler-independent-utils@4.71.1(vue@3.5.13(typescript@5.7.3)):
+    dependencies:
+      vue: 3.5.13(typescript@5.7.3)
 
   vue-router@3.3.4(vue@2.6.12):
     dependencies:
@@ -17193,7 +17217,6 @@ snapshots:
       '@vue/shared': 3.5.13
     optionalDependencies:
       typescript: 5.7.3
-    optional: true
 
   w3c-xmlserializer@5.0.0:
     dependencies:
@@ -17280,7 +17303,7 @@ snapshots:
 
   with@7.0.2:
     dependencies:
-      '@babel/parser': 7.26.3
+      '@babel/parser': 7.26.5
       '@babel/types': 7.26.3
       assert-never: 1.3.0
       babel-walk: 3.0.0-canary-5

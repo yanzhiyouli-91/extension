@@ -5,7 +5,12 @@ import { safeEval } from '../../utils/eval';
 import { Type } from './types';
 import buildParser from '../js/babel-parser';
 import { debug } from '../../utils/debug';
-import { Identifier, TSLiteralType, TSType, TSTypeReference } from '@babel/types';
+import {
+  Identifier,
+  TSLiteralType,
+  TSType,
+  TSTypeReference,
+} from '@babel/types';
 
 const log = debug.extend('parse:tstype');
 
@@ -21,7 +26,7 @@ export function normalizeName(name: string) {
 }
 
 function trnasformTSLiteralType(type: TSLiteralType): string {
-   switch (type.literal.type) {
+  switch (type.literal.type) {
     case 'UnaryExpression':
       return '';
     case 'TemplateLiteral':
@@ -29,9 +34,8 @@ function trnasformTSLiteralType(type: TSLiteralType): string {
 
     default:
       return JSON.stringify(type.literal.value);
-   }
+  }
 }
-
 
 function transformTsTypeReference(type: TSTypeReference): McType {
   if (type.typeName.type === 'TSQualifiedName') {
@@ -60,7 +64,11 @@ function transformTsTypeReference(type: TSTypeReference): McType {
         params: [],
       };
     case 'Promise':
-      if (type.typeParameters && type.typeParameters.type === 'TSTypeParameterInstantiation' && type.typeParameters.params.length > 0) {
+      if (
+        type.typeParameters &&
+        type.typeParameters.type === 'TSTypeParameterInstantiation' &&
+        type.typeParameters.params.length > 0
+      ) {
         return transformTsType(type.typeParameters.params[0]);
       }
     default:
@@ -71,7 +79,7 @@ function transformTsTypeReference(type: TSTypeReference): McType {
 }
 
 function transformTsType(type: TSType): McType {
-  switch(type.type) {
+  switch (type.type) {
     case 'TSBigIntKeyword':
     case 'TSNumberKeyword':
       return {
@@ -93,23 +101,37 @@ function transformTsType(type: TSType): McType {
     case 'TSFunctionType':
       return {
         type: 'function',
-        params: type.parameters.filter(t => t.type === 'Identifier').map((t) => {
-          return {
-            name: t.name,
-            type: transformTsType((t.typeAnnotation as any).typeAnnotation as TSType),
-          };
-        }),
-        returnType: type.typeAnnotation && type.typeAnnotation.typeAnnotation ? transformTsType(type.typeAnnotation.typeAnnotation) : undefined,
+        params: type.parameters
+          .filter((t) => t.type === 'Identifier')
+          .map((t) => {
+            return {
+              name: t.name,
+              type: transformTsType(
+                (t.typeAnnotation as any).typeAnnotation as TSType,
+              ),
+            };
+          }),
+        returnType:
+          type.typeAnnotation && type.typeAnnotation.typeAnnotation
+            ? transformTsType(type.typeAnnotation.typeAnnotation)
+            : undefined,
       };
     case 'TSTypeLiteral':
       return {
         type: 'struct',
-        value: type.members.filter(m => (m.type === 'TSPropertySignature' && m.key.type === 'Identifier')).map((m: any) => {
-          return {
-            name: (m.key as Identifier).name,
-            type: transformTsType((m.typeAnnotation as any).typeAnnotation as TSType),
-          };
-        })
+        value: type.members
+          .filter(
+            (m) =>
+              m.type === 'TSPropertySignature' && m.key.type === 'Identifier',
+          )
+          .map((m: any) => {
+            return {
+              name: (m.key as Identifier).name,
+              type: transformTsType(
+                (m.typeAnnotation as any).typeAnnotation as TSType,
+              ),
+            };
+          }),
       };
     case 'TSLiteralType':
       return trnasformTSLiteralType(type) as any;
@@ -131,7 +153,7 @@ function parseType(type: string) {
   const TypeAliasName = '_T';
   const code = `type ${TypeAliasName} = ${type};`;
   try {
-    const { parse } = buildParser({ plugins: ['typescript'] })
+    const { parse } = buildParser({ plugins: ['typescript'] });
     const ast = parse(code);
 
     let type;
@@ -204,7 +226,7 @@ export function normalizeDefaultValue(value) {
 
   try {
     return JSON.stringify(safeEval(value));
-  } catch(e) {
+  } catch (e) {
     return undefined;
   }
 }

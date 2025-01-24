@@ -6,7 +6,8 @@ const cssPattern = /\.(css|scss|sass|less)$/;
 export function requireInSandbox(filePath: string) {
   const { window } = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`, {
     url: 'http://localhost:8080/',
-    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    userAgent:
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
   });
 
   const vm = new NodeVM({

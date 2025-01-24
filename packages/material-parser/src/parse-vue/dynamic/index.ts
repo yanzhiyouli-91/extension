@@ -1,14 +1,17 @@
 import { camelCase, upperFirst } from 'lodash';
-import { MaterialComponent, MaterialComponentAttr, McType } from '../../types/parse';
+import {
+  MaterialComponent,
+  MaterialComponentAttr,
+  McType,
+} from '../../types/parse';
 import { normalizeName } from '../config/utils';
 import { requireInSandbox } from '../sandbox';
 import { getEmitDefs, getExposeDefs, getPropDefs, isComponent } from './utils';
 
-function getType (fn) {
+function getType(fn) {
   var match = fn && fn.toString().match(/^\s*function (\w+)/);
   return match ? match[1] : '';
 }
-
 
 function transformType(type: any): McType {
   if (!type) {
@@ -51,7 +54,7 @@ function transformType(type: any): McType {
   return {
     type: 'any',
   };
-};
+}
 
 function resolveAttrs(componentOptions: any, comp: MaterialComponent) {
   const propDefs = getPropDefs(componentOptions);
@@ -73,9 +76,7 @@ function resolveAttrs(componentOptions: any, comp: MaterialComponent) {
       if (defaultValue && typeof defaultValue !== 'function') {
         attr.defaultValue = JSON.stringify(defaultValue);
       }
-    } catch(e) {
-    }
-
+    } catch (e) {}
 
     comp.attrs.push(attr);
   });
@@ -112,7 +113,7 @@ function resolveMethods(componentOptions: any, comp: MaterialComponent) {
  * @param filePath 入口文件路径
  * @returns MaterialComponent[]
  */
-export default function(filePath: string): MaterialComponent[] {
+export default function (filePath: string): MaterialComponent[] {
   const moduleExports = requireInSandbox(filePath);
 
   if (!moduleExports) {
@@ -123,13 +124,18 @@ export default function(filePath: string): MaterialComponent[] {
 
   Object.keys(moduleExports).forEach((exportName) => {
     const baseComponent = moduleExports[exportName];
-    const componentOptions = typeof baseComponent === 'function' ? baseComponent.options : baseComponent;
+    const componentOptions =
+      typeof baseComponent === 'function'
+        ? baseComponent.options
+        : baseComponent;
     if (!isComponent(componentOptions)) {
       return;
     }
 
     const comp: MaterialComponent = {
-      name: componentOptions.name ? upperFirst(camelCase(componentOptions.name)) : exportName,
+      name: componentOptions.name
+        ? upperFirst(camelCase(componentOptions.name))
+        : exportName,
       description: '',
       exportName,
       attrs: [],
@@ -138,11 +144,9 @@ export default function(filePath: string): MaterialComponent[] {
       methods: [],
     };
 
-    [
-      resolveAttrs,
-      resolveEvents,
-      resolveMethods,
-    ].forEach((resolve) => resolve(componentOptions, comp));
+    [resolveAttrs, resolveEvents, resolveMethods].forEach((resolve) =>
+      resolve(componentOptions, comp),
+    );
 
     components.push(comp);
   });

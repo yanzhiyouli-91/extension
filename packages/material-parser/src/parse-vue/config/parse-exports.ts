@@ -22,24 +22,38 @@ export function parseESExports(filePath: string) {
   visit(ast.program, {
     visitExportAllDeclaration(path) {
       if (path.node.source.type === 'StringLiteral') {
-        const importPath = pathUtils.resolve(filePath, '../', path.node.source.value);
+        const importPath = pathUtils.resolve(
+          filePath,
+          '../',
+          path.node.source.value,
+        );
         exportNames.push(...parseESExports(importPath));
       }
 
       return false;
     },
     visitExportNamedDeclaration(path) {
-      if (path.node.declaration && path.node.declaration.type === 'VariableDeclaration') {
-        exportNames.push(...path.node.declaration.declarations.filter((d) => d.type === 'VariableDeclarator' && d.id.type === 'Identifier').map((d: any) => d.id.name));
+      if (
+        path.node.declaration &&
+        path.node.declaration.type === 'VariableDeclaration'
+      ) {
+        exportNames.push(
+          ...path.node.declaration.declarations
+            .filter(
+              (d) =>
+                d.type === 'VariableDeclarator' && d.id.type === 'Identifier',
+            )
+            .map((d: any) => d.id.name),
+        );
       } else if (path.node.specifiers) {
         exportNames.push(
-          ...path.node.specifiers.map(s => (s.exported.name as string)),
+          ...path.node.specifiers.map((s) => s.exported.name as string),
         );
       }
 
       return false;
     },
-		visitExportDefaultDeclaration(path) {
+    visitExportDefaultDeclaration(path) {
       exportNames.push('default');
       return false;
     },
