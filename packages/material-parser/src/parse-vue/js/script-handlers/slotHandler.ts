@@ -98,7 +98,7 @@ export default function slotHandler(
           }
           const bindings = nodeJSX.openingElement.attributes;
           if (bindings && bindings.length) {
-            doc.bindings = bindings.map((b: bt.JSXAttribute) =>
+            doc.bindings = bindings.map((b: bt.JSXAttribute | any) =>
               getBindingsFromJSX(b, comment ? comment.bindings : undefined),
             );
           }
@@ -124,7 +124,7 @@ function isStatement(path: NodePath): boolean {
 function getName(nodeJSX: bt.JSXElement): string {
   const oe = nodeJSX.openingElement;
   const names = oe.attributes.filter(
-    (a: bt.JSXAttribute) => bt.isJSXAttribute(a) && a.name.name === 'name',
+    (a: bt.JSXAttribute | any) => bt.isJSXAttribute(a) && a.name.name === 'name',
   ) as bt.JSXAttribute[];
 
   const nameNode = names.length ? names[0].value : null;
@@ -244,7 +244,7 @@ function getBindings(
   bindingsFromComments: ParamTag[] | undefined,
 ): ParamTag[] {
   return node.properties.reduce(
-    (bindings: ParamTag[], prop: bt.ObjectProperty) => {
+    (bindings: ParamTag[], prop: bt.ObjectProperty | any) => {
       if (bt.isIdentifier(prop.key)) {
         const name = prop.key.name;
         const description: string | boolean | undefined =

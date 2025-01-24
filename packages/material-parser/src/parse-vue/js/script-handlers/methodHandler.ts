@@ -6,7 +6,6 @@ import Documentation, {
   MethodDescriptor,
   Param,
   ParamTag,
-  Tag,
 } from '../Documentation';
 import getDocblock from '../utils/getDocblock';
 import getDoclets from '../utils/getDoclets';

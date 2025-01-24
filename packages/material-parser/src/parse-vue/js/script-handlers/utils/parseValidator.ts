@@ -50,7 +50,7 @@ export default async function parseValidatorForValues(
     });
     if (varPath && bt.isArrayExpression(varPath.node)) {
       return varPath.node.elements
-        .map((e: bt.StringLiteral) => e.value)
+        .map((e: bt.StringLiteral | any) => e.value)
         .filter((e) => e);
     }
     const varToFilePath = resolveRequired(ast, [identifierName]);
@@ -79,7 +79,7 @@ export default async function parseValidatorForValues(
       );
       if (p && bt.isArrayExpression(p.node)) {
         return p.node.elements
-          .map((e: bt.StringLiteral) => e.value)
+          .map((e: bt.StringLiteral | any) => e.value)
           .filter((e) => e);
       }
     }
@@ -93,7 +93,7 @@ export default async function parseValidatorForValues(
       ? await resolveValueFromIdentifier(valuesObjectNode.name)
       : bt.isArrayExpression(valuesObjectNode)
       ? valuesObjectNode.elements
-          .map((e: bt.StringLiteral) => e.value)
+          .map((e: bt.StringLiteral | any) => e.value)
           .filter((e) => e)
       : undefined;
   }

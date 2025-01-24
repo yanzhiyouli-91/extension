@@ -4,7 +4,6 @@ import Documentation, {
   BlockTag,
   DocBlockTags,
   MethodDescriptor,
-  Tag,
 } from '../Documentation';
 import getDocblock from '../utils/getDocblock';
 import getDoclets from '../utils/getDoclets';

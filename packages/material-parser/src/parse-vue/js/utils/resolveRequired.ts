@@ -103,7 +103,7 @@ export default function resolveRequired(
           const varName = nodeDeclaration.id.name;
           varToFilePath[varName] = { filePath: [source], exportName };
         } else if (bt.isObjectPattern(nodeDeclaration.id)) {
-          nodeDeclaration.id.properties.forEach((p: bt.ObjectProperty) => {
+          nodeDeclaration.id.properties.forEach((p: bt.ObjectProperty | any) => {
             if (bt.isIdentifier(p.key)) {
               const varName = p.key.name;
               varToFilePath[varName] = { filePath: [source], exportName };

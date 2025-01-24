@@ -45,7 +45,7 @@ export default async function documentRequiredComponents(
         varToFilePath,
         originObject,
         opt,
-        pathResolver,
+        pathResolver as any,
       ),
     ];
   }
