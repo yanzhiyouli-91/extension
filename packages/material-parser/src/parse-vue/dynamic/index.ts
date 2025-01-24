@@ -69,12 +69,14 @@ function resolveAttrs(componentOptions: any, comp: MaterialComponent) {
       if (typeof propDef.default === 'function' && type.type !== 'function') {
         defaultValue = propDef.default();
       }
+
+      if (defaultValue && typeof defaultValue !== 'function') {
+        attr.defaultValue = JSON.stringify(defaultValue);
+      }
     } catch(e) {
     }
 
-    if (defaultValue && typeof defaultValue !== 'function') {
-      attr.defaultValue = JSON.stringify(defaultValue);
-    }
+
     comp.attrs.push(attr);
   });
 }

@@ -5,6 +5,7 @@ import { MaterialComponent } from '../../types/parse';
  * @param filePath 入口文件路径
  * @returns MaterialComponent[]
  */
-export default async function(filePath: string): Promise<MaterialComponent[]> {
+export default function(filePath: string): Promise<MaterialComponent[]> {
+  throw new Error('TODO');
   return [];
 }

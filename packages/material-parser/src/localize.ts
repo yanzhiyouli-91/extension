@@ -47,7 +47,7 @@ export async function createFakePackage(params: {
 
   // 安装依赖
   const npmClient = params.npmClient || 'npm';
-  await spawn(npmClient, ['i'], { stdio: 'inherit', cwd: workDir } as any);
+  await spawn(npmClient, npmClient === 'pnpm' ? ['i', '-r'] : ['i'], { stdio: 'inherit', cwd: workDir } as any);
 }
 
 /**
@@ -96,13 +96,13 @@ export default async function localize(options: MaterialParseOptions): Promise<{
   // 创建临时目录
   const workDir = await createWorkDir(options.tempDir);
   await ensureDir(workDir);
-  const { name, version = 'latest' } = options;
+  const { name, version = 'latest', npmClient } = options;
   // 创建组件包
   await createFakePackage({
     pkgName: name,
     pkgVersion: version,
     workDir,
-    npmClient: 'npm',
+    npmClient,
   });
 
   return {
