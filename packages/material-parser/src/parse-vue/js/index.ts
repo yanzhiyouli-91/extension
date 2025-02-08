@@ -1,8 +1,40 @@
 import {
   ComponentDoc,
 } from 'vue-inbrowser-compiler-independent-utils';
-import { MaterialComponent } from '../../types/parse';
+import { MaterialComponent, McType } from '../../types/parse';
 import { parseFile } from './parse';
+
+function transformType(type?: { name: string }): McType {
+  if (!type) {
+    return {
+      type: 'any'
+    };
+  }
+
+  switch (type.name.trim().toLowerCase()) {
+    case 'string':
+      return {
+        type: 'string',
+      };
+    case 'number':
+      return {
+        type: 'number',
+      };
+    case 'boolean':
+      return {
+        type: 'boolean',
+      };
+    case 'Function':
+      return {
+        type: 'function',
+        params: [],
+      };
+  }
+
+  return {
+    type: 'any',
+  };
+}
 
 function resolveAttrs(doc: ComponentDoc, component: MaterialComponent) {
   if (!doc.props || doc.props.length === 0) {
@@ -14,9 +46,7 @@ function resolveAttrs(doc: ComponentDoc, component: MaterialComponent) {
       name: prop.name,
       description: prop.description || '',
       defaultValue: prop.defaultValue?.value,
-      type: {
-        type: 'any',
-      },
+      type: transformType(prop.type),
     });
   });
 
@@ -79,7 +109,6 @@ function resolveMethods(doc: ComponentDoc, component: MaterialComponent) {
 
   return component;
 }
-
 
 function resolveSchema(doc: ComponentDoc): MaterialComponent {
   const component: MaterialComponent = {
