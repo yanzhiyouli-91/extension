@@ -1,6 +1,7 @@
-const { namedTypes: t } = require('ast-types');
+import { namedTypes as t } from 'ast-types';
+import { utils as ReactDocgenUtils } from '../../../react-docgen/main.js';
 
-const { resolveToValue } = require('react-docgen').utils;
+const { resolveToValue } = ReactDocgenUtils;
 
 function isInfinity(path) {
   return t.Identifier.check(path.node) && path.node.name === 'Infinity';

@@ -3,12 +3,11 @@ import fs from 'fs';
 import path from 'path';
 import getRoot from './getRoot';
 import findJSFilePath from './findJSFilePath';
+import { utils as ReactDocgenUtils } from '../../../react-docgen/main';
+import buildParser from '../../../react-docgen/babelParser';
+import * as expressionTo from '../../../react-docgen/utils/expressionTo';
 
-const buildParser = require('react-docgen/dist/babelParser').default;
-const expressionTo = require('react-docgen/dist/utils/expressionTo');
-
-const { resolveToValue, isExportsOrModuleAssignment } =
-  require('react-docgen').utils;
+const { resolveToValue, isExportsOrModuleAssignment } = ReactDocgenUtils;
 
 export default function getComposedPropTypesPath(documentation, propName, p) {
   const composes: string[] = Array.from(documentation._composes);

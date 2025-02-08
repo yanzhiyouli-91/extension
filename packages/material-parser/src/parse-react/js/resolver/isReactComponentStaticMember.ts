@@ -1,6 +1,7 @@
 import { namedTypes as t } from 'ast-types';
+import { utils as ReactDocgenUtils } from '../../../react-docgen/main.js';
 
-const { getPropertyName } = require('react-docgen').utils;
+const { getPropertyName } = ReactDocgenUtils;
 
 const reactStaticMembers = ['propTypes', 'defaultProps', 'contextTypes'];
 export default function isReactComponentStaticMember(methodPath: any) {

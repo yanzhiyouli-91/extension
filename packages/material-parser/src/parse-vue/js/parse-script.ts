@@ -4,9 +4,9 @@ import buildParser from './babel-parser';
 import Documentation from './Documentation';
 import type { ParseFileFunction, ParseOptions } from './types';
 import cacher from './utils/cacher';
-import resolveExportedComponent from './utils/resolveExportedComponent';
-import documentRequiredComponents from './utils/documentRequiredComponents';
 import { addDefaultAndExecuteHandlers } from './utils/execute-handlers';
+import { findAllExportedComponentDefinition } from './resolver';
+
 
 const ERROR_MISSING_DEFINITION = 'No suitable component definition found';
 
@@ -32,29 +32,11 @@ export default async function parseScript(
     throw new Error(`Unable to parse empty file "${options.filePath}"`);
   }
 
-  const [componentDefinitions, ievSet] = resolveExportedComponent(ast);
-
-  if (componentDefinitions.size === 0 && noNeedForExport) {
-    componentDefinitions.set('default', ast.program.body[0]);
-  }
+  ast.program.__path = options.filePath;
+  const componentDefinitions = findAllExportedComponentDefinition(ast.program);
 
   if (componentDefinitions.size === 0) {
-    // if there is any immediately exported variable
-    // resolve their documentations
-    const docs = await documentRequiredComponents(
-      parseFile,
-      documentation,
-      ievSet,
-      undefined,
-      options,
-    );
-
-    // if we do not find any components, throw
-    if (!docs.length) {
-      throw new Error(`${ERROR_MISSING_DEFINITION} on "${options.filePath}"`);
-    } else {
-      return docs;
-    }
+    throw new Error(`${ERROR_MISSING_DEFINITION} on "${options.filePath}"`);
   }
 
   return addDefaultAndExecuteHandlers(

@@ -1,5 +1,7 @@
 import { namedTypes as t, visit } from 'ast-types';
 import { uniqBy } from 'lodash';
+import { utils as ReactDocgenUtils } from '../../../react-docgen/main.js';
+import * as expressionTo from '../../../react-docgen/utils/expressionTo';
 import checkIsIIFE from './checkIsIIFE';
 import resolveHOC from './resolveHOC';
 import resolveIIFE from './resolveIIFE';
@@ -13,8 +15,6 @@ import { get, set, has, ICache } from '../utils/cache';
 import getName from '../utils/getName';
 import getRoot from '../utils/getRoot';
 
-const expressionTo = require('react-docgen/dist/utils/expressionTo');
-
 const {
   isExportsOrModuleAssignment,
   isReactComponentClass,
@@ -24,7 +24,7 @@ const {
   normalizeClassDefinition,
   resolveToValue,
   getMemberValuePath,
-} = require('react-docgen').utils;
+} = ReactDocgenUtils;
 
 function ignore() {
   return false;

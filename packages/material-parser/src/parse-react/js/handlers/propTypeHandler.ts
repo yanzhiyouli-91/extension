@@ -10,12 +10,15 @@
 import { namedTypes as t, visit } from 'ast-types';
 import getRoot from '../utils/getRoot';
 import getComposedPath from '../utils/getComposedPath';
+import { utils as ReactDocgenUtils } from '../../../react-docgen/main.js';
+import isRequiredPropType from '../../../react-docgen/utils/isRequiredPropType.js';
 
-const { resolveToValue, getPropType, getPropertyName, getMemberValuePath } =
-  require('react-docgen').utils;
-
-const isRequiredPropType =
-  require('react-docgen/dist/utils/isRequiredPropType').default;
+const {
+  resolveToValue,
+  getPropType,
+  getPropertyName,
+  getMemberValuePath,
+} = ReactDocgenUtils;
 
 function amendPropTypes(
   getDescriptor: any,

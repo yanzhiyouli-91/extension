@@ -6,8 +6,7 @@ import {
 import defaultPropsHandler from './defaultPropsHandler';
 import preProcessHandler from './preProcessHandler';
 import propTypeJsDocHandler from './propTypeJsDocHandler';
-
-const { handlers } = require('react-docgen');
+import { handlers } from '../../../react-docgen/main.js';
 
 const defaultHandlers = [
   preProcessHandler,

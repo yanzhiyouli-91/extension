@@ -1,8 +1,9 @@
 import { namedTypes as t } from 'ast-types';
 import isReactComponentStaticMember from './isReactComponentStaticMember';
+import { utils as ReactDocgenUtils } from '../../../react-docgen/main.js';
+import { traverseShallow } from '../../../react-docgen/utils/traverse';
 
-const { match } = require('react-docgen').utils;
-const { traverseShallow } = require('react-docgen/dist/utils/traverse');
+const { match } = ReactDocgenUtils;
 
 function findAssignedMethods(scope: any, idPath: any) {
   const results: any[] = [];

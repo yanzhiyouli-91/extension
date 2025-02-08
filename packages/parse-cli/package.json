@@ -2,7 +2,10 @@
   "name": "@lcap/parse-cli",
   "version": "1.0.0-alpha.1",
   "description": "codewaver parser cli",
-  "main": "index.js",
+  "main": "index.mjs",
+  "files": [
+    "index.mjs"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/netease-lcap/extension.git"

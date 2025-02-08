@@ -1,7 +1,8 @@
 import { namedTypes as t } from 'ast-types';
 import isReactComponentStaticMember from './isReactComponentStaticMember';
+import { utils as ReactDocgenUtils } from '../../../react-docgen/main.js';
 
-const { isReactComponentMethod } = require('react-docgen').utils;
+const { isReactComponentMethod } = ReactDocgenUtils;
 
 /**
  * judge if static method

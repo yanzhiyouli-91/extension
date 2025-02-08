@@ -1,11 +1,12 @@
 /* eslint-disable no-param-reassign */
 import { set, get } from 'lodash';
+import parseJsDoc from '../../../react-docgen/utils/parseJsDoc';
+import { utils as ReactDocgenUtils } from '../../../react-docgen/main.js';
 import { debug } from '../../../utils/debug';
 
 const log = debug.extend('parse:js');
 
-const parseJsDoc = require('react-docgen/dist/utils/parseJsDoc').default;
-const { getMemberValuePath, resolveToValue } = require('react-docgen').utils;
+const { getMemberValuePath, resolveToValue } = ReactDocgenUtils;
 
 function getType(type = 'void') {
   const typeOfType = typeof type;
@@ -29,7 +30,7 @@ function resolveDocumentation(documentation) {
   documentation._props.forEach((propDescriptor) => {
     const { description } = propDescriptor;
     if (description.includes('@') && propDescriptor?.type?.name === 'func') {
-      const jsDoc = parseJsDoc(description);
+      const jsDoc = parseJsDoc(description) as any;
       propDescriptor.description = jsDoc.description;
       if (jsDoc.params) {
         set(propDescriptor, ['type', 'params'], jsDoc.params);

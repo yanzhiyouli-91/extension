@@ -1,7 +1,7 @@
 import { namedTypes as t } from 'ast-types';
+import { utils as ReactDocgenUtils } from '../../../react-docgen/main.js';
 
-const { isReactCreateClassCall, isReactForwardRefCall } =
-  require('react-docgen').utils;
+const { isReactCreateClassCall, isReactForwardRefCall } = ReactDocgenUtils;
 
 /**
  * If the path is a call expression, it recursively resolves to the

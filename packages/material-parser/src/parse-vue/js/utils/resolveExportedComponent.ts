@@ -131,6 +131,7 @@ export default function resolveExportedComponent(
           definition = definition.get('expression');
         }
         const realDef = resolveIdentifier(ast, definition);
+
         if (realDef) {
           if (isComponentDefinition(realDef)) {
             setComponent(name, realDef);

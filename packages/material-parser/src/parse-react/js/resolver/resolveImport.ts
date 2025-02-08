@@ -2,9 +2,10 @@ import { namedTypes as t } from 'ast-types';
 import fs from 'fs';
 import p from 'path';
 import getRoot from '../utils/getRoot';
+import { utils as ReactDocgenUtils } from '../../../react-docgen/main.js';
+import buildParser from  '../../../react-docgen/babelParser.js';
 
-const { resolveToModule, resolveToValue, match } =
-  require('react-docgen').utils;
+const { resolveToModule, resolveToValue, match } = ReactDocgenUtils;
 
 export function isImportLike(path) {
   const { node } = path;
@@ -90,8 +91,6 @@ function getPath(path: any, name: any) {
   if (!suffix) return;
   return p.resolve(__path, name + suffix);
 }
-
-const buildParser = require('react-docgen/dist/babelParser').default;
 
 const suffixes = ['.js', '.jsx', '.ts', '.tsx'];
 

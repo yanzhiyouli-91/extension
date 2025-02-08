@@ -1,3 +1,5 @@
+import { utils as ReactDocgenUtils } from '../../../react-docgen/main.js';
+import resolveFunctionDefinitionToReturnValue from '../../../react-docgen/utils/resolveFunctionDefinitionToReturnValue.js';
 import getComposedPath from '../utils/getComposedPath';
 import evaluate from '../utils/evaluate';
 
@@ -9,8 +11,7 @@ const {
   getMemberValuePath,
   isReactForwardRefCall,
   resolveToValue,
-} = require('react-docgen').utils;
-const resolveFunctionDefinitionToReturnValue = require('react-docgen/dist/utils/resolveFunctionDefinitionToReturnValue');
+} = ReactDocgenUtils;
 
 function getDefaultValue(path: NodePathType) {
   let { node } = path;
@@ -78,7 +79,7 @@ function getDefaultPropsPath(componentDefinition: any) {
     // Find the value that is returned from the function and process it if it is
     // an object literal.
     const returnValue =
-      resolveFunctionDefinitionToReturnValue(defaultPropsPath);
+      resolveFunctionDefinitionToReturnValue(defaultPropsPath) as any;
     if (returnValue && t.ObjectExpression.check(returnValue.node)) {
       defaultPropsPath = returnValue;
     }

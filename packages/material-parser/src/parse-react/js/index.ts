@@ -3,8 +3,7 @@ import { IMaterialParsedModel } from '../types';
 import { loadFile } from '../../utils/fs';
 import resolver from './resolver';
 import handlers from './handlers';
-
-const reactDocs = require('react-docgen');
+import * as reactDocs from '../../react-docgen/main';
 
 export default function parse(filePath: string): IMaterialParsedModel[] {
   if (!filePath) return [];
