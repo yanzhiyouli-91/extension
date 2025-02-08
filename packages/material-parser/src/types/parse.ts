@@ -121,7 +121,7 @@ export interface MaterialComponentMethod {
   name: string; // 事件 onClick
   description: string; //
   params: Array<{ name: string; description?: string; type: McType }>;
-  returnType: McType;
+  returnType?: McType;
 }
 
 export interface MaterialComponent {

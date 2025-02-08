@@ -15,6 +15,8 @@ import getMemberFilter from '../utils/getPropsFilter';
 import getTemplateExpressionAST from '../utils/getTemplateExpressionAST';
 import parseValidatorForValues from './utils/parseValidator';
 import type { ParseOptions } from '../types';
+import { resolveToValue } from '../../../react-docgen/utils';
+import resolveHOC from '../resolver/resolveHOC';
 
 type ValueLitteral = bt.StringLiteral | bt.BooleanLiteral | bt.NumericLiteral;
 
@@ -57,7 +59,7 @@ export default async function propHandler(
 
     const modelPropertyName = getModelPropName(path);
 
-    const propsValuePath = propsPath[0].get('value');
+    const propsValuePath = resolveToValue(resolveHOC(propsPath[0].get('value')));
 
     await describePropsFromValue(
       documentation,
@@ -106,10 +108,10 @@ export async function describePropsFromValue(
         if (!propertyName) {
           return;
         }
-        const isPropertyModel =
-          jsDocTags.some((t) => t.title === 'model') ||
-          propertyName === modelPropertyName;
-        const propName = isPropertyModel ? 'v-model' : propertyName;
+        // const isPropertyModel =
+        //   jsDocTags.some((t) => t.title === 'model') ||
+        //   propertyName === modelPropertyName;
+        const propName = propertyName;
 
         const propDescriptor = documentation.getPropDescriptor(propName);
 

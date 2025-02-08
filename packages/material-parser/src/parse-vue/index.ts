@@ -24,12 +24,12 @@ export default async function (
   consola.success('安装成功');
 
   if (hasConfig) {
-    return parseConfig(args);
+    return await parseConfig(args);
   }
 
   try {
-    return parseJS(moduleFileAbsolutePath || mainFileAbsolutePath);
+    return await parseJS(moduleFileAbsolutePath || mainFileAbsolutePath);
   } catch (e) {
-    return parseDynamic(mainFileAbsolutePath);
+    return await parseDynamic(mainFileAbsolutePath);
   }
 }
