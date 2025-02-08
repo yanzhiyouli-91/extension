@@ -82,7 +82,7 @@ function getFrameworkDependencies(framework: string, pkg: Record<string, any>) {
         vue: '2.6.12',
         'vue-i18n': '^8.28.2',
         'vue-router': '^3.1.2',
-        '@vue/composition-api': '^1.7.2',
+        // '@vue/composition-api': '^1.7.2',
       };
       break;
     case 'vue3':
