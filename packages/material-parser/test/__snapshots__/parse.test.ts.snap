@@ -78524,6 +78524,4335 @@ exports[`parse vue2 ant-design-vue 1`] = `
 }
 `;
 
+exports[`parse vue2 ant-design-vue js 1`] = `
+{
+  "components": [
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "距离窗口顶部达到指定偏移量后触发",
+          "name": "offsetTop",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "offset",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "距离窗口底部达到指定偏移量后触发",
+          "name": "offsetBottom",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "设置 Affix 需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数",
+          "name": "target",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "change",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "testUpdatePosition",
+          "params": [],
+        },
+      ],
+      "exportName": "Affix",
+      "methods": [],
+      "name": "AAffix",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "offsetTop",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "bounds",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "affix",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "showInkInFixed",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "getContainer",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "wrapperClass",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "wrapperStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "getCurrentAnchor",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "targetOffset",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "change",
+          "params": [],
+        },
+      ],
+      "exportName": "Anchor",
+      "methods": [],
+      "name": "AAnchor",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "showSearch",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "transitionName",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "choiceTransitionName",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "autoFocus",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "backfill",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "optionLabelProp",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "filterOption",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "defaultActiveFirstOption",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "AutoComplete",
+      "methods": [],
+      "name": "AAutoComplete",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "Type of Alert styles, options:\`success\`, \`info\`, \`warning\`, \`error\`",
+          "name": "type",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "Whether Alert can be closed",
+          "name": "closable",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "Close text to show",
+          "name": "closeText",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "Content of Alert",
+          "name": "message",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "Additional content of Alert",
+          "name": "description",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "Trigger when animation ending of Alert",
+          "name": "afterClose",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "Whether to show icon",
+          "name": "showIcon",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "iconType",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "banner",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "icon",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "close",
+          "params": [],
+        },
+      ],
+      "exportName": "Alert",
+      "methods": [],
+      "name": "AAlert",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": "undefined",
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "string",
+          },
+        },
+        {
+          "defaultValue": ""circle"",
+          "description": "",
+          "name": "shape",
+          "type": {
+            "type": "string",
+          },
+        },
+        {
+          "defaultValue": ""default"",
+          "description": "",
+          "name": "size",
+          "type": {
+            "type": "string",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "src",
+          "type": {
+            "type": "string",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "Srcset of image avatar",
+          "name": "srcSet",
+          "type": {
+            "type": "string",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "icon",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "alt",
+          "type": {
+            "type": "string",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "loadError",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Avatar",
+      "methods": [],
+      "name": "AAvatar",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "visibilityHeight",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "click",
+          "params": [],
+        },
+      ],
+      "exportName": "BackTop",
+      "methods": [],
+      "name": "ABackTop",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "Number to show in badge",
+          "name": "count",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "showZero",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "Max count to show",
+          "name": "overflowCount",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "whether to show red dot without number",
+          "name": "dot",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "scrollNumberPrefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "status",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "color",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "text",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "offset",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "numberStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "title",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Badge",
+      "methods": [],
+      "name": "ABadge",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "routes",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "params",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "separator",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "itemRender",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Breadcrumb",
+      "methods": [],
+      "name": "ABreadcrumb",
+      "slots": [],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "click",
+          "params": [],
+        },
+      ],
+      "exportName": "Button",
+      "methods": [],
+      "name": "AButton",
+      "slots": [],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "panelChange",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "change",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "select",
+          "params": [],
+        },
+      ],
+      "exportName": "Calendar",
+      "methods": [],
+      "name": "ACalendar",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "title",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "extra",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "bordered",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "bodyStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "headStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "loading",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "hoverable",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "type",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "size",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "actions",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tabList",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tabProps",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tabBarExtraContent",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "activeTabKey",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "defaultActiveTabKey",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "tabChange",
+          "params": [],
+        },
+      ],
+      "exportName": "Card",
+      "methods": [],
+      "name": "ACard",
+      "slots": [
+        {
+          "description": "",
+          "name": "actions",
+          "params": [],
+        },
+      ],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [],
+      "exportName": "Collapse",
+      "methods": [],
+      "name": "ACollapse",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "effect",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "dots",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "vertical",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "autoplay",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "easing",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "beforeChange",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "afterChange",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "accessibility",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "nextArrow",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prevArrow",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "pauseOnHover",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "adaptiveHeight",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "arrows",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "autoplaySpeed",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "centerMode",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "centerPadding",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "cssEase",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "dotsClass",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "draggable",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "fade",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "focusOnSelect",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "infinite",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "initialSlide",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "lazyLoad",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "rtl",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "slide",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "slidesToShow",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "slidesToScroll",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "speed",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "swipe",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "swipeToSlide",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "touchMove",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "touchThreshold",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "variableWidth",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "useCSS",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "slickGoTo",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "responsive",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "dotPosition",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Carousel",
+      "methods": [],
+      "name": "ACarousel",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "可选项数据源",
+          "name": "options",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "默认的选中项",
+          "name": "defaultValue",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "指定选中项",
+          "name": "value",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "选择后展示的渲染函数",
+          "name": "displayRender",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "transitionName",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "popupStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "自定义浮层类名",
+          "name": "popupClassName",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "浮层预设位置：\`bottomLeft\` \`bottomRight\` \`topLeft\` \`topRight\`",
+          "name": "popupPlacement",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "输入框占位文本",
+          "name": "placeholder",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "输入框大小，可选 \`large\` \`default\` \`small\`",
+          "name": "size",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "禁用",
+          "name": "disabled",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "是否支持清除",
+          "name": "allowClear",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "showSearch",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "notFoundContent",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "loadData",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "次级菜单的展开方式，可选 'click' 和 'hover'",
+          "name": "expandTrigger",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "当此项为 true 时，点选每级菜单选项值都会发生变化",
+          "name": "changeOnSelect",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "浮层可见变化时回调",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "inputPrefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "getPopupContainer",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "popupVisible",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "fieldNames",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "autoFocus",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "suffixIcon",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "popupVisibleChange",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "focus",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "blur",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "search",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "change",
+          "params": [],
+        },
+      ],
+      "exportName": "Cascader",
+      "methods": [],
+      "name": "ACascader",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "defaultChecked",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "checked",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "disabled",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "isGroup",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "value",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "name",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "id",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "indeterminate",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "type",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "autoFocus",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "input",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "change",
+          "params": [],
+        },
+      ],
+      "exportName": "Checkbox",
+      "methods": [],
+      "name": "ACheckbox",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "span",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "order",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "offset",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "push",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "pull",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "xs",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "sm",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "md",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "lg",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "xl",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "xxl",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "flex",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Col",
+      "methods": [],
+      "name": "ACol",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "type",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "dashed",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "orientation",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Divider",
+      "methods": [],
+      "name": "ADivider",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "mouseEnterDelay",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "mouseLeaveDelay",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "placement",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Dropdown",
+      "methods": [],
+      "name": "ADropdown",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "layout",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "labelCol",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "wrapperCol",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "colon",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "labelAlign",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "form",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "hideRequiredMark",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "autoFormCreate",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "options",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "selfUpdate",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "submit",
+          "params": [],
+        },
+      ],
+      "exportName": "Form",
+      "methods": [],
+      "name": "AForm",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "layout",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "labelCol",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "wrapperCol",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "colon",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "labelAlign",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "hideRequiredMark",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "model",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "rules",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "validateMessages",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "validateOnRuleChange",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "submit",
+          "params": [],
+        },
+      ],
+      "exportName": "FormModel",
+      "methods": [],
+      "name": "AFormModel",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tabIndex",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "type",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "component",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "viewBox",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "spin",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "rotate",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "theme",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "twoToneColor",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "role",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Icon",
+      "methods": [],
+      "name": "AIcon",
+      "slots": [],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "change.value",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "change",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "input",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "pressEnter",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "keydown",
+          "params": [],
+        },
+      ],
+      "exportName": "Input",
+      "methods": [],
+      "name": "AInput",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "min",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "max",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "value",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "step",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "defaultValue",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tabIndex",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "disabled",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "size",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "formatter",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "parser",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "decimalSeparator",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "placeholder",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "name",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "id",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "precision",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "autoFocus",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "InputNumber",
+      "methods": [],
+      "name": "AInputNumber",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "hasSider",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tagName",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Layout",
+      "methods": [],
+      "name": "Layout",
+      "slots": [],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [],
+      "exportName": "List",
+      "methods": [],
+      "name": "AList",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "locale",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "_ANT_MARK__",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "LocaleProvider",
+      "methods": [],
+      "name": "ALocaleProvider",
+      "slots": [],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "mouseenter",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "click",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "select",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "selectChange",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "deselect",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "openChange",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "update:openKeys",
+          "params": [],
+        },
+      ],
+      "exportName": "Menu",
+      "methods": [],
+      "name": "AMenu",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "loading",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "change",
+          "params": [],
+        },
+      ],
+      "exportName": "Mentions",
+      "methods": [],
+      "name": "AMentions",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "width",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "transitionName",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "maskTransitionName",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "confirmLoading",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "visible",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "okType",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "cancel",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "change",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "ok",
+          "params": [],
+        },
+      ],
+      "exportName": "Modal",
+      "methods": [],
+      "name": "AModal",
+      "slots": [],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [],
+      "exportName": "Pagination",
+      "methods": [],
+      "name": "APagination",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "transitionName",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "content",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "title",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "trigger",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "okType",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "disabled",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "okText",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "cancelText",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "icon",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "okButtonProps",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "cancelButtonProps",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "confirm",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "cancel",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "visibleChange",
+          "params": [],
+        },
+      ],
+      "exportName": "Popconfirm",
+      "methods": [],
+      "name": "APopconfirm",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "transitionName",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "content",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "title",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Popover",
+      "methods": [],
+      "name": "APopover",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "type",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "percent",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "successPercent",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "format",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "status",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "showInfo",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "strokeWidth",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "strokeLinecap",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "strokeColor",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "trailColor",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "width",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "gapDegree",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "gapPosition",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "size",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Progress",
+      "methods": [],
+      "name": "AProgress",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "defaultChecked",
+          "type": {
+            "type": "boolean",
+          },
+        },
+        {
+          "defaultValue": "undefined",
+          "description": "",
+          "name": "checked",
+          "type": {
+            "type": "boolean",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "disabled",
+          "type": {
+            "type": "boolean",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "isGroup",
+          "type": {
+            "type": "boolean",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "value",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "name",
+          "type": {
+            "type": "string",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "id",
+          "type": {
+            "type": "string",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "autoFocus",
+          "type": {
+            "type": "boolean",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "type",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "input",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "change",
+          "params": [],
+        },
+      ],
+      "exportName": "Radio",
+      "methods": [],
+      "name": "ARadio",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "count",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "value",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "defaultValue",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "allowHalf",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "allowClear",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tooltips",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "disabled",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "character",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "autoFocus",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Rate",
+      "methods": [],
+      "name": "ARate",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "gutter",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Row",
+      "methods": [],
+      "name": "ARow",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "showSearch",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "transitionName",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "choiceTransitionName",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Select",
+      "methods": [],
+      "name": "ASelect",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tipFormatter",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Slider",
+      "methods": [],
+      "name": "ASlider",
+      "slots": [],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [],
+      "exportName": "Spin",
+      "methods": [],
+      "name": "ASpin",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "decimalSeparator",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "groupSeparator",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "format",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "value",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "valueStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "valueRender",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "formatter",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "precision",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefix",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "suffix",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "title",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Statistic",
+      "methods": [],
+      "name": "AStatistic",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "current",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Steps",
+      "methods": [],
+      "name": "ASteps",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "size",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "disabled",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "checkedChildren",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "unCheckedChildren",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tabIndex",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "checked",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "defaultChecked",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "autoFocus",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "loading",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Switch",
+      "methods": [],
+      "name": "ASwitch",
+      "slots": [],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [],
+      "exportName": "Table",
+      "methods": [],
+      "name": "ATable",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "dataSource",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "disabled",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "targetKeys",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "selectedKeys",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "render",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "listStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "operationStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "titles",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "operations",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "showSearch",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "filterOption",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "searchPlaceholder",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "notFoundContent",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "locale",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "rowKey",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "lazy",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "showSelectAll",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "change",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "searchChange",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "search",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "scroll",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "selectChange",
+          "params": [],
+        },
+      ],
+      "exportName": "Transfer",
+      "methods": [],
+      "name": "ATransfer",
+      "slots": [],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [],
+      "exportName": "Tree",
+      "methods": [],
+      "name": "ATree",
+      "slots": [],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [],
+      "exportName": "TreeSelect",
+      "methods": [],
+      "name": "ATreeSelect",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "activeKey",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "defaultActiveKey",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "hideAdd",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tabBarStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tabBarExtraContent",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "destroyInactiveTabPane",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "type",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tabPosition",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "size",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "animated",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tabBarGutter",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "renderTabBar",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "edit",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "change",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "tabClick",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "prevClick",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "nextClick",
+          "params": [],
+        },
+      ],
+      "exportName": "Tabs",
+      "methods": [],
+      "name": "ATabs",
+      "slots": [
+        {
+          "description": "",
+          "name": "renderTabBar",
+          "params": [],
+        },
+      ],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "color",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "closable",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "visible",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "afterClose",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "close",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "close.visible",
+          "params": [],
+        },
+      ],
+      "exportName": "Tag",
+      "methods": [],
+      "name": "ATag",
+      "slots": [],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "change",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "openChange",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "update:open",
+          "params": [],
+        },
+      ],
+      "exportName": "TimePicker",
+      "methods": [],
+      "name": "ATimePicker",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "指定最后一个幽灵节点是否存在或内容",
+          "name": "pending",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "pendingDot",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "reverse",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "mode",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Timeline",
+      "methods": [],
+      "name": "ATimeline",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "title",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "visibleChange",
+          "params": [],
+        },
+      ],
+      "exportName": "Tooltip",
+      "methods": [],
+      "name": "ATooltip",
+      "slots": [],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "reject",
+          "params": [],
+        },
+        {
+          "description": "",
+          "name": "change",
+          "params": [],
+        },
+      ],
+      "exportName": "Upload",
+      "methods": [],
+      "name": "AUpload",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "closable",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "destroyOnClose",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "getContainer",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "maskClosable",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "mask",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "maskStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "wrapStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "bodyStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "headerStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "drawerStyle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "title",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "visible",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "width",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "height",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "zIndex",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "placement",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "level",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "wrapClassName",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "handle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "afterVisibleChange",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "keyboard",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [
+        {
+          "description": "",
+          "name": "close",
+          "params": [],
+        },
+      ],
+      "exportName": "Drawer",
+      "methods": [],
+      "name": "ADrawer",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "active",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "loading",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "children",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "avatar",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "title",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "paragraph",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Skeleton",
+      "methods": [],
+      "name": "ASkeleton",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "actions",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "The element to display as the comment author.",
+          "name": "author",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "The element to display as the comment avatar - generally an antd Avatar",
+          "name": "avatar",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "The main content of the comment",
+          "name": "content",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "Comment prefix defaults to '.ant-comment'",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "A datetime element containing the time to be displayed",
+          "name": "datetime",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Comment",
+      "methods": [],
+      "name": "AComment",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "getPopupContainer",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "renderEmpty",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "csp",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "autoInsertSpaceInButton",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "locale",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "pageHeader",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "transformCellText",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "ConfigProvider",
+      "methods": [],
+      "name": "AConfigProvider",
+      "slots": [],
+    },
+    {
+      "attrs": [],
+      "description": "",
+      "events": [],
+      "exportName": "Empty",
+      "methods": [],
+      "name": "AEmpty",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "icon",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "status",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "title",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "subTitle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "extra",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Result",
+      "methods": [],
+      "name": "AResult",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "bordered",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "size",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "title",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "column",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "layout",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "colon",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Descriptions",
+      "methods": [],
+      "name": "ADescriptions",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "backIcon",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "title",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "subTitle",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "breadcrumb",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "tags",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "footer",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "extra",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "avatar",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "ghost",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "PageHeader",
+      "methods": [],
+      "name": "APageHeader",
+      "slots": [],
+    },
+    {
+      "attrs": [
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "prefixCls",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "size",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "direction",
+          "type": {
+            "type": "any",
+          },
+        },
+        {
+          "defaultValue": undefined,
+          "description": "",
+          "name": "align",
+          "type": {
+            "type": "any",
+          },
+        },
+      ],
+      "description": "",
+      "events": [],
+      "exportName": "Space",
+      "methods": [],
+      "name": "ASpace",
+      "slots": [
+        {
+          "description": "",
+          "name": "default",
+          "params": [],
+        },
+      ],
+    },
+  ],
+  "description": "An enterprise-class UI design language and Vue-based implementation",
+  "framework": "vue2",
+  "frameworkVersion": "2.6.0",
+  "name": "ant-design-vue",
+  "version": "1.7.8",
+}
+`;
+
 exports[`parse vue2 element-ui 1`] = `
 {
   "components": [

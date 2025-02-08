@@ -38,7 +38,7 @@ test('parse vue3 element-plus', async () => {
   expect(result).toMatchSnapshot();
 });
 
-test('parse vue2 ant-design-vue', async () => {
+test('parse vue2 ant-design-vue js', async () => {
   const result = await parse({
     name: 'ant-design-vue',
     version: '1.7.8',
