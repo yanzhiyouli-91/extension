@@ -1,7 +1,24 @@
 import spawn from 'cross-spawn';
+import { kebabCase } from 'lodash-es';
 import prompts from 'prompts';
 
 type PkgManager = 'npm' | 'pnpm' | 'yarn';
+
+function getLibInfo(pkg: string) {
+  const i = pkg.indexOf('@');
+  let name, version;
+  if (i > 0) {
+    name = pkg.substring(0, i);
+    version = pkg.substring(i + 1);
+  } else {
+    name = pkg;
+  }
+
+  return {
+    name,
+    version,
+  };
+}
 
 function execCommand(command: string, root: string) {
   const [cmd, ...args] = command.split(' ');
@@ -69,11 +86,15 @@ export async function genFromNpmPkg(root: string, pkg: string) {
     }
   ]);
 
+  const libInfo = getLibInfo(pkg);
+
   // 安装依赖
   execInstall(root, pkgManager);
 
+  const schemaFile = kebabCase(libInfo.name) + '.json';
+
   // 执行包解析
-  execCommand(`npx lcap-parse ${pkg} --npmClient ${pkgManager}`, root);
+  execCommand(`npx lcap-parse ${pkg} --npmClient ${pkgManager} --output ${schemaFile}`, root);
 
   // 添加包
   addPkg(root, pkgManager, pkg);

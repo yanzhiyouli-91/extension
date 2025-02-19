@@ -7,6 +7,7 @@ import semver from 'semver';
 import { program } from 'commander';
 import { fileURLToPath } from 'node:url';
 
+
 function checkNodeVersion(requireNodeVersion, frameworkName = '@lcap/parse-cli') {
   if (!semver.satisfies(process.version, requireNodeVersion)) {
     console.log();
@@ -19,6 +20,22 @@ function checkNodeVersion(requireNodeVersion, frameworkName = '@lcap/parse-cli')
 }
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+async function setPkgLcapScheme(output) {
+  const pkgPath = path.resolve(process.cwd(), './package.json');
+  if (!fs.existsSync(pkgPath)) {
+    return;
+  }
+  const pkg = await fs.readJSON(pkgPath);
+
+  if (!pkg.lcap) {
+    pkg.lcap = {};
+  }
+
+  pkg.lcap.schema = output;
+
+  await fs.writeJSON(pkgPath, pkg, { spaces: 2 });
+}
 
 export async function parseNPM(options) {
   if (!options.name) {
@@ -42,6 +59,8 @@ export async function parseNPM(options) {
 
   await fs.ensureFile(output);
   await fs.writeJSON(output, result, { spaces: 2 });
+
+  await setPkgLcapScheme(output);
 }
 
 (async function() {
