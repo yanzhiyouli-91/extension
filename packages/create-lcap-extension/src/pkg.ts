@@ -1,6 +1,7 @@
 import spawn from 'cross-spawn';
 import { kebabCase } from 'lodash-es';
 import prompts from 'prompts';
+import colors from 'picocolors';
 
 type PkgManager = 'npm' | 'pnpm' | 'yarn';
 
@@ -21,6 +22,7 @@ function getLibInfo(pkg: string) {
 }
 
 function execCommand(command: string, root: string) {
+  console.log(colors.cyan(`执行命令: ${command}`));
   const [cmd, ...args] = command.split(' ');
   const { status } = spawn.sync(
     cmd,
