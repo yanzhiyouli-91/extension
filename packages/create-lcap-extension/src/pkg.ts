@@ -1,0 +1,83 @@
+import spawn from 'cross-spawn';
+import prompts from 'prompts';
+
+type PkgManager = 'npm' | 'pnpm' | 'yarn';
+
+function execCommand(command: string, root: string) {
+  const [cmd, ...args] = command.split(' ');
+  const { status } = spawn.sync(
+    cmd,
+    args,
+    { cwd: root, stdio: 'inherit' },
+  );
+
+  if (status) {
+    throw new Error(`执行命令失败: ${command}`);
+  }
+}
+
+function execInstall(root: string, pkgManager: PkgManager) {
+  switch (pkgManager) {
+    case 'npm':
+      execCommand('npm install', root);
+      break;
+    case 'pnpm':
+      execCommand('pnpm i', root);
+      break;
+    case 'yarn':
+      execCommand('yarn', root);
+    default: break;
+  }
+}
+
+function addPkg(root: string, pkgManager: PkgManager, pkg: string) {
+  switch (pkgManager) {
+    case 'npm':
+      execCommand(`npm install ${pkg} --save`, root);
+      break;
+    case 'pnpm':
+      execCommand(`pnpm add ${pkg}`, root);
+      break;
+    case 'yarn':
+      execCommand(`yarn add ${pkg}`, root);
+      break;
+    default: break;
+  }
+}
+
+export async function genFromNpmPkg(root: string, pkg: string) {
+  const { pkgManager } = await prompts([
+    {
+      type: 'select',
+      name: 'pkgManager',
+      message: '请选择包管理工具：',
+      initial: 0,
+      choices: [
+        {
+          title: 'npm',
+          value: 'npm',
+        },
+        {
+          title: 'pnpm',
+          value: 'pnpm',
+        },
+        {
+          title: 'yarn',
+          value: 'yarn',
+        }
+      ],
+    }
+  ]);
+
+  // 安装依赖
+  execInstall(root, pkgManager);
+
+  // 执行包解析
+  execCommand(`npx lcap-parse ${pkg} --npmClient ${pkgManager}`, root);
+
+  // 添加包
+  addPkg(root, pkgManager, pkg);
+
+  // 执行 play
+  execCommand(`npm run play`, root);
+}

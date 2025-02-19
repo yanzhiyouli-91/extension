@@ -79,6 +79,7 @@ export async function parseNPM(options) {
       } catch(e) {
         console.log(picocolors.red(`解析包 ${pkg} 失败, ${e.message}`));
         console.log(e);
+        process.exit(1);
       }
     })
 

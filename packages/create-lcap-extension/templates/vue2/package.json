@@ -22,6 +22,7 @@
     "start": "storybook dev -p 8008",
     "build": "vite build",
     "watch": "lcap-scripts watch",
+    "play": "lcap-scripts play",
     "test": "vitest",
     "release": "lcap publish"
   },
@@ -33,7 +34,8 @@
   "dependencies": {
   },
   "devDependencies": {
-    "@lcap/builder": "^1.4.0",
+    "@lcap/builder": "^1.6.0-alpha.1",
+    "@lcap/parse-cli": "^1.0.0-alpha.1",
     "@nasl/types": "^0.1.10",
     "@lcap/storybook-vue-vite": "^7.6.17",
     "@lcap/vite-plugin-vue2": "^1.0.0",

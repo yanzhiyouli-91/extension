@@ -5,6 +5,10 @@ import spawn from 'cross-spawn';
 import { snakeCase } from 'lodash-es';
 import prompts from 'prompts';
 import colors from 'picocolors';
+import minimist from 'minimist';
+import { genFromNpmPkg } from './pkg';
+
+const cliArgs = minimist(process.argv.slice(2));
 
 const {
   blue,
@@ -34,13 +38,13 @@ type Template = {
 
 const TEMPLATES: Template[] = [
   {
-    name: 'vue3',
-    display: 'Vue3 依赖库',
+    name: 'vue2',
+    display: 'Vue2 依赖库',
     color: green,
   },
   {
-    name: 'vue2',
-    display: 'Vue2 依赖库',
+    name: 'vue3',
+    display: 'Vue3 依赖库',
     color: green,
   },
   {
@@ -60,14 +64,18 @@ async function init() {
     'projectName' | 'overwrite' | 'packageName' | 'title' | 'template'
   >;
 
+  if (cliArgs.name) {
+    targetDir = snakeCase(formatTargetDir(cliArgs.name));
+  }
+
   try {
     result = await prompts(
       [
         {
-          type: 'text',
+          type: () => cliArgs.name ? null : 'text',
           name: 'projectName',
           message: reset('请输入依赖库包名：'),
-          initial: defaultTargetDir,
+          initial: snakeCase(formatTargetDir(cliArgs.name)) || defaultTargetDir,
           validate: (value) => {
             return !!value;
           },
@@ -248,6 +256,30 @@ async function init() {
   pkg.version = '1.0.0';
 
   write('package.json', JSON.stringify(pkg, null, 2) + '\n');
+
+  if (template !== 'vue3') {
+    const answers = await prompts([
+      {
+        type: 'confirm',
+        name: 'useLcap',
+        message: '是否添加 CodeWave 基础组件包?',
+        initial: false,
+      }
+    ]);
+
+    if (answers.useLcap) {
+      spawn.sync('lcap', ['install'], {
+        cwd: root,
+        stdio: 'inherit',
+      });
+    }
+  }
+
+  if (cliArgs.npm && typeof cliArgs.npm === 'string') {
+    console.log('\n' + green('创建成功! ') + `目录 ${targetDir}，准备安装包，解析 ${cliArgs.npm}\n`);
+    await genFromNpmPkg(root, cliArgs.npm);
+    return;
+  }
 
   const cdProjectName = path.relative(cwd, root);
   console.log('\n' + green('创建成功! ') + '👉 请使用以下命令:\n');
