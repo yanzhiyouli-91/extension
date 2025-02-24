@@ -126,6 +126,7 @@ export async function installPeerAndDeps(args: {
   pkgJson.dependencies = {
     ...getFrameworkDependencies(args.framework, modulePkgJson),
     ...pkgJson.dependencies,
+    ...modulePkgJson.dependencies,
     ...peerDependencies,
     // ...devDependencies,
   };
