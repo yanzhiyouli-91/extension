@@ -25,7 +25,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
   ```
   |-- src
   |---- components
-  |------- cwd-capluse
+  |------- cwd-capsule-switch
   |----------- theme              // 主题目录
   |------------- index.vue        // 组件主题预览
   |------------- vars.css         // 可配置变量
@@ -135,7 +135,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
   <VTCodeGroupTab label="Vue2">
 
   ```javascript
-  import ComponentPreivew from 'virtual:lcap-theme-component-previews.js';
+  import ComponentPreview from 'virtual:lcap-theme-component-previews.js';
 
   export default {
     title: '主题配置预览',
@@ -151,9 +151,9 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
       return {
         props: Object.keys(argTypes),
         components: {
-          ComponentPreivew,
+          ComponentPreview,
         },
-        template: '<ComponentPreivew v-bind="$props" />',
+        template: '<ComponentPreview v-bind="$props" />',
       };
     },
   };
@@ -163,7 +163,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
   <VTCodeGroupTab label="React">
 
   ```javascript
-  import ComponentPreivew from 'virtual:lcap-theme-component-previews.js';
+  import ComponentPreview from 'virtual:lcap-theme-component-previews.js';
 
   export default {
     title: '主题配置预览',
@@ -175,7 +175,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
 
   export const Components = {
     name: '组件预览',
-    render: ComponentPreivew,
+    render: ComponentPreview,
   };
   ```
 

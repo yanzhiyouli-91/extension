@@ -25,7 +25,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
 
   ```
   |- components
-  |-- cwd-casplue-switch                         # 组件名称
+  |-- cwd-capsule-switch                         # 组件名称
   |---- stories
   |------ block.stories.js                       # 运行示例，必需
   |------ examples.stories.js                    # 调试demo
@@ -40,7 +40,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
 
   ```
   |- components
-  |-- CasplueSwitch                               # 组件名称
+  |-- CapsuleSwitch                               # 组件名称
   |---- stories                                   # 调试demo 目录
   |------ block.stories.tsx                       # 运行示例，必需
   |------ examples.stories.tsx                    # 调试demo
