@@ -100,19 +100,19 @@ import { VTCodeGroup, VTCodeGroupTab } from '../../.vitepress/components'
    * @desc 禁用状态边框颜色
    * @type color
    */
-  --cw-capluse-border-color-disabled: #eaeaea;
+  --cw-capsule-border-color-disabled: #eaeaea;
 
   /**
    * @desc 内容字体大小
    * @type size
    */
-  --cw-capluse-content-font-size: 14px;
+  --cw-capsule-content-font-size: 14px;
 
   /**
    * @desc 大号按钮内容字体大小
    * @type size
    */
-  --cw-capluse-content-font-size-lg: 16px;
+  --cw-capsule-content-font-size-lg: 16px;
 }
 ```
 
