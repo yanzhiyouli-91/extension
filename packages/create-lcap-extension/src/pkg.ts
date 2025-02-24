@@ -49,21 +49,6 @@ function execInstall(root: string, pkgManager: PkgManager) {
   }
 }
 
-function addPkg(root: string, pkgManager: PkgManager, pkg: string) {
-  switch (pkgManager) {
-    case 'npm':
-      execCommand(`npm install ${pkg} --save`, root);
-      break;
-    case 'pnpm':
-      execCommand(`pnpm add ${pkg}`, root);
-      break;
-    case 'yarn':
-      execCommand(`yarn add ${pkg}`, root);
-      break;
-    default: break;
-  }
-}
-
 export async function genFromNpmPkg(root: string, pkg: string) {
   const { pkgManager } = await prompts([
     {
@@ -95,13 +80,9 @@ export async function genFromNpmPkg(root: string, pkg: string) {
 
   const schemaFile = kebabCase(libInfo.name) + '.json';
 
-  // 执行包解析
-  execCommand(`npx lcap-script parse ${pkg} --npmClient ${pkgManager} --output ${schemaFile}`, root);
+  // 执行包解析 & 生成
+  execCommand(`npx lcap-script parse ${pkg} --npmClient ${pkgManager} --output ${schemaFile} --generate`, root);
 
-  // 添加包
-  addPkg(root, pkgManager, pkg);
-
-  execCommand(`npx lcap-script create --schema ${schemaFile}`, root);
   // 执行 play
   execCommand(`npm run play`, root);
 }
