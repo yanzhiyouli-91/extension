@@ -21,9 +21,6 @@
   },
   "homepage": "https://github.com/netease-lcap/extension#readme",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch",
-    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
