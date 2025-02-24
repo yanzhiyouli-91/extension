@@ -32,7 +32,8 @@ declare namespace extensions {
     type: 'pc' | 'h5' | 'both';
     show?: boolean;
     replaceNaslUIComponent?: string;
-    order?: number,
+    extends?: any;
+    sourceName?: string;
     ideusage?: {
       idetype?: 'element' | 'modal' | 'popover' | 'container' | string;
       [key: string]: any;

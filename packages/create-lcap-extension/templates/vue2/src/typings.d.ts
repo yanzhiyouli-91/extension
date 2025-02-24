@@ -33,6 +33,7 @@ declare namespace extensions {
     show?: boolean;
     replaceNaslUIComponent?: string;
     extends?: any;
+    sourceName?: string;
     ideusage?: {
       idetype?: 'element' | 'modal' | 'popover' | 'container' | string;
       [key: string]: any;

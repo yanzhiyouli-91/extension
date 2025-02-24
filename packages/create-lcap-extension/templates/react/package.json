@@ -32,7 +32,6 @@
   "license": "ISC",
   "devDependencies": {
     "@lcap/builder": "^1.6.0-alpha.1",
-    "@lcap/parse-cli": "^1.0.0-alpha.1",
     "@nasl/types": "^0.1.10",
     "@storybook/addon-essentials": "^7.6.17",
     "@storybook/addon-interactions": "^7.6.17",
