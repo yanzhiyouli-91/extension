@@ -8,6 +8,7 @@
     "build": "tsc",
     "postbuild": "copyfiles -u 1 \"src/**/*.json\" lib/",
     "watch": "tsc --watch",
+    "prepublishOnly": "npm run build",
     "test": "vitest --silent"
   },
   "files": [

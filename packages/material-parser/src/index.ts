@@ -10,6 +10,8 @@ import parseVue from './parse-vue';
 import { parseMeta } from './scan';
 import localize from './localize';
 
+export * from './types/parse';
+
 export function resolveSchema(
   components: any[],
   scanMeta: MaterialScanMeta,

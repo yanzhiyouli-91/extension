@@ -96,11 +96,12 @@ export async function genFromNpmPkg(root: string, pkg: string) {
   const schemaFile = kebabCase(libInfo.name) + '.json';
 
   // 执行包解析
-  execCommand(`npx lcap-parse ${pkg} --npmClient ${pkgManager} --output ${schemaFile}`, root);
+  execCommand(`npx lcap-script parse ${pkg} --npmClient ${pkgManager} --output ${schemaFile}`, root);
 
   // 添加包
   addPkg(root, pkgManager, pkg);
 
+  execCommand(`npx lcap-script create --schema ${schemaFile}`, root);
   // 执行 play
   execCommand(`npm run play`, root);
 }
