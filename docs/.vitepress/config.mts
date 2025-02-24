@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: 'zh-CN',
-  title: "Codewave 扩展开发",
+  title: "CodeWave 扩展开发",
   base: '/extension/',
   description: "前端依赖库是指开发者自行开发或引入的组件、逻辑，用于满足定制化需求和功能扩展。这些库可被用于自定义界面样式、交互效果、组件功能，或者整合特定的第三方服务（例如微信SDK、钉钉SDK），并且能够被导入到IDE平台中供开发使用）",
   head: [
@@ -119,7 +119,7 @@ export default defineConfig({
     ],
     footer: {
       message: '',
-      copyright: '版权所有 © 2024-present Codewave develop team'
+      copyright: '版权所有 © 2024-present CodeWave develop team'
     },
     docFooter: {
       prev: '上一页',
