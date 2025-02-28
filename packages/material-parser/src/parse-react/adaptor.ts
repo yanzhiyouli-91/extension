@@ -217,7 +217,7 @@ function resolveSlot(prop: Prop, component: MaterialComponent) {
     slot.params = funcType.params.map(
       (param) =>
         ({
-          name: param,
+          name: param.name,
           description: param.description,
           type: transformType(param.propType),
         } as any),
