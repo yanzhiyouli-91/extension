@@ -3,16 +3,11 @@
   "private": true,
   "version": "1.0.0",
   "lcapIdeVersion": "3.12",
+  "main": "dist-theme/index.js",
+  "module": "dist-theme/index.mjs",
   "files": [
     "dist-theme"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist-theme/index.mjs",
-      "require": "./dist-theme/index.cjs",
-      "default": "./dist-theme/index.js"
-    }
-  },
   "scripts": {
     "dev": "npm run start",
     "start": "storybook dev -p 8008",
